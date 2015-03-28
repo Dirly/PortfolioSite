@@ -1,0 +1,28 @@
+<!-- portfolio -->
+<div ng-controler="portfolioCtrl is portfolio">
+
+	<!-- navigation -->
+	<div ng-show="{prev === true}" class="prevBtn navBtn inactive" ng-click="navgation(
+	location - 1)"></div>
+	<div ng-show="{next === true}" class="nextBtn navBtn inactive" ng-click="navgation(location + 1)"></div>
+
+	<!-- sub navigation -->
+	<div id="portNavBar">
+		<div class="subNavNext"></div>
+		<div class="subNavIcon" ng-repeat="cases in portfolio"></div>
+		<div class="subNavPrev"></div>
+	</div>
+
+	<!-- cases -->
+	<div ng-repeat="cases in portfolio">
+		<div class="left">
+			<div class="programsUsedContainer">
+				<div ng-repeat="programsUsed in cases"></div>
+			</div>
+			<div class="caseBlurp">
+				<p>{{cases.caseBlurp}}</p>
+			</div>
+		<div>
+	</div>
+
+</div>

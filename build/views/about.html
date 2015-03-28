@@ -1,0 +1,27 @@
+<!-- about -->
+<div ng-controler="aboutCtrl is about">
+
+	<!-- navgation -->
+	<div ng-show="{prev === true}" class="prevBtn navBtn inactive" ng-click="navgation(location - 1)"></div>
+	<div ng-show="{next === true}" class="nextBtn navBtn inactive" ng-click="navgation(location + 1)"></div>
+
+	<!-- content -->
+	<div id="chartContainer">
+		<div id="topCircle"></div>
+		<div class="polygon" ng-repeat="skills in about.buckets"></div>
+	</div>
+	<h1 id="txt_010_about">MAYBE A:</h1>
+	<div class="skillsContainer">
+		<div class="inactive" ng-repeat="buckets in about"> 
+			<div ng-click="showSkills(this)" class="skillsBucketBtn inactive">{{buckets.name | uppercase}}</div>
+			<div class="skill" ng-repeat="skills in buckets">
+				<div class="skillBtn inactive"></div>
+				<p>{{skills.name}}</p>
+			</div>
+		<div>
+	</div>
+
+	<!-- background -->
+	<div id="backgroundAbout"></div>
+	
+</div>
