@@ -1,14 +1,14 @@
 <!-- about -->
-<div id="aboutContainer" class="pageContainer">
+<div ng-style="{'height': newheight + 'px', 'margin-top': newheight + 'px'}" id="aboutContainer"  class="pageContainer">
 
 	<!-- navigation -->
-	<div ng-show="{prev === true}" class="prevBtn navBtn inactive" ng-click="navigation(location - 1)"></div>
-	<div ng-show="{next === true}" class="nextBtn navBtn inactive" ng-click="navigation(location + 1)"></div>
+	<!-- <div ng-show="{prev === true}" class="prevBtn navBtn inactive" ng-click="navigation(location - 1)"></div>
+	<div ng-show="{next === true}" class="nextBtn navBtn inactive" ng-click="navigation(location + 1)"></div> -->
 
 	<!-- content -->
 	<div id="chartContainer">
 		<div id="topCircle"></div>
-		<div class="polygon" ng-repeat="skills in about.buckets"></div>
+		<!-- <div class="polygon" ng-repeat="skills in about.buckets"></div> -->
 	</div>
 	<h1 id="txt_010_about">MAYBE A:</h1>
 	

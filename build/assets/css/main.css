@@ -9,30 +9,30 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 }
 
 /*GLOBAL Z-INDEXING*/
-popup{
+#popupContainer{
 	z-index: 5;
 }
 
-menu{
+#menuContainer{
 	z-index: 4;
 }
 
-top-bar{
+#topBarContainer{
 	z-index: 3;
 }
 
-about{
+#aboutContainer{
 	z-index: 1;
 }
 
-portfolio{
+#portfolioContainer{
 	z-index: 1;
 }
 
-contact{
+#contactContainer{
 	z-index: 1;
 }
 
-home{
+#homeContainer{
 	z-index: 0;
 }

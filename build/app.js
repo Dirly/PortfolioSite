@@ -2,7 +2,7 @@
 	var app = angular.module('port', ['listeners']);
 
 //POPUP
-	app.directive('popup', function(){
+	/*app.directive('popup', function(){
 		return {
 			restrict: 'E',
 			templateUrl: 'views/popup.html',
@@ -11,10 +11,10 @@
 			},
 			controllerAs:'popup'
 		};
-	});
+	});*/
 
 //MENU
-	app.directive('menu', function(){
+	/*app.directive('menu', function(){
 		return {
 			restrict: 'E',
 			templateUrl: 'views/menu.html',
@@ -23,10 +23,10 @@
 			},
 			controllerAs:'menu'
 		};
-	});
+	});*/
 
 //TOPBAR
-	app.directive('top-bar', function(){
+	/*app.directive('top-bar', function(){
 		return {
 			restrict: 'E',
 			templateUrl: 'views/topBar.html',
@@ -35,17 +35,27 @@
 			},
 			controllerAs:'topBar'
 		};
-	});
+	});*/
 
 //HOME
 	app.directive('home', function(){
 		return {
 			restrict: 'E',
 			templateUrl: 'views/home.html',
-			controller: ['resize', function(resize){
-				//var home = this;
-					home.newheight = 0;
-					home.newheight = resize();
+			controller: ['resize', '$scope', function(resize, $scope){
+				$scope.newheight = $(window).height();
+				$scope.next = true;
+				
+				//Watch HEIGHT
+				$scope.$on('height:updated', function(event,data){
+					$scope.newheight = data;
+					$scope.$apply();
+				});
+
+
+
+
+
 			}],
 			controllerAs:'home'
 		};
@@ -56,15 +66,21 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/about.html',
-			controller: function(){
-				console.log("about");
-			},
+			controller: ['resize', '$scope', function(resize, $scope){
+				$scope.newheight = $(window).height();
+				
+				//Watch HEIGHT
+				$scope.$on('height:updated', function(event,data){
+					$scope.newheight = data;
+					$scope.$apply();
+				});
+			}],
 			controllerAs:'about'
 		};
 	});
 
 //PORTFOLIO
-	app.directive('portfolio', function(){
+	/*app.directive('portfolio', function(){
 		return {
 			restrict: 'E',
 			templateUrl: 'views/portfolio.html',
@@ -73,11 +89,11 @@
 			},
 			controllerAs:'portfolio'
 		};
-	});
+	});*/
 
 
 //CONTACT
-	app.directive('contact', function(){
+	/*app.directive('contact', function(){
 		return {
 			restrict: 'E',
 			templateUrl: 'views/contact.html',
@@ -86,6 +102,6 @@
 			},
 			controllerAs:'contact'
 		};
-	});
+	});*/
 
 })();

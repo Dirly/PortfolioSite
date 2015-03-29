@@ -2,8 +2,8 @@
 
 #homeContainer{
 	position:fixed;
-	top:0px;
-	margin:0px;
+	top:0;
+	overflow: hidden;
 }
 
 #homeContainer p,
@@ -11,6 +11,12 @@
 	color:white;
 	z-index: 3;
 	position:absolute;
+}
+
+#homeContainer #txt_020_home{
+	top:50%;
+	float:left;
+	font-size: 3em;
 }
 
 #homeContainer #bubbleScreen{
