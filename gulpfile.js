@@ -1,4 +1,5 @@
-var gulp = require('gulp');
+var gulp = require('gulp'),
+ 	counter = 0;
 
 gulp.task('express', function() {
 	var express = require('express');
@@ -15,7 +16,8 @@ gulp.task('livereload', function() {
 });
 
 function notifyLiveReload(event) {
-	console.log("firing");
+	counter++;
+	console.log("Reload #" + counter);
 	var fileName = require('path').relative(__dirname, event.path);
 	tinylr.changed({
 		body: {
@@ -28,11 +30,11 @@ gulp.task('watch', function() {
 	gulp.watch('build/app.js', notifyLiveReload);
 	gulp.watch('build/*.html', notifyLiveReload);
 	gulp.watch('build/views/**.html', notifyLiveReload);
-	gulp.watch('build/assets/src/**/*.js', notifyLiveReload);
-	gulp.watch('build/assets/srv/**/*.js', notifyLiveReload);
-	gulp.watch('build/assets/dir/**/*.js', notifyLiveReload);
-	gulp.watch('build/assets/ctrl/**/*.js', notifyLiveReload);
-	gulp.watch('build/assets/css/**/*.css', notifyLiveReload);
+	gulp.watch('build/assets/src/**.js', notifyLiveReload);
+	gulp.watch('build/assets/srv/**.js', notifyLiveReload);
+	gulp.watch('build/assets/dir/**.js', notifyLiveReload);
+	gulp.watch('build/assets/ctrl/**.js', notifyLiveReload);
+	gulp.watch('build/assets/css/**.css', notifyLiveReload);
 });
 
 gulp.task('default', ['express', 'livereload', 'watch'], function() {
