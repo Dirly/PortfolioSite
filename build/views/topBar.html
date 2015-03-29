@@ -1,10 +1,10 @@
 <!-- topbar -->
-<div ng-class="light" ng-controler="topbarCtrl is topbar">
+<div id="topBarContainer">
 
 	<!-- content -->
 	<div id="logo"></div>
 	<div>{{topbar.screen}}</div>
-	<div class="menuBtn inactive" ng-repeat="btns in topBar" ng-click="navgation($index)"></div>
+	<div class="menuBtn inactive" ng-repeat="btns in topBar" ng-click="navigation($index)"></div>
 
 	<!-- background -->
 	<div id="backgroundTopbar"></div>

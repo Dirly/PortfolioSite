@@ -9,22 +9,30 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-		<link rel="stylesheet" type="text/css" href="assets/style/base.css">
-		<link rel="stylesheet" type="text/css" href="assets/style/main.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/topbar.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/popup.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/menu.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/home.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/about.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/portfolio.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/contact.css">
 		
 	</head>
 	<body>
-		<popup ng-controller="PopUpCtrl as popup"></popup>
-		<menu ng-controller="MenuCtrl as menu"></menu>
-		<top-Bar ng-controller="TopBarCtrl as topBar"></topBar>
-		<home ng-controller="HomeCtrl as home"></home>
-		<about ng-controller="AboutCtrl as about"></about>
-		<portfolio ng-controller="PortfolioCtrl as portfolio"></portfolio>
-		<contact ng-controller="ContactCtrl as contact"></contact>
+		<popup></popup>
+		<menu></menu>
+		<top-bar></top-bar>
+		<home></home>
+		<about ></about>
+		<portfolio></portfolio>
+		<contact></contact>
 	</body>
 
 	<script type="text/javascript" src="assets/libs/modernizr/modernizr.js"></script>
+	<script type="text/javascript" src="assets/libs/jquery/dist/jquery.js"></script>
 	<script type="text/javascript" src="assets/libs/angular/angular.js"></script>
+	<script type="text/javascript" src="assets/srv/listeners.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 
 </html>

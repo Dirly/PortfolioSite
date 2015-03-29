@@ -1,11 +1,10 @@
 <!-- portfolio -->
-
-<div ng-controler="portfolioCtrl is portfolio">
+<div id="portfolioContainer" class="pageContainer">
 
 	<!-- navigation -->
-	<div ng-show="{prev === true}" class="prevBtn navBtn inactive" ng-click="navgation(
+	<div ng-show="{prev === true}" class="prevBtn navBtn inactive" ng-click="navigation(
 	location - 1)"></div>
-	<div ng-show="{next === true}" class="nextBtn navBtn inactive" ng-click="navgation(location + 1)"></div>
+	<div ng-show="{next === true}" class="nextBtn navBtn inactive" ng-click="navigation(location + 1)"></div>
 
 	<!-- sub navigation -->
 	<div id="portNavBar">
