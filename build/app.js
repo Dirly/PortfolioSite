@@ -1,5 +1,5 @@
 (function(){
-	var app = angular.module('port',[ ]);
+	var app = angular.module('port', ['listeners']);
 
 //POPUP
 	app.directive('popup', function(){
@@ -7,7 +7,7 @@
 			restrict: 'E',
 			templateUrl: 'views/popup.html',
 			controller: function(){
-
+				console.log("popup");
 			},
 			controllerAs:'popup'
 		};
@@ -19,7 +19,7 @@
 			restrict: 'E',
 			templateUrl: 'views/menu.html',
 			controller: function(){
-
+				console.log("menu");
 			},
 			controllerAs:'menu'
 		};
@@ -31,7 +31,7 @@
 			restrict: 'E',
 			templateUrl: 'views/topBar.html',
 			controller: function(){
-
+				console.log("topbar");
 			},
 			controllerAs:'topBar'
 		};
@@ -42,9 +42,11 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/home.html',
-			controller: function(){
-
-			},
+			controller: ['resize', function(resize){
+				//var home = this;
+					home.newheight = 0;
+					home.newheight = resize();
+			}],
 			controllerAs:'home'
 		};
 	});
@@ -55,7 +57,7 @@
 			restrict: 'E',
 			templateUrl: 'views/about.html',
 			controller: function(){
-
+				console.log("about");
 			},
 			controllerAs:'about'
 		};
@@ -67,7 +69,7 @@
 			restrict: 'E',
 			templateUrl: 'views/portfolio.html',
 			controller: function(){
-
+				console.log("portfolio");
 			},
 			controllerAs:'portfolio'
 		};
