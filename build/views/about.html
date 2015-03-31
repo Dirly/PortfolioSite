@@ -2,8 +2,8 @@
 <div ng-style="{'height': newheight + 'px', 'margin-top': newheight + 'px'}" id="aboutContainer"  class="pageContainer">
 
 	<!-- navigation -->
-	<!-- <div ng-show="{prev === true}" class="prevBtn navBtn inactive" ng-click="navigation(location - 1)"></div>
-	<div ng-show="{next === true}" class="nextBtn navBtn inactive" ng-click="navigation(location + 1)"></div> -->
+	<div ng-show="about.prev === true" class="prevBtn navBtn inactive" ng-click="pageNavigation(about.page,1)"></div>
+	<div ng-show="about.next === true" class="nextBtn navBtn inactive" ng-click="pageNavigation(about.page,-1)"></div>
 
 	<!-- content -->
 	<div id="chartContainer">

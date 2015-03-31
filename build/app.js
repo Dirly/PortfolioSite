@@ -42,19 +42,25 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/home.html',
-			controller: ['resize', '$scope', function(resize, $scope){
-				$scope.newheight = $(window).height();
-				$scope.next = true;
+			controller: ['resize', 'navigation', '$scope', function(resize, navigation, $scope){
+
+				var home = this;
+				home.page = 1;
+				home.next = true;
+				home.prev = false;
 				
-				//Watch HEIGHT
+				$scope.newheight = $(window).height();
+				
+				//WATCH HEIGHT
 				$scope.$on('height:updated', function(event,data){
 					$scope.newheight = data;
 					$scope.$apply();
 				});
 
-
-
-
+				//Wire Page Navigation
+				$scope.pageNavigation = function(fromWhere, toWhere) {
+					navigation.changePage(fromWhere, toWhere);
+				};
 
 			}],
 			controllerAs:'home'
@@ -66,14 +72,26 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/about.html',
-			controller: ['resize', '$scope', function(resize, $scope){
+			controller: ['resize', 'navigation', '$scope', function(resize, navigation, $scope){
+
+				var about = this;
+				about.page = 2;
+				about.next = true;
+				about.prev = true;
 				$scope.newheight = $(window).height();
 				
-				//Watch HEIGHT
+
+				//Watch height change
 				$scope.$on('height:updated', function(event,data){
 					$scope.newheight = data;
 					$scope.$apply();
 				});
+
+				//Wire Page Navigation
+				$scope.pageNavigation = function(fromWhere, toWhere) {
+					navigation.changePage(fromWhere, toWhere);
+				};
+
 			}],
 			controllerAs:'about'
 		};
