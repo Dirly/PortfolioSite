@@ -1,20 +1,31 @@
 <!-- home -->
 <div ng-style="{'height': newheight + 'px'}" id="homeContainer" class="pageContainer">
 	<!-- navigation -->
-	<div ng-show="home.prev === true" class="prevBtn navBtn inactive" ng-click="pageNavigation(home.page,1)"></div>
-	<div ng-show="home.next === true" class="nextBtn navBtn inactive" ng-click="pageNavigation(home.page,-1)"></div>
+	<div class="navContainer top">
+		<div ng-show="home.prev === true" class="prevBtn navBtn inactive" ng-click="pageNavigation(home.page,1)"></div>
+	</div>
+	<div class="navContainer bottom">
+		<div ng-show="home.next === true" class="nextBtn navBtn inactive" ng-click="pageNavigation(home.page,-1)"></div>
+	</div>
 
 	<!-- content -->
 	<p id="txt_010_home">hello my name is:</p>
-	<h1 id="txt_020_home">derek kaleida</h1>
-	<p id="txt_030_home">and I still don't know what I want to be when I</p>
-	<div id="growUpImg"></div>
+
+	<div id="txtCont_010_home">	
+		<div id="txtGrp_010_home">
+			<h1 id="txt_020_home">derek kaleida</h1>
+			<p id="txt_030_home">and I still don't know what I want to be when I</p>
+		</div>
+		<div id = "growUpContainer">
+			<div id="growUpImg"></div>
+		</div>
+	</div>
 
 	<!-- background -->
 	<div id="bubbleScreen"></div>
 	<div id="backgroundHome">
-		<video>
-			
+		<video muted autoplay loop>
+			<source src="../assets/vid/Compiled.mp4" type="video/mp4">
 		</video>
 	</div>
 </div>
