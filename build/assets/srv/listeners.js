@@ -15,11 +15,13 @@
 			toWhere;
 
 		return {
+			pageInit: function(pageNumber,pageName) {
+				console.log(pageNumber);
+			},
 			changePage: function(fromWhere,toWhere) {
 				currentHeight = $(window).height();
 				fromWhere = (fromWhere - 1)*currentHeight;
 				toWhere = (currentHeight * toWhere)*-1;
-				console.log("from:" + fromWhere + " | to:" + toWhere);
 				$("html, body").animate({scrollTop: fromWhere + toWhere}, 1000);
 			}
 		};

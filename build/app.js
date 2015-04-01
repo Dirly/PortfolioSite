@@ -30,9 +30,19 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/topBar.html',
-			controller: function(){
-				console.log("topbar");
-			},
+			controller: ['resize', 'navigation', '$scope', function(resize, navigation, $scope){
+
+				var topBar = this;
+				topBar.page = currentPage;
+				
+				$scope.newheight = $(window).height();
+				
+				//WATCH HEIGHT
+				$scope.$on('height:updated', function(event,data){
+					$scope.newheight = data;
+				});
+
+			}],
 			controllerAs:'topBar'
 		};
 	});*/
@@ -45,11 +55,16 @@
 			controller: ['resize', 'navigation', '$scope', function(resize, navigation, $scope){
 
 				var home = this;
-				home.page = 1;
-				home.next = true;
-				home.prev = false;
-				
+					home.page = 1;
+					home.name = "home";
+					home.next = true;
+					home.prev = false;
+
 				$scope.newheight = $(window).height();
+
+				//Increase Page Count
+				navigation.pageInit(home.page, "home");
+				
 				
 				//WATCH HEIGHT
 				$scope.$on('height:updated', function(event,data){
