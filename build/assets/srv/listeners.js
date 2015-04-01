@@ -22,7 +22,7 @@
 				currentHeight = $(window).height();
 				fromWhere = (fromWhere - 1)*currentHeight;
 				toWhere = (currentHeight * toWhere)*-1;
-				$("html, body").animate({scrollTop: fromWhere + toWhere}, 1000);
+				$("html, body").animate({scrollTop: fromWhere + toWhere}, 500);
 			}
 		};
 	}]);
