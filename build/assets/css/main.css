@@ -3,6 +3,10 @@
 /* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
 
+body{
+	font-family: sans-serif;
+}
+
 .pageContainer{
 	width:100%;
 	min-height: 300px;
@@ -37,23 +41,49 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 	z-index: 0;
 }
 
+.navContainer{
+	position: absolute;
+	max-width: 100%;
+	width: 470px;
+	right:0px;
+	height:39px;
+}
+
+.navContainer.top{
+	top:7px;
+}
+
+.navContainer.bottom{
+	bottom:5px;
+}
 
 .navBtn{
-	display:block;
-	position:absolute;
-	left:75%;
-	height:25px;
-	width:25px;
+	background-image:url('../img/icons.png');
+	display: block;
+	position: absolute;
+	left: 50%;
+	width: 44px;
+	height: 39px;
 	z-index: 2;
+	margin-left: -43px;
+	cursor:pointer;
 } 
 
 .prevBtn{
-	top:5px;
-	background-color: black
+	background-position: -104px -118px;
+	opacity: .9;
 }
 
 .nextBtn{
-	bottom:5px;
-	background-color: black
+	background-position: -38px -117px;
+	opacity: .9;
 }
 
+
+.nextBtn:hover{
+	opacity: 1;
+}
+
+.prevBtn:hover{
+	opacity: 1;
+}
