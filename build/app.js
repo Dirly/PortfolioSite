@@ -1,5 +1,15 @@
 (function(){
-	var app = angular.module('port', ['listeners']);
+	var app = angular.module('port', ['globalListeners', 'navigations']);
+
+
+	app.controller('MainCtrl', ['globalListeners', function(globalListeners) {
+		//CLOSES POPUP
+		
+
+
+
+	}]);
+
 
 //POPUP
 	/*app.directive('popup', function(){
@@ -52,7 +62,7 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/home.html',
-			controller: ['resize', 'navigation', '$scope', function(resize, navigation, $scope){
+			controller: ['navigations', '$scope', function(navigations, $scope){
 
 				var home = this;
 					home.page = 1;
@@ -63,7 +73,7 @@
 				$scope.newheight = $(window).height();
 
 				//Increase Page Count
-				navigation.pageInit(home.page, "home");
+				navigations.pageInit(home.page, "home");
 				
 				
 				//WATCH HEIGHT
@@ -74,7 +84,7 @@
 
 				//Wire Page Navigation
 				$scope.pageNavigation = function(fromWhere, toWhere) {
-					navigation.changePage(fromWhere, toWhere);
+					navigations.changePage(fromWhere, toWhere);
 				};
 
 			}],
@@ -87,7 +97,7 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/about.html',
-			controller: ['resize', 'navigation', '$scope', function(resize, navigation, $scope){
+			controller: ['navigations', '$scope', function(navigations, $scope){
 
 				var about = this;
 				about.page = 2;
@@ -104,7 +114,7 @@
 
 				//Wire Page Navigation
 				$scope.pageNavigation = function(fromWhere, toWhere) {
-					navigation.changePage(fromWhere, toWhere);
+					navigations.changePage(fromWhere, toWhere);
 				};
 
 			}],

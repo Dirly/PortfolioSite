@@ -1,16 +1,8 @@
 (function(){
-	var app = angular.module('listeners',[]);
+	var app = angular.module('navigations',[]);
 
-	app.service('resize', ['$rootScope', function($rootScope) {
-		var currentHeight = $(window).height();
-		$(window).resize(function(target){
-			currentHeight = $(window).height();
-			$rootScope.$broadcast('height:updated', currentHeight);
-		});
-	}]);
-
-	app.service('navigation', [function() {
-		var currentHeight,
+	app.service('navigations', ['$rootScope', function($rootScope) {
+		var currentHeight = $(window).height(),
 			fromWhere,
 			toWhere;
 
