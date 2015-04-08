@@ -4,6 +4,7 @@
 	position:fixed;
 	top:0;
 	overflow: hidden;
+	margin:0;
 }
 
 #homeContainer p,

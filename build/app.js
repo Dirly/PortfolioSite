@@ -1,13 +1,15 @@
 (function(){
-	var app = angular.module('port', ['globalListeners', 'navigations']);
+	var app = angular.module('port', ['GlobalListeners', 'Navigations']);
 
-
-	app.controller('MainCtrl', ['globalListeners', function(globalListeners) {
-		//CLOSES POPUP
-		
-
-
-
+//MAIN 
+	app.directive('main', ['GlobalListeners', '$timeout', function(GlobalListeners, $timeout) {
+		return function (scope, element, attrs) {
+			//DELAY NEEDS TO EXIST FOR DOM LOAD
+			$timeout(function () {
+				mainHeight = $(document).height();
+				console.log(mainHeight);
+			}, 100);
+		};
 	}]);
 
 
@@ -62,7 +64,7 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/home.html',
-			controller: ['navigations', '$scope', function(navigations, $scope){
+			controller: ['Navigations', '$scope', function(Navigations, $scope){
 
 				var home = this;
 					home.page = 1;
@@ -72,9 +74,8 @@
 
 				$scope.newheight = $(window).height();
 
-				//Increase Page Count
-				navigations.pageInit(home.page, "home");
-				
+				//INCREASE PAGE COUNT
+				Navigations.pageInit(home.page, "home");
 				
 				//WATCH HEIGHT
 				$scope.$on('height:updated', function(event,data){
@@ -84,9 +85,8 @@
 
 				//Wire Page Navigation
 				$scope.pageNavigation = function(fromWhere, toWhere) {
-					navigations.changePage(fromWhere, toWhere);
+					Navigations.changePage(fromWhere, toWhere);
 				};
-
 			}],
 			controllerAs:'home'
 		};
@@ -97,14 +97,16 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/about.html',
-			controller: ['navigations', '$scope', function(navigations, $scope){
+			controller: ['Navigations', '$scope', function(Navigations, $scope){
 
 				var about = this;
 				about.page = 2;
 				about.next = true;
 				about.prev = true;
 				$scope.newheight = $(window).height();
-				
+
+				//INCREASE PAGE COUNT
+				Navigations.pageInit(about.page, "about");
 
 				//Watch height change
 				$scope.$on('height:updated', function(event,data){
@@ -114,7 +116,7 @@
 
 				//Wire Page Navigation
 				$scope.pageNavigation = function(fromWhere, toWhere) {
-					navigations.changePage(fromWhere, toWhere);
+					Navigations.changePage(fromWhere, toWhere);
 				};
 
 			}],
@@ -146,5 +148,4 @@
 			controllerAs:'contact'
 		};
 	});*/
-
 })();

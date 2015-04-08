@@ -1,14 +1,15 @@
 (function(){
-	var app = angular.module('navigations',[]);
+	var app = angular.module('Navigations',[]);
 
-	app.service('navigations', ['$rootScope', function($rootScope) {
+	app.service('Navigations', ['$rootScope', function($rootScope) {
 		var currentHeight = $(window).height(),
 			fromWhere,
+			pages = [],
 			toWhere;
 
 		return {
 			pageInit: function(pageNumber,pageName) {
-				console.log(pageNumber);
+				pages.push({"page":pageName, "number":pageNumber});
 			},
 			changePage: function(fromWhere,toWhere) {
 				currentHeight = $(window).height();

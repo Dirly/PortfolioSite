@@ -87,3 +87,7 @@ body{
 .prevBtn:hover{
 	opacity: 1;
 }
+
+#main{
+	height:auto;
+}
