@@ -23,7 +23,7 @@
 		//WINDOW SCROLL FUNCTION
 		$(window).scroll(function(target){
 			whereAreWe = $(window).scrollTop();
-			$rootScope.$broadcast('page:updated', pageNumber);
+			$rootScope.$broadcast('page:updated', mainHeight);
 		});
 	}]);
 
