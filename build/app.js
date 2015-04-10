@@ -1,17 +1,5 @@
 (function(){
-	var app = angular.module('port', ['GlobalListeners', 'Navigations']);
-
-//MAIN 
-	app.directive('main', ['GlobalListeners', '$timeout', function(GlobalListeners, $timeout) {
-		return function (scope, element, attrs) {
-			//DELAY NEEDS TO EXIST FOR DOM LOAD
-			$timeout(function () {
-				mainHeight = $(document).height();
-				console.log(mainHeight);
-			}, 100);
-		};
-	}]);
-
+	var app = angular.module('port', ['Navigation']);
 
 //POPUP
 	/*app.directive('popup', function(){
@@ -64,18 +52,18 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/home.html',
-			controller: ['Navigations', '$scope', function(Navigations, $scope){
+			controller: ['Navigation', '$scope', '$timeout', function(Navigation, $scope, $timeout){
 
 				var home = this;
 					home.page = 1;
 					home.name = "home";
-					home.next = true;
-					home.prev = false;
+					
+				//turning on prev and next
+				$timeout(function () {
+					home.navigation = Navigation.pageInit(home.page);
+				});
 
 				$scope.newheight = $(window).height();
-
-				//INCREASE PAGE COUNT
-				Navigations.pageInit(home.page, "home");
 				
 				//WATCH HEIGHT
 				$scope.$on('height:updated', function(event,data){
@@ -85,7 +73,7 @@
 
 				//Wire Page Navigation
 				$scope.pageNavigation = function(fromWhere, toWhere) {
-					Navigations.changePage(fromWhere, toWhere);
+					Navigation.changePage(fromWhere, toWhere);
 				};
 			}],
 			controllerAs:'home'
@@ -97,16 +85,18 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/about.html',
-			controller: ['Navigations', '$scope', function(Navigations, $scope){
+			controller: ['Navigation', '$scope', '$timeout', function(Navigation, $scope, $timeout){
 
 				var about = this;
-				about.page = 2;
-				about.next = true;
-				about.prev = true;
-				$scope.newheight = $(window).height();
+					about.page = 2;
+					about.name = "about";
+					
+				//turning on prev and next
+				$timeout(function () {
+					about.navigation = Navigation.pageInit(about.page);
+				});
 
-				//INCREASE PAGE COUNT
-				Navigations.pageInit(about.page, "about");
+				$scope.newheight = $(window).height();
 
 				//Watch height change
 				$scope.$on('height:updated', function(event,data){
@@ -116,7 +106,7 @@
 
 				//Wire Page Navigation
 				$scope.pageNavigation = function(fromWhere, toWhere) {
-					Navigations.changePage(fromWhere, toWhere);
+					Navigation.changePage(fromWhere, toWhere);
 				};
 
 			}],
