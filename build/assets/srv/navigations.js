@@ -41,18 +41,15 @@
 					currentPage = i;
 					if(i === 1){
 						if (whereAreWe <= currentHeight*(i-1)){
-							console.log('page', i);
-							$rootScope.$broadcast('page:updated', i);
+							$rootScope.$broadcast('page:count', i);
 						}
 					} else if (i === pages){
 						if ( whereAreWe === currentHeight*(i-1)){
-							console.log('page', i);
-							$rootScope.$broadcast('page:updated', i);
+							$rootScope.$broadcast('page:count', i);
 						}
 					} else {
 						if ( whereAreWe > (currentHeight*(i-1)) && whereAreWe < currentHeight*i){
-							console.log('page', i);
-							$rootScope.$broadcast('page:updated', i);
+							$rootScope.$broadcast('page:count', i);
 						}
 					}
 				}
@@ -61,7 +58,6 @@
 
 		return {
 			pageInit: function(pageNumber) {
-				console.log(pageNumber,pages);
 				if(pageNumber === pages){
 					return ({
 						prev : true,
@@ -85,10 +81,11 @@
 				fromWhere = (fromWhere - 1)*currentHeight;
 				toWhere = (currentHeight * toWhere)*-1;
 				$("html, body").animate({scrollTop: fromWhere + toWhere}, 500);
+			},
+			announcePage: function(pageName) {
+				$rootScope.$broadcast('page:name', pageName);
 			}
 		};
-
-
 	}]);
 
 })();

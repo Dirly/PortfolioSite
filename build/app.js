@@ -63,9 +63,15 @@
 					home.navigation = Navigation.pageInit(home.page);
 				});
 
+				//Watch page change
+				$scope.$on('page:count', function(event,data){
+					if(data === home.page){
+						Navigation.announcePage(home.page);
+					}
+				});
+
+				//Watch height change
 				$scope.newheight = $(window).height();
-				
-				//WATCH HEIGHT
 				$scope.$on('height:updated', function(event,data){
 					$scope.newheight = data;
 					$scope.$apply();
@@ -96,9 +102,15 @@
 					about.navigation = Navigation.pageInit(about.page);
 				});
 
-				$scope.newheight = $(window).height();
+				//Watch page change
+				$scope.$on('page:count', function(event,data){
+					if(data === about.page){
+						Navigation.announcePage(about.page);
+					}
+				});
 
 				//Watch height change
+				$scope.newheight = $(window).height();
 				$scope.$on('height:updated', function(event,data){
 					$scope.newheight = data;
 					$scope.$apply();
@@ -108,7 +120,6 @@
 				$scope.pageNavigation = function(fromWhere, toWhere) {
 					Navigation.changePage(fromWhere, toWhere);
 				};
-
 			}],
 			controllerAs:'about'
 		};
