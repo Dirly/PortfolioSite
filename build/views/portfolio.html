@@ -1,10 +1,12 @@
 <!-- portfolio -->
-<div id="portfolioContainer" class="pageContainer">
-
+<div ng-style="{'height': newheight + 'px'}" id="portContainer" class="pageContainer">
 	<!-- navigation -->
-	<div ng-show="{prev === true}" class="prevBtn navBtn inactive" ng-click="navigation(
-	location - 1)"></div>
-	<div ng-show="{next === true}" class="nextBtn navBtn inactive" ng-click="navigation(location + 1)"></div>
+	<div class="navContainer top">
+		<div ng-show="portfolio.navigation.prev === true" class="prevBtn navBtn inactive" ng-click="pageNavigation(portfolio.page,1)"></div>
+	</div>
+	<div class="navContainer bottom">
+		<div ng-show="portfolio.navigation.next === true" class="nextBtn navBtn inactive" ng-click="pageNavigation(portfolio.page,-1)"></div>
+	</div>
 
 	<!-- sub navigation -->
 	<div id="portNavBar">
@@ -24,5 +26,5 @@
 			</div>
 		<div>
 	</div>
-
+	<div id="backgroundPort"></div>
 </div>

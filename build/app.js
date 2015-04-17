@@ -1,3 +1,4 @@
+
 (function(){
 	var app = angular.module('port', ['Navigation']);
 
@@ -125,17 +126,44 @@
 		};
 	});
 
-//PORTFOLIO
-	/*app.directive('portfolio', function(){
+//ABOUT
+	app.directive('portfolio', function(){
 		return {
 			restrict: 'E',
 			templateUrl: 'views/portfolio.html',
-			controller: function(){
-				console.log("portfolio");
-			},
+			controller: ['Navigation', '$scope', '$timeout', function(Navigation, $scope, $timeout){
+
+				var portfolio = this;
+					portfolio.page = 3;
+					portfolio.name = "portfolio";
+					
+				//turning on prev and next
+				$timeout(function () {
+					portfolio.navigation = Navigation.pageInit(portfolio.page);
+				});
+
+				//Watch page change
+				$scope.$on('page:count', function(event,data){
+					if(data === portfolio.page){
+						Navigation.announcePage(portfolio.page);
+					}
+				});
+
+				//Watch height change
+				$scope.newheight = $(window).height();
+				$scope.$on('height:updated', function(event,data){
+					$scope.newheight = data;
+					$scope.$apply();
+				});
+
+				//Wire Page Navigation
+				$scope.pageNavigation = function(fromWhere, toWhere) {
+					Navigation.changePage(fromWhere, toWhere);
+				};
+			}],
 			controllerAs:'portfolio'
 		};
-	});*/
+	});
 
 
 //CONTACT

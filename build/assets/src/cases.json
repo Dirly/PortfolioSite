@@ -1,0 +1,33 @@
+[
+	{
+		"name": "name",
+		"skills": [
+			{
+				"name":"html5",
+				"icon":"url"
+			},
+			{
+				"name":"html5",
+				"icon":"url"
+			}
+		],
+		"blurp": "this is where I put text to describe what I accomplished",
+		"screenshots":[
+			{
+				"name": "name",
+				"thumb": "url",
+				"art": "url"
+			},
+			{
+				"name": "name",
+				"thumb": "url",
+				"art": "url"
+			}
+		],
+		"awards": ["award 1", "award 2", "award 3"],
+		"hideable": ["url","left","top","width", "height"],
+		"logo": ["url","left","top","width", "height"],
+		"foreground": ["url","left","top","width", "height"],
+		"background": ["url", "color"]
+	}
+]

@@ -30,7 +30,7 @@ gulp.task('watch', function() {
 	gulp.watch('build/app.js', notifyLiveReload);
 	gulp.watch('build/*.html', notifyLiveReload);
 	gulp.watch('build/views/**.html', notifyLiveReload);
-	gulp.watch('build/assets/src/**.js', notifyLiveReload);
+	gulp.watch('build/assets/src/**.json', notifyLiveReload);
 	gulp.watch('build/assets/srv/**.js', notifyLiveReload);
 	gulp.watch('build/assets/dir/**.js', notifyLiveReload);
 	gulp.watch('build/assets/ctrl/**.js', notifyLiveReload);
