@@ -8,7 +8,7 @@
 		//WINDOW SCROLL CURRENT ACTIVE PAGE DETECT
 		
 		return {
-			gatherData: function(url) {
+			getData: function(url) {
 				$http.get(url).success(function(data) {
 					console.log("data did load from:",url);
 				}).

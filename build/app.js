@@ -1,6 +1,6 @@
 
 (function(){
-	var app = angular.module('port', ['Navigation']);
+	var app = angular.module('port', ['Navigation', 'Carousel']);
 
 //POPUP
 	/*app.directive('popup', function(){
@@ -106,7 +106,7 @@
 				//Watch page change
 				$scope.$on('page:count', function(event,data){
 					if(data === about.page){
-						Navigation.announcePage(about.page);
+						Navigation.announcePage(about.page);	
 					}
 				});
 
@@ -131,11 +131,12 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/portfolio.html',
-			controller: ['Navigation', '$scope', '$timeout', function(Navigation, $scope, $timeout){
+			controller: ['Navigation', 'Carousel', '$scope', '$timeout', function(Navigation, Carousel, $scope, $timeout){
 
 				var portfolio = this;
 					portfolio.page = 3;
 					portfolio.name = "portfolio";
+					portfolio.cases = Carousel.getData("assets/src/cases.json");
 					
 				//turning on prev and next
 				$timeout(function () {
