@@ -138,8 +138,7 @@
 					portfolio.name = "portfolio";
 					
 					Carousel.getData("assets/src/cases.json",function(){
-						portfolio.cases = Carousel.returnData();
-						console.log(portfolio.cases);
+						portfolio.case = Carousel.returnData();
 					});
 
 				//turning on prev and next
