@@ -136,8 +136,12 @@
 				var portfolio = this;
 					portfolio.page = 3;
 					portfolio.name = "portfolio";
-					portfolio.cases = Carousel.getData("assets/src/cases.json");
 					
+					Carousel.getData("assets/src/cases.json",function(){
+						portfolio.cases = Carousel.returnData();
+						console.log(portfolio.cases);
+					});
+
 				//turning on prev and next
 				$timeout(function () {
 					portfolio.navigation = Navigation.pageInit(portfolio.page);
