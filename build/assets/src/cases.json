@@ -1,6 +1,6 @@
 [
     {
-        "name": "name",
+        "name": "name1",
         "skills": [
             {
                 "name": "html5",
@@ -56,7 +56,7 @@
         ]
     },
     {
-        "name": "name",
+        "name": "name2",
         "skills": [
             {
                 "name": "html5",
@@ -112,7 +112,7 @@
         ]
     },
     {
-        "name": "name",
+        "name": "name3",
         "skills": [
             {
                 "name": "html5",
