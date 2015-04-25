@@ -9,10 +9,12 @@
 	</div>
 
 	<!-- sub navigation -->
-	<div id="portNavBar">
-		<div class="subNavNext" ng-click="carouselNavigation(portfolio.activeCase,-1)"></div>
-		<div class="subNavIcon" ng-repeat="case in portfolio"></div>
-		<div class="subNavPrev" ng-click="carouselNavigation(portfolio.activeCase,1)"></div>
+	<div id="portNavBarContainer">
+		<div id="portNavBar">
+			<div class="subNavNext" ng-click="carouselNavigation(portfolio.activeCase,-1)"></div>
+			<div class="subNavIcon" ng-class='carouselFocus($index,portfolio.activeFocus)' ng-repeat="case in portfolio.case"></div>
+			<div class="subNavPrev" ng-click="carouselNavigation(portfolio.activeCase,1)"></div>
+		</div>
 	</div>
 
 	<!-- cases -->
@@ -26,5 +28,5 @@
 			</div>
 		<div>
 	</div>
- -->	<div id="backgroundPort"></div>
+ --><div id="backgroundPort"></div>
 </div>
