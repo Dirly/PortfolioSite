@@ -137,10 +137,6 @@
 					portfolio.page = 3;
 					portfolio.name = "portfolio";
 					
-					Carousel.getData("assets/src/cases.json",function(){
-						portfolio.case = Carousel.returnData();
-					});
-
 				//turning on prev and next
 				$timeout(function () {
 					portfolio.navigation = Navigation.pageInit(portfolio.page);
@@ -164,6 +160,23 @@
 				$scope.pageNavigation = function(fromWhere, toWhere) {
 					Navigation.changePage(fromWhere, toWhere);
 				};
+
+				//Custom Page function block ------------------
+
+				//Wired up Carousel
+				Carousel.getData("assets/src/cases.json",function(){
+					portfolio.activeFocus = 0;
+					portfolio.case = Carousel.returnData();
+
+					$scope.carouselFocus = function(index, activeFocus){
+						return Carousel.declareState(index, activeFocus);
+					};
+				});
+
+				
+
+
+				//---------------------------------------------
 			}],
 			controllerAs:'portfolio'
 		};

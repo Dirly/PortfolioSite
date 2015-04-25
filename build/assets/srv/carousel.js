@@ -5,17 +5,21 @@
 	var app = angular.module('Carousel',[]);
 
 	app.service('Carousel', ['$http' ,function($http) {
-		var theData;
-		
+		var contentData,
+			activeFocus = 0;
+
 		return {
 			getData: function(url,callback) {
 				$http.get(url).success(function(data) {
-					theData = data;
+					contentData = data;
 					callback();
-				}).
+				}).	
 				error(function(error) {
 					console.log("error with data loading:", error);
 				});
+			},
+			returnData: function(){
+				return contentData;
 			},
 			changeFocus: function(fromWhere,toWhere) {
 				currentWidth = $(window).width();
@@ -23,8 +27,14 @@
 				toWhere = (currentWidth * toWhere)*-1;
 				$("html, body").animate({scrollTop: fromWhere + toWhere}, 500);
 			},
-			returnData: function(){
-				return theData;
+			declareState: function(index,activeFocus){
+				if(index === activeFocus + 1 || (index === 0 && activeFocus === contentData.length)){
+					return "rightFocus";
+				} else if (index === activeFocus - 1 || (index === contentData.length && activeFocus === 0)){
+					return "leftFocus";
+				} else if (index === activeFocus){
+					return "activeFocus";
+				}
 			}
 		};
 	}]);
