@@ -168,18 +168,14 @@
 					portfolio.activeFocus = 0;
 					portfolio.case = Carousel.returnData();
 
-					$scope.carouselFocus = function(index, activeFocus){
-						return Carousel.declareState(index, activeFocus);
+					$scope.carouselFocus = function(index, activeFocus, caseName){
+						return Carousel.declareState(index, activeFocus, caseName);
 					};
 
 					$scope.carouselNavigation = function(activeFocus, toWhere){
 						portfolio.activeFocus = Carousel.changeFocus(activeFocus, toWhere);
-					};
-
+					};					
 				});
-
-				
-
 
 				//---------------------------------------------
 			}],

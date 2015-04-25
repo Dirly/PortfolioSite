@@ -61,7 +61,6 @@
 	float:left;
 }
 
-
 #portContainer .subNavIcon.activeFocus{
 	background: gray;
 }
@@ -72,4 +71,36 @@
 	bottom: 25px;
 	height:25px;
 	position:absolute;
+}
+
+#portContainer .portNavBar{
+	max-width: 400px;
+	width: 100%;
+	bottom: 25px;
+	height:25px;
+	position:absolute;
+}
+
+#portContainer .case{
+	position:absolute;
+	z-index: 1;
+	width:100%;
+	height:100%;
+}
+
+#portContainer .case .caseBackground{
+	width:100%;
+	height:100%;
+}
+
+#portContainer .case.activeFocus{
+	left:0%;
+}
+
+#portContainer .case.leftFocus{
+	left:-100%;
+}
+
+#portContainer .case.rightFocus{
+	left:100%;
 }

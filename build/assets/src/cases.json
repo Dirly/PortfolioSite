@@ -50,10 +50,7 @@
             "width",
             "height"
         ],
-        "background": [
-            "url",
-            "color"
-        ]
+        "background": "blue"
     },
     {
         "name": "name2",
@@ -106,10 +103,7 @@
             "width",
             "height"
         ],
-        "background": [
-            "url",
-            "color"
-        ]
+        "background": "green"
     },
     {
         "name": "name3",
@@ -162,9 +156,6 @@
             "width",
             "height"
         ],
-        "background": [
-            "url",
-            "color"
-        ]
+        "background": "red"
     }
 ]

@@ -29,14 +29,18 @@
 				} else {
 					return newFocus;
 				}
-
 			},
-			declareState: function(index,activeFocus){
+			declareState: function(index,activeFocus,caseName){
+				console.log("________________");
+
 				if(index === activeFocus + 1 || (index === 0 && activeFocus === contentData.length)){
+					console.log(caseName," is right");
 					return "rightFocus";
 				} else if (index === activeFocus - 1 || (index === contentData.length && activeFocus === 0)){
+					console.log(caseName, " is left");
 					return "leftFocus";
 				} else if (index === activeFocus){
+					console.log(caseName, " is active");
 					return "activeFocus";
 				}
 			}

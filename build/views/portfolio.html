@@ -18,15 +18,16 @@
 	</div>
 
 	<!-- cases -->
-<!-- 	<div ng-repeat="cases in portfolio">
-		<div class="left">
+	<div class="case" ng-repeat="case in portfolio.case" ng-class="carouselFocus($index,portfolio.activeFocus)">
+		<!-- <div class="left">
 			<div class="programsUsedContainer">
-				<div ng-repeat="programsUsed in cases"></div>
+				<div ng-repeat="programsUsed in case"></div>
 			</div>
 			<div class="caseBlurp">
 				<p>{{cases.caseBlurp}}</p>
 			</div>
-		<div>
+		<div> -->
+		<div class="caseBackground" ng-style="{background: case.background}"></div>
 	</div>
- --><div id="backgroundPort"></div>
+	<div id="backgroundPort"></div>
 </div>
