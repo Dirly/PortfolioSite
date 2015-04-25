@@ -5,8 +5,7 @@
 	var app = angular.module('Carousel',[]);
 
 	app.service('Carousel', ['$http' ,function($http) {
-		var contentData,
-			activeFocus = 0;
+		var contentData;
 
 		return {
 			getData: function(url,callback) {
@@ -21,11 +20,16 @@
 			returnData: function(){
 				return contentData;
 			},
-			changeFocus: function(fromWhere,toWhere) {
-				currentWidth = $(window).width();
-				fromWhere = (fromWhere - 1)*currentWidth;
-				toWhere = (currentWidth * toWhere)*-1;
-				$("html, body").animate({scrollTop: fromWhere + toWhere}, 500);
+			changeFocus: function(activeFocus,toWhere) {
+				var newFocus = activeFocus + toWhere;
+				if(newFocus >= contentData.length){
+					return 0;
+				} else if(newFocus < 0){
+					return contentData.length - 1;
+				} else {
+					return newFocus;
+				}
+
 			},
 			declareState: function(index,activeFocus){
 				if(index === activeFocus + 1 || (index === 0 && activeFocus === contentData.length)){

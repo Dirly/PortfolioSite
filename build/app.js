@@ -171,6 +171,11 @@
 					$scope.carouselFocus = function(index, activeFocus){
 						return Carousel.declareState(index, activeFocus);
 					};
+
+					$scope.carouselNavigation = function(activeFocus, toWhere){
+						portfolio.activeFocus = Carousel.changeFocus(activeFocus, toWhere);
+					};
+
 				});
 
 				

@@ -11,9 +11,9 @@
 	<!-- sub navigation -->
 	<div id="portNavBarContainer">
 		<div id="portNavBar">
-			<div class="subNavNext" ng-click="carouselNavigation(portfolio.activeCase,-1)"></div>
+			<div class="subNavNext" ng-click="carouselNavigation(portfolio.activeFocus,-1)"></div>
 			<div class="subNavIcon" ng-class='carouselFocus($index,portfolio.activeFocus)' ng-repeat="case in portfolio.case"></div>
-			<div class="subNavPrev" ng-click="carouselNavigation(portfolio.activeCase,1)"></div>
+			<div class="subNavPrev" ng-click="carouselNavigation(portfolio.activeFocus,1)"></div>
 		</div>
 	</div>
 
