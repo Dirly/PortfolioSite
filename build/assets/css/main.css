@@ -47,6 +47,7 @@ body{
 	width: 470px;
 	right:0px;
 	height:39px;
+	z-index: 3;
 }
 
 .navContainer.top{

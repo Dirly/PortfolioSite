@@ -65,27 +65,14 @@
 	background: gray;
 }
 
-#portContainer .portNavBar{
-	max-width: 400px;
-	width: 100%;
-	bottom: 25px;
-	height:25px;
-	position:absolute;
-}
 
-#portContainer .portNavBar{
-	max-width: 400px;
-	width: 100%;
-	bottom: 25px;
-	height:25px;
-	position:absolute;
-}
 
 #portContainer .case{
 	position:absolute;
 	z-index: 1;
 	width:100%;
 	height:100%;
+	transition: left 1s ease-in-out;
 }
 
 #portContainer .case .caseBackground{
@@ -95,12 +82,19 @@
 
 #portContainer .case.activeFocus{
 	left:0%;
+	z-index: 2;
 }
 
 #portContainer .case.leftFocus{
 	left:-100%;
+	z-index: 1;
 }
 
 #portContainer .case.rightFocus{
 	left:100%;
+	z-index: 1;
+}
+
+#portContainer .case.inactive{
+	display: none;
 }
