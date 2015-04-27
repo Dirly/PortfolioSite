@@ -1,11 +1,12 @@
-//NAVIGATION SET UP FOR SCREEN WIDTH PAGESCara
+//CAROUSEL SLIDER SERVICE 
 
 
 (function(){
 	var app = angular.module('Carousel',[]);
 
 	app.service('Carousel', ['$http' ,function($http) {
-		var contentData;
+		var contentData,
+			transitionInProgress = false;
 
 		return {
 			getData: function(url,callback) {
@@ -21,27 +22,39 @@
 				return contentData;
 			},
 			changeFocus: function(activeFocus,toWhere) {
-				var newFocus = activeFocus + toWhere;
-				if(newFocus >= contentData.length){
-					return 0;
-				} else if(newFocus < 0){
-					return contentData.length - 1;
+				if (transitionInProgress === true){
+					return activeFocus;
 				} else {
-					return newFocus;
+					var newFocus = activeFocus + toWhere;
+					transitionInProgress = true;
+
+					if(newFocus >= contentData.length){
+						setTimeout(function(){
+							transitionInProgress = false;
+						},1000);
+						return 0;
+					} else if(newFocus < 0){
+						setTimeout(function(){
+							transitionInProgress = false;
+						},1000);
+						return contentData.length - 1;
+					} else {
+						setTimeout(function(){
+							transitionInProgress = false;
+						},1000);
+						return newFocus;
+					}
 				}
 			},
 			declareState: function(index,activeFocus,caseName){
-				console.log("________________");
-
 				if(index === activeFocus + 1 || (index === 0 && activeFocus === contentData.length)){
-					console.log(caseName," is right");
 					return "rightFocus";
 				} else if (index === activeFocus - 1 || (index === contentData.length && activeFocus === 0)){
-					console.log(caseName, " is left");
 					return "leftFocus";
 				} else if (index === activeFocus){
-					console.log(caseName, " is active");
 					return "activeFocus";
+				} else {
+					return "inactive";
 				}
 			}
 		};
