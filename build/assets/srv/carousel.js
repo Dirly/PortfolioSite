@@ -6,6 +6,8 @@
 
 	app.service('Carousel', ['$http' ,function($http) {
 		var contentData,
+			transitionInProgress;
+
 			transitionInProgress = false;
 
 		return {
@@ -47,9 +49,9 @@
 				}
 			},
 			declareState: function(index,activeFocus,caseName){
-				if(index === activeFocus + 1 || (index === 0 && activeFocus === contentData.length)){
+				if(index === activeFocus + 1 || (index === 0 && activeFocus === (contentData.length - 1))){
 					return "rightFocus";
-				} else if (index === activeFocus - 1 || (index === contentData.length && activeFocus === 0)){
+				} else if (index === activeFocus - 1 || (index === (contentData.length - 1) && activeFocus === 0)){
 					return "leftFocus";
 				} else if (index === activeFocus){
 					return "activeFocus";
