@@ -1,6 +1,6 @@
 
 (function(){
-	var app = angular.module('port', ['Navigation', 'Carousel']);
+	var app = angular.module('port', ['Navigation', 'PolyGraph', 'Carousel']);
 
 //POPUP
 	/*app.directive('popup', function(){
@@ -92,7 +92,7 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/about.html',
-			controller: ['Navigation', '$scope', '$timeout', function(Navigation, $scope, $timeout){
+			controller: ['Navigation', 'PolyGraph', '$scope', '$timeout', function(Navigation, PolyGraph, $scope, $timeout){
 
 				var about = this;
 					about.page = 2;
@@ -121,6 +121,18 @@
 				$scope.pageNavigation = function(fromWhere, toWhere) {
 					Navigation.changePage(fromWhere, toWhere);
 				};
+
+				//Custom Page function block ------------------
+
+				//Wired up PolyGraph
+				PolyGraph.getData("assets/src/skills.json",function(){
+					about.activeFocus = 0;
+					about.skill = PolyGraph.returnData();
+					PolyGraph.setGraph(5,50);
+				});
+
+				//---------------------------------------------
+
 			}],
 			controllerAs:'about'
 		};
@@ -174,7 +186,7 @@
 
 					$scope.carouselNavigation = function(activeFocus, toWhere){
 						portfolio.activeFocus = Carousel.changeFocus(activeFocus, toWhere);
-					};					
+					};
 				});
 
 				//---------------------------------------------
