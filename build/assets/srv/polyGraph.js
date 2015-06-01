@@ -12,6 +12,7 @@ y[n] = r * sin(2*pi*n/N)
 		var contentData,
 			totalPoints,
 			maxValue,
+			cord,
 			valuePoints;
 
 		return {
@@ -27,12 +28,14 @@ y[n] = r * sin(2*pi*n/N)
 			returnData: function(){
 				return contentData;
 			},
-			setGraph: function(axisLength,spacing){
-				for (var i = 1; i < axisLength; i++) {
-					var x = spacing * Math.cos(2*Math.PI*i/axisLength),
-						y = spacing * Math.sin(2*Math.PI*i/axisLength);
-						console.log(x,y);
+			setGraph: function(axisLength,spacing,center){
+				cord = "";
+				for (var i = 1; i <= axisLength; i++) {
+					var x = Math.round(spacing * Math.cos(2*Math.PI*i/axisLength)+ center),
+						y = Math.round(spacing * Math.sin(2*Math.PI*i/axisLength)+ center);
+					cord = cord + " " + x + "," + y;
 				}
+				return cord;
 			}
 		};
 	}]);

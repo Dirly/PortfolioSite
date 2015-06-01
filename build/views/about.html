@@ -12,12 +12,13 @@
 	<!-- content -->
 	<div id="chartContainer">
 		<div id="topCircle"></div>
-		<svg id="color-fill" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="300" xmlns:xlink="http://www.w3.org/1999/xlink">
-			<polygon class="hex" ng-attr-points="{getData(skill.points)}"></polygon>
+		<svg id="color-fill" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100px" height="100px" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<polygon class="hex" ng-attr-points="{{setGraph(5,50,50)}}" style="fill:lime;stroke:purple;stroke-width:1"></polygon>
+			<polygon class="hex" ng-attr-points="{{setGraph(5,20,50)}}" style="fill:blue;stroke:purple;stroke-width:1"></polygon>
 		</svg>
+		
 	</div>
 	<h1 id="txt_010_about">MAYBE A:</h1>
-	
 	<!-- <div class="skillsContainer">
 		<div class="inactive" ng-repeat="buckets in about"> 
 			<div ng-click="showSkills(this)" class="skillsBucketBtn inactive">{{buckets.name | uppercase}}</div>

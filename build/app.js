@@ -128,7 +128,10 @@
 				PolyGraph.getData("assets/src/skills.json",function(){
 					about.activeFocus = 0;
 					about.skill = PolyGraph.returnData();
-					PolyGraph.setGraph(5,50);
+
+					$scope.setGraph = function(axisLength, spacing, center){
+						return PolyGraph.setGraph(axisLength, spacing, center);
+					};
 				});
 
 				//---------------------------------------------
@@ -138,7 +141,7 @@
 		};
 	});
 
-//ABOUT
+//PORTFOLIO
 	app.directive('portfolio', function(){
 		return {
 			restrict: 'E',
