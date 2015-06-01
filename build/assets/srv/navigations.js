@@ -13,6 +13,7 @@
 			currentPage,
 			mainHeight,
 			fromWhere,
+			wholeCheck,
 			toWhere;
 
 		//DEFAULT SET
@@ -34,27 +35,33 @@
 		});
 
 		//WINDOW SCROLL CURRENT ACTIVE PAGE DETECT
+		function pageBroadcast(page){
+			if(page !== currentPage){
+				currentPage = page;
+				$rootScope.$broadcast('page:count', page);
+			}
+		}
+
 		$(window).scroll(function(target){
 			whereAreWe = $(window).scrollTop();
 			for (var i = 1; i <= pages; i++) {
-				if (currentPage !== i){
-					currentPage = i;
-					if(i === 1){
-						if (whereAreWe <= currentHeight*(i-1)){
-							$rootScope.$broadcast('page:count', i);
-						}
-					} else if (i === pages){
-						if ( whereAreWe === currentHeight*(i-1)){
-							$rootScope.$broadcast('page:count', i);
-						}
-					} else {
-						if ( whereAreWe > (currentHeight*(i-1)) && whereAreWe < currentHeight*i){
-							$rootScope.$broadcast('page:count', i);
-						}
+				if(i === 1){
+					if (whereAreWe < currentHeight){
+						pageBroadcast(i);
+					}
+				} else if (i === pages){
+					if ( whereAreWe === currentHeight*(i-1)){
+						pageBroadcast(i);
+					}
+				} else {
+					if ( whereAreWe > (currentHeight*(i-1)-1) && whereAreWe < (currentHeight*i)-1){
+						pageBroadcast(i);
 					}
 				}
+				
 			}
 		});
+
 
 		return {
 			pageInit: function(pageNumber) {
