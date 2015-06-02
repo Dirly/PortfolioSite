@@ -128,10 +128,8 @@
 				PolyGraph.getData("assets/src/skills.json",function(){
 					about.activeFocus = 0;
 					about.skill = PolyGraph.returnData();
-
-					$scope.setGraph = function(axisLength, spacing, center){
-						return PolyGraph.setGraph(axisLength, spacing, center);
-					};
+					
+					PolyGraph.setGraph(5, 5, 20, 150);
 				});
 
 				//---------------------------------------------
