@@ -5,17 +5,17 @@
 		"color": "#D1D1D1"
 	},
 	{
-		"name": "photoshop",
+		"name": "indesign",
 		"points": [4,4,4,4,4],
 		"color": "#D1D1D1"
 	},
 	{
-		"name": "photoshop",
+		"name": "illustrator",
 		"points": [3,3,3,3,3],
 		"color": "#D1D1D1"
 	},
 	{
-		"name": "illustrator",
+		"name": "flash",
 		"points": [2,2,2,2,2],
 		"color": "#D1D1D1"
 	},
@@ -25,7 +25,7 @@
 		"color": "#D1D1D1"
 	},
 	{
-		"name": "aftereffects",
+		"name": "premier",
 		"points": [0,2,3,0,5],
 		"color": "#D1D1D1"
 	}

@@ -129,16 +129,27 @@
 					about.activeFocus = [0,"active",0,"active"];
 					about.skills = PolyGraph.returnData();
 					PolyGraph.setGraph(about.skills, 20, 150);
+					
 					$scope.aquireCords = function(state, points){
-						console.log(state);
 						if(state === "active"){
 							return PolyGraph.aquireCords(points);
 						} else {
 							return PolyGraph.aquireCords([0,0,0,0,0]);
 						}
 					};
-					
+
+					$scope.activateFocuses = function(index){
+						if(about.activeFocus[index] === "active"){
+							var target = document.getElementById("skill_" + about.skills[index].name);
+							about.activeFocus[index] = "";
+						} else if(about.activeFocus[index] !== "active"){
+							about.activeFocus[index] = "active";
+						}
+					};
 				});
+
+
+
 
 				//---------------------------------------------
 

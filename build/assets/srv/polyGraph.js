@@ -64,7 +64,6 @@ y[n] = r * sin(2*pi*n/N)
 				for (var i = 0; i < points.length; i++) {
 					collectedPoints = collectedPoints +" "+ cords[points[i]][i];
 				}
-				console.log(collectedPoints);
 				return collectedPoints;
 			}
 
