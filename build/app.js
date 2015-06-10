@@ -126,10 +126,18 @@
 
 				//Wired up PolyGraph
 				PolyGraph.getData("assets/src/skills.json",function(){
-					about.activeFocus = 0;
-					about.skill = PolyGraph.returnData();
+					about.activeFocus = [0,"active",0,"active"];
+					about.skills = PolyGraph.returnData();
+					PolyGraph.setGraph(about.skills, 20, 150);
+					$scope.aquireCords = function(state, points){
+						console.log(state);
+						if(state === "active"){
+							return PolyGraph.aquireCords(points);
+						} else {
+							return PolyGraph.aquireCords([0,0,0,0,0]);
+						}
+					};
 					
-					PolyGraph.setGraph(5, 5, 20, 150);
 				});
 
 				//---------------------------------------------
