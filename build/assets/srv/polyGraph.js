@@ -28,10 +28,22 @@ y[n] = r * sin(2*pi*n/N)
 			returnData: function(){
 				return contentData;
 			},
-			setGraph: function(maxY,maxX,spacing,center){
+			setGraph: function(data,spacing,center){
 				var currentCord,
-					cordPointValues;
+					cordPointValues,
+					maxY = 0,
+					maxX = 0;
 					cords = [];
+
+				//Gathers maxX and maxY
+				for (var dataBucket = 0; dataBucket < data.length; dataBucket++){
+					maxX = data[dataBucket].points.length;
+					for (var dataPoint = 0; dataPoint < data[dataBucket].points.length; dataPoint++) {
+						if(data[dataBucket].points[dataPoint] > maxY){
+							maxY = data[dataBucket].points[dataPoint];
+						}
+					}
+				}
 
 				for (var i = 0; i <= maxY; i++) {
 					cordPointValues = [];
@@ -43,9 +55,19 @@ y[n] = r * sin(2*pi*n/N)
 					}
 					cords.push(cordPointValues);
 				}
-				console.log(cords);
+
 				return cords;
+			},
+
+			aquireCords: function(points){
+				var collectedPoints = "";
+				for (var i = 0; i < points.length; i++) {
+					collectedPoints = collectedPoints +" "+ cords[points[i]][i];
+				}
+				console.log(collectedPoints);
+				return collectedPoints;
 			}
+
 		};
 	}]);
 })();
