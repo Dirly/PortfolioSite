@@ -126,24 +126,28 @@
 
 				//Wired up PolyGraph
 				PolyGraph.getData("assets/src/skills.json",function(){
-					about.activeFocus = [0,"active",0,"active"];
 					about.skills = PolyGraph.returnData();
+					about.activeFocus = ["inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive"];
 					PolyGraph.setGraph(about.skills, 20, 150);
 					
 					$scope.aquireCords = function(state, points){
 						if(state === "active"){
 							return PolyGraph.aquireCords(points);
 						} else {
-							return PolyGraph.aquireCords([0,0,0,0,0]);
+							return PolyGraph.aquireCords("blank");
 						}
 					};
 
 					$scope.activateFocuses = function(index){
+						var target;
 						if(about.activeFocus[index] === "active"){
-							var target = document.getElementById("skill_" + about.skills[index].name);
-							about.activeFocus[index] = "";
-						} else if(about.activeFocus[index] !== "active"){
+							target = document.getElementById("skillAnimate_" + about.skills[index].name + "_inActive");
+							about.activeFocus[index] = "inactive";
+							target.beginElement();
+						} else if(about.activeFocus[index] === "inactive"){
+							target = document.getElementById("skillAnimate_" + about.skills[index].name + "_active");
 							about.activeFocus[index] = "active";
+							target.beginElement();
 						}
 					};
 				});

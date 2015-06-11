@@ -13,7 +13,10 @@
 	<div id="chartContainer">
 		<div id="topCircle"></div>
 		<svg id="color-fill" xmlns="http://www.w3.org/2000/svg" version="1.1" width="500px" height="500px" xmlns:xlink="http://www.w3.org/1999/xlink">
-			<polygon ng-attr-id="skill_{{skill.name}}" ng-repeat="skill in about.skills" class="hex" ng-attr-points="{{aquireCords(about.activeFocus[$index], skill.points)}}" ng-style="{'fill':skill.color, 'stroke':skill.color}"  style="stroke-width:2;fill-opacity:0.3"></polygon>
+			<polygon ng-attr-id="skill_{{skill.name}}" ng-repeat="skill in about.skills" class="hex" ng-attr-points="{{aquireCords('inactive', skill.points)}}" ng-style="{'fill':skill.color, 'stroke':skill.color}"  style="stroke-width:2;fill-opacity:0.3">
+				<animate ng-attr-id="skillAnimate_{{skill.name}}_active" begin="indefinite" fill="freeze" attributeName="points" dur="200ms" ng-attr-to="{{aquireCords('active', skill.points)}}" />
+				<animate ng-attr-id="skillAnimate_{{skill.name}}_inActive" begin="indefinite" fill="freeze" attributeName="points" dur="200ms" ng-attr-to="{{aquireCords('inactive', skill.points)}}" />
+			</polygon>
 		</svg>
 		
 	</div>

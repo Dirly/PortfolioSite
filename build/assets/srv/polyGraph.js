@@ -61,8 +61,14 @@ y[n] = r * sin(2*pi*n/N)
 
 			aquireCords: function(points){
 				var collectedPoints = "";
-				for (var i = 0; i < points.length; i++) {
-					collectedPoints = collectedPoints +" "+ cords[points[i]][i];
+				if(points !== "blank"){
+					for (var i = 0; i < points.length; i++) {
+						collectedPoints = collectedPoints +" "+ cords[points[i]][i];
+					}
+				} else {
+					for (var j = 0; j < cords[0].length; j++) {
+						collectedPoints = collectedPoints +" "+ cords[0][j];
+					}
 				}
 				return collectedPoints;
 			}
