@@ -127,8 +127,8 @@
 				//Wired up PolyGraph
 				PolyGraph.getData("assets/src/skills.json",function(){
 					about.skills = PolyGraph.returnData();
-					about.activeFocus = ["inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive"];
-					PolyGraph.setGraph(about.skills, 20, 150);
+					about.activeFocus = ["inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive"];
+					PolyGraph.setGraph(about.skills, 30, 250);
 					
 					$scope.aquireCords = function(state, points){
 						if(state === "active"){
