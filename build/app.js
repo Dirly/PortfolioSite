@@ -127,9 +127,30 @@
 				//Wired up PolyGraph
 				PolyGraph.getData("assets/src/skills.json",function(){
 					about.skills = PolyGraph.returnData();
-					about.activeFocus = ["inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive","inactive"];
-					PolyGraph.setGraph(about.skills, 30, 250);
+					about.graph = PolyGraph.setGraph(about.skills, 40, 350, 40,"2008","present");
+
+					//BUILDING BUCKETS
+					function activeFocus (){
+						var currentBucket,
+							skillPush = [],
+							buckets = {};
+
+						for (var i = 0; i < about.skills.length; i++) {
+							if(about.skills[i].bucket !== currentBucket){
+								skillPush = [];
+								currentBucket = about.skills[i].bucket;
+								skillPush.push("inactive");
+								buckets[currentBucket] = skillPush;
+							} else {
+								skillPush.push("inactive");
+								buckets[currentBucket] = skillPush;
+							}
+						}
+						return buckets;
+					}
+					about.activeFocus = activeFocus();
 					
+					//DECIFER VALUES TO POINTS
 					$scope.aquireCords = function(state, points){
 						if(state === "active"){
 							return PolyGraph.aquireCords(points);
@@ -138,22 +159,20 @@
 						}
 					};
 
-					$scope.activateFocuses = function(index){
+					//ANIMATES
+					$scope.activateFocuses = function(bucket, index, name){
 						var target;
-						if(about.activeFocus[index] === "active"){
-							target = document.getElementById("skillAnimate_" + about.skills[index].name + "_inActive");
-							about.activeFocus[index] = "inactive";
+						if(about.activeFocus[bucket][index] === "active"){
+							target = document.getElementById("skillAnimate_" + name + "_inActive");
+							about.activeFocus[bucket][index] = "inactive";
 							target.beginElement();
-						} else if(about.activeFocus[index] === "inactive"){
-							target = document.getElementById("skillAnimate_" + about.skills[index].name + "_active");
-							about.activeFocus[index] = "active";
+						} else if(about.activeFocus[bucket][index] === "inactive"){
+							target = document.getElementById("skillAnimate_" + name + "_active");
+							about.activeFocus[bucket][index] = "active";
 							target.beginElement();
 						}
 					};
 				});
-
-
-
 
 				//---------------------------------------------
 
@@ -231,4 +250,21 @@
 			controllerAs:'contact'
 		};
 	});*/
+
+
+//CUSTOM FILTERS
+	app.filter('bucketCheck', function() {
+		return function(items, bucket) {
+			var filtered = [];
+			angular.forEach(items, function(item) {
+				if(bucket === item.bucket) {
+					filtered.push(item);
+				}
+			});
+			return filtered;
+		};
+	});
+
+
+
 })();

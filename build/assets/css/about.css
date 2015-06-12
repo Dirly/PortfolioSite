@@ -11,7 +11,15 @@
 	position:absolute;
 	top:0;
 	left:0;
-	background-color: blue;
+	background: #fbfbfb;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZiZmJmYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjYzJSIgc3RvcC1jb2xvcj0iI2JiYmFiYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+	background: -moz-linear-gradient(top,  #fbfbfb 0%, #bbbaba 63%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fbfbfb), color-stop(63%,#bbbaba));
+	background: -webkit-linear-gradient(top,  #fbfbfb 0%,#bbbaba 63%);
+	background: -o-linear-gradient(top,  #fbfbfb 0%,#bbbaba 63%);
+	background: -ms-linear-gradient(top,  #fbfbfb 0%,#bbbaba 63%);
+	background: linear-gradient(to bottom,  #fbfbfb 0%,#bbbaba 63%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', endColorstr='#bbbaba',GradientType=0 );
 	width:100%;
 	height:100%;
 }
@@ -19,6 +27,10 @@
 #aboutContainer #chartContainer{
 	position:absolute;
 	z-index:3;
+	background-image: url("../img/inkSplash.png");
+	background-repeat: no-repeat;
+	background-position: 50% 40%;
+
 }
 
 #aboutContainer #skillsContainer{
@@ -31,7 +43,35 @@
 }
 
 #aboutContainer #skillsContainer div{
-	color: white;
+	color: #4c4c4c;
 	position: relative;
 	padding:4px;
+}
+
+#aboutContainer #skillsContainer .plussBtn{
+	text-align: center;
+	display:inline-block;
+	color:white;
+	font-weight: bold;
+	border-radius: 3px;
+	margin-right:8px;
+	cursor: pointer;
+}
+
+#aboutContainer #skillsContainer .plussBtn.active{
+	width: 16px;
+	height: 16px;
+}
+
+#aboutContainer #skillsContainer .plussBtn.inactive{
+	width: 16px;
+	height: 16px;
+}
+
+#aboutContainer #skillsContainer .plussBtn.active:after{
+	content:"–";
+}
+
+#aboutContainer #skillsContainer .plussBtn.inactive:after{
+	content:"+";
 }

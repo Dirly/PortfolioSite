@@ -28,11 +28,15 @@ y[n] = r * sin(2*pi*n/N)
 			returnData: function(){
 				return contentData;
 			},
-			setGraph: function(data,spacing,center){
+			setGraph: function(data, spacing, center, rotation, startLable, endLable){
 				var currentCord,
 					cordPointValues,
+					x,
+					y,
 					maxY = 0,
-					maxX = 0;
+					maxX = 0,
+					lableMarkers = [],
+					cordMarkers = [];
 					cords = [];
 
 				//Gathers maxX and maxY
@@ -48,15 +52,36 @@ y[n] = r * sin(2*pi*n/N)
 				for (var i = 0; i <= maxY; i++) {
 					cordPointValues = [];
 					for (var j = 1; j <= maxX; j++) {
-						var x = Math.round(spacing*(i+1) * Math.cos(2*Math.PI*j/maxX)+center),
-							y = Math.round(spacing*(i+1) * Math.sin(2*Math.PI*j/maxX)+center);
-						currentCord = x + "," + y;
-						cordPointValues.push(currentCord);
+						if(i === 0){
+								x = Math.round(spacing*(2) * Math.cos(2*Math.PI*j/maxX + rotation)+center);
+								y = Math.round(spacing*(2) * Math.sin(2*Math.PI*j/maxX + rotation)+center);
+							currentCord = x + "," + y;
+							cordPointValues.push(currentCord);
+						} else {
+								x = Math.round(spacing*((i/2)+2) * Math.cos(2*Math.PI*j/maxX + rotation)+center);
+								y = Math.round(spacing*((i/2)+2) * Math.sin(2*Math.PI*j/maxX + rotation)+center);
+							currentCord = x + "," + y;
+							cordPointValues.push(currentCord);
+							cordMarkers.push({"x": x, "y" : y});
+						}
+						if(i === maxY && j === maxX){
+							x = Math.round(spacing*((i/2)+4) * Math.cos(2*Math.PI*j/maxX + rotation)+center);
+							y = Math.round(spacing*((i/2)+4) * Math.sin(2*Math.PI*j/maxX + rotation)+center);
+							lableMarkers.push({"text": endLable, "x": x, "y" : y});
+						}
+						if(i === maxY && j === 1){
+							x = Math.round(spacing*((i/2)+4) * Math.cos(2*Math.PI*j/maxX + rotation)+center);
+							y = Math.round(spacing*((i/2)+4) * Math.sin(2*Math.PI*j/maxX + rotation)+center);
+							lableMarkers.push({"text": startLable, "x": x, "y" : y});
+						}
+
 					}
 					cords.push(cordPointValues);
 				}
-
-				return cords;
+				return {
+						"cordMarkers" : cordMarkers, 
+						"lableMarkers" : lableMarkers
+					};
 			},
 
 			aquireCords: function(points){

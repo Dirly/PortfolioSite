@@ -1,86 +1,86 @@
 [
 	{
 		"name": "photoshop",
-		"points": [3,4,2,5,5],
+		"points": [0,4,2,5,5,5,5],
 		"color": "#1C60AB",
-		"bucket": "design"
+		"bucket": "designer"
 	},
 	{
-		"name": "indesign",
-		"points": [0,4,3,1,1],
+		"name": "indesigner",
+		"points": [0,4,3,1,1,1,5],
 		"color": "#DB007B",
-		"bucket": "design"
+		"bucket": "designer"
 	},
 	{
 		"name": "illustrator",
-		"points": [2,4,2,5,4],
+		"points": [0,4,2,5,4,5,5],
 		"color": "#FBC330",
-		"bucket": "design"
+		"bucket": "designer"
 	},
 	{
 		"name": "quark",
-		"points": [2,1,0,0,0],
+		"points": [0,1,0,0,0,0,5],
 		"color": "#7AC142",
-		"bucket": "design"
+		"bucket": "designer"
 	},
 	{
 		"name": "sketchUp",
-		"points": [0,0,0,0,1],
+		"points": [0,0,0,0,0,1,5],
 		"color": "#DF1223",
-		"bucket": "design"
-	},
-	{
-		"name": "flash",
-		"points": [2,3,1,1,0],
-		"color": "#FF0006",
-		"bucket": "motion"
-	},
-	{
-		"name": "aftereffects",
-		"points": [1,4,1,2,2],
-		"color": "#CA9FFB",
-		"bucket": "motion"
-	},
-	{
-		"name": "premier",
-		"points": [0,2,1,0,1],
-		"color": "#E384FF",
-		"bucket": "motion"
+		"bucket": "designer"
 	},
 	{
 		"name": "javascript",
-		"points": [0,0,3,4,5],
+		"points": [0,0,3,4,5,4,5],
 		"color": "#ECBC22",
-		"bucket": "programing"
+		"bucket": "programmer"
 	},
 	{
 		"name": "node",
-		"points": [0,0,0,3,2],
+		"points": [0,0,0,3,2,3,5],
 		"color": "#7FBD42",
-		"bucket": "programing"
+		"bucket": "programmer"
 	},
 	{
 		"name": "angularjs",
-		"points": [0,0,0,0,4],
+		"points": [0,0,0,0,0,1,5],
 		"color": "#DC1A16",
-		"bucket": "programing"
+		"bucket": "programmer"
 	},
 	{
 		"name": "html",
-		"points": [0,1,3,3,3],
+		"points": [0,1,3,3,3,3,5],
 		"color": "#F6672B",
-		"bucket": "programing"
+		"bucket": "programmer"
 	},
 	{
 		"name": "css",
-		"points": [0,1,4,3,3],
+		"points": [0,1,4,3,3,3,5],
 		"color": "#31AADD",
-		"bucket": "programing"
+		"bucket": "programmer"
 	},
 	{
 		"name": "git",
-		"points": [0,0,0,0,3],
+		"points": [0,0,0,0,0,1,5],
 		"color": "#9CDAF0",
-		"bucket": "programing"
+		"bucket": "programmer"
+	},
+	{
+		"name": "flash",
+		"points": [0,3,1,1,0,1,5],
+		"color": "#FF0006",
+		"bucket": "animator"
+	},
+	{
+		"name": "aftereffects",
+		"points": [0,4,1,2,2,2,5],
+		"color": "#CA9FFB",
+		"bucket": "animator"
+	},
+	{
+		"name": "premier",
+		"points": [0,2,1,0,1,0,5],
+		"color": "#E384FF",
+		"bucket": "animator"
 	}
 ]
