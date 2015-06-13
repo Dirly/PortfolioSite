@@ -1,0 +1,32 @@
+[
+	{
+		"name": "CreativeGroup",
+		"abbreviation": "CG",
+		"amount": 1,
+		"color": "#1C60AB",
+	},
+	{
+		"name": "Vox",
+		"abbreviation": "VOX",
+		"amount": 3,
+		"color": "#DB007B",
+	},
+	{
+		"name": "Freelance",
+		"abbreviation": "FL",
+		"amount": 1,
+		"color": "#FBC330"
+	},
+	{
+		"name": "RedNucleus",
+		"abbreviation": "RN",
+		"amount": 3,
+		"color": "#FBC330",
+	},
+	{
+		"name": "",
+		"abbreviation": "",
+		"amount": 1,
+		"color": "#FBC330",
+	}
+]

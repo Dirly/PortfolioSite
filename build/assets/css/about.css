@@ -25,27 +25,33 @@
 }
 
 #aboutContainer #chartContainer{
-	position:absolute;
+	position:relative;
 	z-index:3;
 	background-image: url("../img/inkSplash.png");
 	background-repeat: no-repeat;
-	background-position: 50% 40%;
-
+	background-size:contain;
+	background-position: center;
+	height:70%;
+	min-width: 450px;
+	min-height: 450px;
+	float:left;
 }
 
 #aboutContainer #skillsContainer{
-	width:400px;
-	height:400px;
-	position:absolute;
+	width:180px;
+	height:0px;
+	position:relative;
 	top:50%;
-	left:50%;
 	z-index:3;
+	float:left;
+	transition: height 5s;
 }
 
 #aboutContainer #skillsContainer div{
 	color: #4c4c4c;
 	position: relative;
 	padding:4px;
+	overflow: hidden;
 }
 
 #aboutContainer #skillsContainer .plussBtn{

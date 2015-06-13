@@ -89,6 +89,15 @@ body{
 	opacity: .9;
 }
 
+.prevBtnDark{
+	background-position: -104px -178px;
+	opacity: .9;
+}
+
+.nextBtnDark{
+	background-position: -38px -177px;
+	opacity: .9;
+}
 
 .nextBtn:hover{
 	opacity: 1;
