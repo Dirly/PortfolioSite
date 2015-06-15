@@ -127,7 +127,7 @@
 				//Wired up PolyGraph
 				PolyGraph.getData("assets/src/skills.json",function(){
 					about.skills = PolyGraph.returnData();
-					about.graph = PolyGraph.setGraph(about.skills, 40, 250, 40,"2008","present");
+					about.graph = PolyGraph.setGraph(about.skills, 40, 275, 40,"2008","present");
 
 					//BUILDING BUCKETS
 					function activeFocus (){
