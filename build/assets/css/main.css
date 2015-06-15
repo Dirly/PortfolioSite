@@ -56,7 +56,7 @@ body{
 	width: 470px;
 	right:0px;
 	height:39px;
-	z-index: 3;
+	z-index: 4;
 }
 
 .navContainer.top{
@@ -75,7 +75,7 @@ body{
 	width: 44px;
 	height: 39px;
 	z-index: 2;
-	margin-left: -43px;
+	margin-left: -22px;
 	cursor:pointer;
 } 
 
@@ -109,4 +109,27 @@ body{
 
 #main{
 	height:auto;
+}
+
+.topContent{
+	height:70%;
+	width:100%;
+}
+
+.bottomContent{
+	height:30%;
+	width:100%;
+}
+
+
+@media (min-width: 700px) {
+	.topContent {
+		height:100%;
+		width:50%;
+		
+	}
+	.bottomContent{
+		height:100%;
+		width:50%;
+	}
 }

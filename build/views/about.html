@@ -10,63 +10,66 @@
 	</div>
 
 	<!-- content -->
-	<div id="chartContainer">
-		<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" version="1.1"  width="100%" height="100%"  xmlns:xlink="http://www.w3.org/1999/xlink">
-			<circle ng-repeat="marker in about.graph.cordMarkers" stroke="#4C4C4C" stroke-width="1" ng-attr-cx="{{marker.x}}" ng-attr-cy="{{marker.y}}" r="2" fill="#d8d8d8" />
-			<polygon ng-attr-id="skill_{{skill.name}}" ng-repeat="skill in about.skills" class="hex" ng-attr-points="{{aquireCords('inactive', skill.points)}}" ng-style="{'fill':skill.color, 'stroke':skill.color}"  style="stroke-width:1;fill-opacity:0.4">
-				<animate ng-attr-id="skillAnimate_{{skill.name}}_active" begin="indefinite" fill="freeze" attributeName="points" dur="200ms" ng-attr-to="{{aquireCords('active', skill.points)}}" />
-				<animate ng-attr-id="skillAnimate_{{skill.name}}_inactive" begin="indefinite" fill="freeze" attributeName="points" dur="200ms" ng-attr-to="{{aquireCords('inactive', skill.points)}}" />
-			</polygon>
-			<circle cx="300" cy="300" r="83" fill="#d8d8d8" />
-			<circle ng-attr-cx="{{about.graph.lableMarkers[0].x + 45}}" ng-attr-cy="{{about.graph.lableMarkers[0].y + 3}}" r="22" fill="#4C4C4C"/>
-			<text 
-				ng-attr-x="{{about.graph.lableMarkers[0].x + 26}}" 
-				ng-attr-y="{{about.graph.lableMarkers[0].y + 8}}" 
-				fill="#d8d8d8"
-				font-family="Verdana"
-				font-size="14" >
-					{{about.graph.lableMarkers[0].text}}
-			</text>
+	<div id="aboutChartContainer" class="topContent">
+		<div id="chartBlock">
+			<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" version="1.1"  width="100%" height="100%"  xmlns:xlink="http://www.w3.org/1999/xlink">
+				<circle ng-repeat="marker in about.graph.cordMarkers" stroke="#4C4C4C" stroke-width="1" ng-attr-cx="{{marker.x}}" ng-attr-cy="{{marker.y}}" r="2" fill="#d8d8d8" />
+				<polygon ng-attr-id="skill_{{skill.name}}" ng-repeat="skill in about.skills" class="hex" ng-attr-points="{{aquireCords('inactive', skill.points)}}" ng-style="{'fill':skill.color, 'stroke':skill.color}"  style="stroke-width:1;fill-opacity:0.4">
+					<animate ng-attr-id="skillAnimate_{{skill.name}}_active" begin="indefinite" fill="freeze" attributeName="points" dur="200ms" ng-attr-to="{{aquireCords('active', skill.points)}}" />
+					<animate ng-attr-id="skillAnimate_{{skill.name}}_inactive" begin="indefinite" fill="freeze" attributeName="points" dur="200ms" ng-attr-to="{{aquireCords('inactive', skill.points)}}" />
+				</polygon>
+				<circle cx="250" cy="250" r="83" fill="#d8d8d8" />
+				<circle ng-attr-cx="{{about.graph.lableMarkers[0].x + 45}}" ng-attr-cy="{{about.graph.lableMarkers[0].y + 3}}" r="22" fill="#4C4C4C"/>
+				<text 
+					ng-attr-x="{{about.graph.lableMarkers[0].x + 26}}" 
+					ng-attr-y="{{about.graph.lableMarkers[0].y + 8}}" 
+					fill="#d8d8d8"
+					font-family="Verdana"
+					font-size="14" >
+						{{about.graph.lableMarkers[0].text}}
+				</text>
 
-			<text 
-				ng-attr-x="{{about.graph.lableMarkers[1].x - 5}}" 
-				ng-attr-y="{{about.graph.lableMarkers[1].y + 2}}" 
-				ng-attr-transform="{{'rotate(-45 ' + about.graph.lableMarkers[1].x + ',' + about.graph.lableMarkers[1].y +')'}}" 
-				fill="#4B4B4B"
-				font-family="Verdana"
-				font-size="18" >
-					{{about.graph.lableMarkers[1].text}}
-			</text>
-			<text 
-				x="235"
-				y="335"
-				fill="#4B4B4B"
-				font-family="Verdana"
-				font-size="20" >
-					{{about.currentActivebucket}}
-			</text>
-		</svg>
+				<text 
+					ng-attr-x="{{about.graph.lableMarkers[1].x - 5}}" 
+					ng-attr-y="{{about.graph.lableMarkers[1].y + 2}}" 
+					ng-attr-transform="{{'rotate(-45 ' + about.graph.lableMarkers[1].x + ',' + about.graph.lableMarkers[1].y +')'}}" 
+					fill="#4B4B4B"
+					font-family="Verdana"
+					font-size="18" >
+						{{about.graph.lableMarkers[1].text}}
+				</text>
+				<text 
+					x="235"
+					y="335"
+					fill="#4B4B4B"
+					font-family="Verdana"
+					font-size="20" >
+						{{about.currentActivebucket}}
+				</text>
+			</svg>
+		</div>
 	</div>
-	<div id="spacer_010_about"></div>
-	<div id="contentBlock">
-		<h1 id="txt_010_about">MAYBE A:</h1>
-		<div id="skillsContainer">
-			<div class="bucketContainer">
-				<div class="bucketBtn" ng-click="bucketController('designer')"><span class="activeArrow"></span>designer</div>
-				<div class="skillContainer" ng-style="about.currentActivebucket !== 'designer' && {'height' : '0'}" id="designerSkillBucket">
-					<div class="lables" ng-click="activateFocuses('designer', $index)" ng-repeat="skill in about.skills | bucketCheck : 'designer'"><span ng-style="{background : skill.color}" ng-class="about.activeFocus.designer[$index].status" class="plussBtn"></span>{{skill.name}}</div>
+	<div id="aboutContentContainer" class="bottomContent">
+		<div id="aboutContentBlock">
+			<div id="skillsContainer">
+				<h1 id="txt_010_about">MAYBE A:</h1>
+				<div class="bucketContainer">
+					<div class="bucketBtn" ng-click="bucketController('designer')"><span class="activeArrow"></span>designer</div>
+					<div class="skillContainer" ng-style="about.currentActivebucket !== 'designer' && {'height' : '0'}" id="designerSkillBucket">
+						<div class="lables" ng-click="activateFocuses('designer', $index)" ng-repeat="skill in about.skills | bucketCheck : 'designer'"><span ng-style="{background : skill.color}" ng-class="about.activeFocus.designer[$index].status" class="plussBtn"></span>{{skill.name}}</div>
+					</div>
 				</div>
-			</div>
-			<div class="bucketContainer">
-				<div class="bucketBtn" ng-click="bucketController('programmer')"><span class="activeArrow"></span>programmer</div>
-				<div class="skillContainer" ng-style="about.currentActivebucket !== 'programmer' && {'height' : '0'}" id="programmerSkillBucket">
-					<div class="lables" ng-click="activateFocuses('programmer', $index)" ng-repeat="skill in about.skills | bucketCheck : 'programmer'"><span ng-style="{background : skill.color}" ng-class="about.activeFocus.programmer[$index].status" class="plussBtn"></span>{{skill.name}}</div>
+				<div class="bucketContainer">
+					<div class="bucketBtn" ng-click="bucketController('programmer')"><span class="activeArrow"></span>programmer</div>
+					<div class="skillContainer" ng-style="about.currentActivebucket !== 'programmer' && {'height' : '0'}" id="programmerSkillBucket">
+						<div class="lables" ng-click="activateFocuses('programmer', $index)" ng-repeat="skill in about.skills | bucketCheck : 'programmer'"><span ng-style="{background : skill.color}" ng-class="about.activeFocus.programmer[$index].status" class="plussBtn"></span>{{skill.name}}</div>
+					</div>
 				</div>
-			</div>
-			<div class="bucketContainer">
-				<div class="bucketBtn" ng-click="bucketController('animator')"><span class="activeArrow"></span>animator</div>
-				<div class="skillContainer" ng-style="about.currentActivebucket !== 'animator' && {'height' : '0'}" id="animatorSkillBucket">
-					<div class="lables" ng-click="activateFocuses('animator', $index)" ng-repeat="skill in about.skills | bucketCheck : 'animator'"><span ng-style="{background : skill.color}" ng-class="about.activeFocus.animator[$index].status" class="plussBtn"></span>{{skill.name}}</div>
+				<div class="bucketContainer">
+					<div class="bucketBtn" ng-click="bucketController('animator')"><span class="activeArrow"></span>animator</div>
+					<div class="skillContainer" ng-style="about.currentActivebucket !== 'animator' && {'height' : '0'}" id="animatorSkillBucket">
+						<div class="lables" ng-click="activateFocuses('animator', $index)" ng-repeat="skill in about.skills | bucketCheck : 'animator'"><span ng-style="{background : skill.color}" ng-class="about.activeFocus.animator[$index].status" class="plussBtn"></span>{{skill.name}}</div>
+					</div>
 				</div>
 			</div>
 		</div>
