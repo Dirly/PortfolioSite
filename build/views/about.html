@@ -52,21 +52,21 @@
 	<div id="aboutContentContainer" class="bottomContent">
 		<div id="aboutContentBlock">
 			<div id="skillsContainer">
-				<h1 id="txt_010_about">MAYBE A:</h1>
+				<h1 id="txt_010_about">maybe a:</h1>
 				<div class="bucketContainer">
-					<div class="bucketBtn" ng-click="bucketController('designer')"><span class="activeArrow"></span>designer</div>
+					<div class="bucketBtn" ng-click="bucketController('designer')"><span ng-class="{active : (about.currentActivebucket === 'designer')}"></span>designer</div>
 					<div class="skillContainer" ng-style="about.currentActivebucket !== 'designer' && {'height' : '0'}" id="designerSkillBucket">
 						<div class="lables" ng-click="activateFocuses('designer', $index)" ng-repeat="skill in about.skills | bucketCheck : 'designer'"><span ng-style="{background : skill.color}" ng-class="about.activeFocus.designer[$index].status" class="plussBtn"></span>{{skill.name}}</div>
 					</div>
 				</div>
 				<div class="bucketContainer">
-					<div class="bucketBtn" ng-click="bucketController('programmer')"><span class="activeArrow"></span>programmer</div>
+					<div class="bucketBtn" ng-click="bucketController('programmer')"><span class="activeArrow" ng-class="{active : (about.currentActivebucket === 'programmer')}"></span>programmer</div>
 					<div class="skillContainer" ng-style="about.currentActivebucket !== 'programmer' && {'height' : '0'}" id="programmerSkillBucket">
 						<div class="lables" ng-click="activateFocuses('programmer', $index)" ng-repeat="skill in about.skills | bucketCheck : 'programmer'"><span ng-style="{background : skill.color}" ng-class="about.activeFocus.programmer[$index].status" class="plussBtn"></span>{{skill.name}}</div>
 					</div>
 				</div>
 				<div class="bucketContainer">
-					<div class="bucketBtn" ng-click="bucketController('animator')"><span class="activeArrow"></span>animator</div>
+					<div class="bucketBtn" ng-click="bucketController('animator')"><span ng-class="{active : (about.currentActivebucket === 'animator')}"></span>animator</div>
 					<div class="skillContainer" ng-style="about.currentActivebucket !== 'animator' && {'height' : '0'}" id="animatorSkillBucket">
 						<div class="lables" ng-click="activateFocuses('animator', $index)" ng-repeat="skill in about.skills | bucketCheck : 'animator'"><span ng-style="{background : skill.color}" ng-class="about.activeFocus.animator[$index].status" class="plussBtn"></span>{{skill.name}}</div>
 					</div>

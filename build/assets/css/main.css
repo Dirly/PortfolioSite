@@ -21,6 +21,11 @@ body{
 	user-select: none;
 }
 
+h1{
+	font-size: 40px;
+	color:#4C4C4C;
+}
+
 /*GLOBAL Z-INDEXING*/
 #popupContainer{
 	z-index: 5;
@@ -111,6 +116,11 @@ body{
 	height:auto;
 }
 
+
+
+/*MEDIA CONTROLLERS*/
+
+
 .topContent{
 	height:70%;
 	width:100%;
@@ -121,8 +131,17 @@ body{
 	width:100%;
 }
 
+.topContent > div{
+	margin:auto;
+	float:none;
+}
 
-@media (min-width: 700px) {
+.bottomContent > div{
+	margin:auto;
+}
+
+
+@media (min-width: 980px) {
 	.topContent {
 		height:100%;
 		width:50%;
@@ -131,5 +150,14 @@ body{
 	.bottomContent{
 		height:100%;
 		width:50%;
+	}
+
+	.topContent > div{
+		margin:0px;
+		float:right;
+	}
+
+	.bottomContent > div{
+		margin:0px;
 	}
 }
