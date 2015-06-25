@@ -162,7 +162,6 @@
 					//ANIMATES GRAPH
 					$scope.activateFocuses = function(bucket, index, forced){
 						var target;
-
 						if(about.activeFocus[bucket][index].status === "active"){
 							if(forced){
 								target = document.getElementById("skillAnimate_" + about.activeFocus[bucket][index].name + "_" + forced);
@@ -185,16 +184,20 @@
 					};
 
 					//EXPANDABLE BUCKETING
-				
-
-					//EXPANDABLE BUCKETING
 					$scope.bucketController = function(targetBucket){
+
+						function delayedTime(bucketDelayed, delayed){
+							$timeout(function(){
+								$scope.activateFocuses(bucketDelayed,delayed,'active');
+							}, 250*delayed);
+						}
+
 						about.currentActivebucket = targetBucket;
 						for (var bucket in about.activeFocus) {
 							if(targetBucket === bucket){
 								for (var i = 0; i < about.activeFocus[bucket].length; i++) {
 									if(about.activeFocus[bucket][i].status === "inactive"){
-										$scope.activateFocuses(bucket,i,'active');
+										delayedTime(bucket,i);
 									}
 								}
 							} else {
