@@ -1,1 +1,12 @@
 @charset "utf-8";
+
+
+#topbarContainer{
+	width:50%;
+	position:fixed;
+	height:45px;
+	margin:0;
+	z-index: 4;
+	top:0;
+	left:0;
+}

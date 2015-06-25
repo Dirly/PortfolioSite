@@ -1,12 +1,6 @@
 <!-- topbar -->
-<div id="topBarContainer">
-
+<div id="topbarContainer" ng-class="{dark : (topbar.location === 'about')}">
 	<!-- content -->
 	<div id="logo"></div>
-	<div>{{page}}</div>
-	<div class="menuBtn inactive" ng-repeat="btns in topBar" ng-click="navigation($index)"></div>
-
-	<!-- background -->
-	<div id="backgroundTopbar"></div>
-
+	<div>{{topbar.location}}</div>
 </div>

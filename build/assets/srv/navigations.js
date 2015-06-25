@@ -95,8 +95,8 @@
 				$("html, body").animate({scrollTop: fromWhere + toWhere}, 500);
 			},
 			announcePage: function(pageName) {
-				console.log(pageName);
 				$rootScope.$broadcast('page:name', pageName);
+				console.log(pageName);
 			},
 			scrollLocked: function(status) {
 				scrollLock = status;

@@ -27,26 +27,23 @@
 	});*/
 
 //TOPBAR
-	/*app.directive('top-bar', function(){
+	app.directive('topbar', function(){
 		return {
 			restrict: 'E',
-			templateUrl: 'views/topBar.html',
-			controller: ['resize', 'navigation', '$scope', function(resize, navigation, $scope){
+			templateUrl: 'views/topbar.html',
+			controller: ['Navigation', '$scope', function(Navigation, $scope){
+				var topbar = this;
 
-				var topBar = this;
-				topBar.page = currentPage;
-				
-				$scope.newheight = $(window).height();
-				
-				//WATCH HEIGHT
-				$scope.$on('height:updated', function(event,data){
-					$scope.newheight = data;
+				//Watch page change
+				$scope.$on('page:name', function(event,data){
+					topbar.location = data;
+					$scope.$apply();
 				});
-
+				
 			}],
-			controllerAs:'topBar'
+			controllerAs:'topbar'
 		};
-	});*/
+	});
 
 //HOME
 	app.directive('home', function(){
@@ -58,6 +55,7 @@
 				var home = this;
 					home.page = 1;
 					home.name = "home";
+
 					
 				//turning on prev and next
 				$timeout(function () {
@@ -67,7 +65,7 @@
 				//Watch page change
 				$scope.$on('page:count', function(event,data){
 					if(data === home.page){
-						Navigation.announcePage(home.page);
+						Navigation.announcePage(home.name);
 					}
 				});
 
@@ -96,7 +94,7 @@
 
 				var about = this;
 					about.page = 2;
-					about.name = "about";
+					about.name = "skills";
 					
 				//turning on prev and next
 				$timeout(function () {
@@ -105,8 +103,9 @@
 
 				//Watch page change
 				$scope.$on('page:count', function(event,data){
+					console.log(data);
 					if(data === about.page){
-						Navigation.announcePage(about.page);	
+						Navigation.announcePage(about.name);	
 					}
 				});
 
@@ -185,13 +184,14 @@
 
 					//EXPANDABLE BUCKETING
 					$scope.bucketController = function(targetBucket){
+						var promise;
 
 						function delayedTime(bucketDelayed, delayed){
-							$timeout(function(){
+							promise = $timeout(function(){
 								$scope.activateFocuses(bucketDelayed,delayed,'active');
 							}, 250*delayed);
 						}
-
+						
 						about.currentActivebucket = targetBucket;
 						for (var bucket in about.activeFocus) {
 							if(targetBucket === bucket){
@@ -210,6 +210,9 @@
 						}
 					};
 				});
+
+
+				//TODO: WIRE UP PieGraph
 
 				//---------------------------------------------
 
@@ -237,7 +240,7 @@
 				//Watch page change
 				$scope.$on('page:count', function(event,data){
 					if(data === portfolio.page){
-						Navigation.announcePage(portfolio.page);
+						Navigation.announcePage(portfolio.name);
 					}
 				});
 
