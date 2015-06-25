@@ -14,11 +14,14 @@
 			mainHeight,
 			fromWhere,
 			wholeCheck,
+			scrollLock,
+			lockLocation,
 			toWhere;
 
 		//DEFAULT SET
 		currentHeight = $(window).height();
 		whereAreWe = $(window).scrollTop();
+		lockLocation = $(window).scrollTop();
 
 		//GET DOC HEIGHT
 		//delay needs to exist for dom to load...  
@@ -58,7 +61,9 @@
 						pageBroadcast(i);
 					}
 				}
-				
+			}
+			if (scrollLock === true){
+				$(window).scrollTop(lockLocation);
 			}
 		});
 
@@ -92,6 +97,10 @@
 			announcePage: function(pageName) {
 				console.log(pageName);
 				$rootScope.$broadcast('page:name', pageName);
+			},
+			scrollLocked: function(status) {
+				scrollLock = status;
+				$(window).scrollTop();
 			}
 		};
 	}]);
