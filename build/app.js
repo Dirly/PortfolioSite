@@ -185,13 +185,7 @@
 					};
 
 					//EXPANDABLE BUCKETING
-					$scope.bucketController = function(bucket){
-						for (var i = 0; i < about.activeFocus[bucket].length; i++) {
-							if(about.activeFocus[bucket][i].status === "inactive"){
-								$scope.activateFocuses(bucket,i,'active');
-							}
-						}
-					};
+				
 
 					//EXPANDABLE BUCKETING
 					$scope.bucketController = function(targetBucket){
@@ -212,10 +206,6 @@
 							}
 						}
 					};
-
-
-
-
 				});
 
 				//---------------------------------------------
