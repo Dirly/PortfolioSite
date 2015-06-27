@@ -1,14 +1,12 @@
 //PolyGraph SLIDER SERVICE 
 /*
-http://stackoverflow.com/questions/7198144/how-to-draw-a-n-sided-regular-polygon-in-cartesian-coordinates
-x[n] = r * cos(2*pi*n/N)
-y[n] = r * sin(2*pi*n/N)
+https://jbkflex.wordpress.com/2011/07/28/creating-a-svg-pie-chart-html5/
 */
 
 (function(){
-	var app = angular.module('PolyGraph',[]);
+	var app = angular.module('PieChart',[]);
 
-	app.service('PolyGraph', ['$http' ,function($http) {
+	app.service('PieChart', ['$http' ,function($http) {
 		var contentData,
 			totalPoints,
 			maxValue,
@@ -28,7 +26,7 @@ y[n] = r * sin(2*pi*n/N)
 			returnData: function(){
 				return contentData;
 			},
-			setGraph: function(data, spacing, center, rotation, startLable, endLable){
+			setGraph: function(data, spacing, center, rotation, lables, lablespacing){
 				var currentCord,
 					cordPointValues,
 					x,
@@ -79,8 +77,8 @@ y[n] = r * sin(2*pi*n/N)
 					cords.push(cordPointValues);
 				}
 				return {
-					"cordMarkers" : cordMarkers, 
-					"lableMarkers" : lableMarkers
+						"cordMarkers" : cordMarkers, 
+						"lableMarkers" : lableMarkers
 				};
 			},
 

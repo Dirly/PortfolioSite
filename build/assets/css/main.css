@@ -7,6 +7,12 @@ body{
 	font-family: sans-serif;
 }
 
+.fontStyled { 
+	font-family: EuropeUnderground;
+	font-weight: normal;
+	font-style: normal;
+}
+
 .pageContainer{
 	width:100%;
 	min-height: 300px;
@@ -22,6 +28,7 @@ body{
 }
 
 h1{
+	font-family: EuropeUnderground;
 	font-size: 40px;
 	color:#4C4C4C;
 }
@@ -65,11 +72,11 @@ h1{
 }
 
 .navContainer.top{
-	top:7px;
+	top:17px;
 }
 
 .navContainer.bottom{
-	bottom:7px;
+	bottom:17px;
 }
 
 .navBtn{

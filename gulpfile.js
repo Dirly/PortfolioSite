@@ -35,6 +35,7 @@ gulp.task('watch', function() {
 	gulp.watch('build/assets/dir/**.js', notifyLiveReload);
 	gulp.watch('build/assets/ctrl/**.js', notifyLiveReload);
 	gulp.watch('build/assets/css/**.css', notifyLiveReload);
+	gulp.watch('build/assets/pages/**.html', notifyLiveReload);
 });
 
 gulp.task('default', ['express', 'livereload', 'watch'], function() {

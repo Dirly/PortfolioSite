@@ -1,0 +1,77 @@
+	
+<html>
+	<style type="text/css">
+		#iPrep_background{
+			width:100%;
+			height:100%;
+			background-size:cover;
+			background-image:url('/assets/img/iPrep_Background.jpg');
+			opacity:0.5;
+			background-repeat: no-repeat;
+			font-size: 55px;
+			position:absolute;
+			top:0px;
+			left:0px;
+		}
+
+		#iPrep_logo{
+			background-image:url('/assets/img/iPrep_Logo.png');
+			background-repeat: no-repeat;
+			background-size: contain;
+			position:absolute;
+			width: 100%;
+			height: 183px;
+			max-width: 387px;
+			right: 160px;
+			bottom: 70px;
+		}
+
+	 	#iPrep_iPad{
+			background-image:url('/assets/img/iPrep_iPad.png');
+			background-repeat: no-repeat;
+			position:absolute;
+			background-size: contain;
+			width: 100%;
+			height: 694px;
+			max-width: 946px;
+			-webkit-transition: all .5s;
+			transition: all .5s;
+			right:155px;
+			bottom:10%;
+		}
+
+		#iPrep_burst{
+			background-image:url('/assets/img/iPrep_StarBurst.png');
+			background-repeat: no-repeat;
+			position:absolute;
+			width: 1655px;
+			height: 1655px;
+			right:-160px;
+			top:520px;
+			opacity:0;
+			margin:-827px 0 0 -827px;
+			-webkit-transition: opacity .5s;
+			transition: opacity .5s;
+			-webkit-animation:spin 120s linear infinite;
+		    -moz-animation:spin 120s linear infinite;
+		    animation:spin 120s linear infinite;
+		}
+		@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+		@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+		@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+		.activeFocus #iPrep_burst{
+			opacity:1;
+			-webkit-transition: opacity 2s .5s;
+			transition: opacity 2s .5s;
+		}
+
+
+	</style>
+	<div id="iPrep_background"></div>
+	<div id="iPrep_burst"></div>
+	<div id="iPrep_iPad"></div>
+	<div id="iPrep_logo"></div>
+</html>
+

@@ -54,7 +54,7 @@
 
 				var home = this;
 					home.page = 1;
-					home.name = "home";
+					home.name = "HOME";
 
 					
 				//turning on prev and next
@@ -94,7 +94,7 @@
 
 				var about = this;
 					about.page = 2;
-					about.name = "skills";
+					about.name = "SKILLS";
 					
 				//turning on prev and next
 				$timeout(function () {
@@ -191,7 +191,7 @@
 								$scope.activateFocuses(bucketDelayed,delayed,'active');
 							}, 250*delayed);
 						}
-						
+
 						about.currentActivebucket = targetBucket;
 						for (var bucket in about.activeFocus) {
 							if(targetBucket === bucket){
@@ -230,7 +230,7 @@
 
 				var portfolio = this;
 					portfolio.page = 3;
-					portfolio.name = "portfolio";
+					portfolio.name = "PORTFOLIO";
 					
 				//turning on prev and next
 				$timeout(function () {

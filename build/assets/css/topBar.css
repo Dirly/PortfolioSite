@@ -7,6 +7,22 @@
 	height:45px;
 	margin:0;
 	z-index: 4;
-	top:0;
-	left:0;
+	top:15px;
+	left:20px;
+	color:white;
+	font-size: 18px;
+	-webkit-transition: color 1s;
+    transition: color 1s;
+}
+
+
+#topbarContainer.dark{
+	color:#4C4C4C;
+}
+
+
+#logo{
+	font-size: 40px;
+	margin-bottom:5px;
+	margin-left:-3;
 }

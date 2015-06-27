@@ -1,13 +1,13 @@
 [
 	{
-		"name": "name1",
+		"name": "iPrep",
 		"skills": [
 			{
-				"name": "html5",
+				"name": "Ps",
 				"icon": "url"
 			},
 			{
-				"name": "html5",
+				"name": "Ai",
 				"icon": "url"
 			}
 		],
@@ -15,12 +15,10 @@
 		"screenshots": [
 			{
 				"name": "name",
-				"thumb": "url",
 				"art": "url"
 			},
 			{
 				"name": "name",
-				"thumb": "url",
 				"art": "url"
 			}
 		],
@@ -29,38 +27,30 @@
 			"award 2",
 			"award 3"
 		],
-		"hideable": [
-			"url",
-			"left",
-			"top",
-			"width",
-			"height"
-		],
-		"logo": [
-			"url",
-			"left",
-			"top",
-			"width",
-			"height"
-		],
-		"foreground": [
-			"url",
-			"left",
-			"top",
-			"width",
-			"height"
-		],
-		"background": "blue"
+		"content": "assets/pages/iPrep.html",
+		"background": "#167a91"
 	},
 	{
-		"name": "name2",
+		"name": "Flight Check",
 		"skills": [
+			{
+				"name": "Ai",
+				"icon": "url"
+			},
+			{
+				"name": "Ps",
+				"icon": "url"
+			},
 			{
 				"name": "html5",
 				"icon": "url"
 			},
 			{
-				"name": "html5",
+				"name": "Angular",
+				"icon": "url"
+			},
+			{
+				"name": "Sketchup",
 				"icon": "url"
 			}
 		],
@@ -68,48 +58,27 @@
 		"screenshots": [
 			{
 				"name": "name",
-				"thumb": "url",
 				"art": "url"
 			},
 			{
 				"name": "name",
-				"thumb": "url",
 				"art": "url"
 			}
 		],
 		"awards": [
-			"award 1",
-			"award 2",
-			"award 3"
 		],
-		"hideable": [
-			"url",
-			"left",
-			"top",
-			"width",
-			"height"
-		],
-		"logo": [
-			"url",
-			"left",
-			"top",
-			"width",
-			"height"
-		],
-		"foreground": [
-			"url",
-			"left",
-			"top",
-			"width",
-			"height"
-		],
-		"background": "green"
+		"content": "assets/pages/flightCheck.html",
+		"background": "black"
 	},
 	{
-		"name": "name3",
+		"name": "Amazing App",
 		"skills": [
 			{
-				"name": "html5",
+				"name": "Ps",
+				"icon": "url"
+			},
+			{
+				"name": "Ai",
 				"icon": "url"
 			},
 			{
@@ -121,12 +90,10 @@
 		"screenshots": [
 			{
 				"name": "name",
-				"thumb": "url",
 				"art": "url"
 			},
 			{
 				"name": "name",
-				"thumb": "url",
 				"art": "url"
 			}
 		],
@@ -135,28 +102,8 @@
 			"award 2",
 			"award 3"
 		],
-		"hideable": [
-			"url",
-			"left",
-			"top",
-			"width",
-			"height"
-		],
-		"logo": [
-			"url",
-			"left",
-			"top",
-			"width",
-			"height"
-		],
-		"foreground": [
-			"url",
-			"left",
-			"top",
-			"width",
-			"height"
-		],
-		"background": "red"
+		"content": "assets/pages/amazingApp.html",
+		"background": "#f7951e"
 	},
 	{
 		"name": "name3",

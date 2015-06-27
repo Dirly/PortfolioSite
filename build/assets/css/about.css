@@ -1,8 +1,5 @@
 @charset "utf-8";
 
-
-
-
 #aboutContainer{
 	position:relative;
 	width:100%;
@@ -77,20 +74,20 @@
 	background-color: #4C4C4C;
 	color: #D8D8D8;
 	position: relative;
-	padding: 6px;
+	padding: 6px 6px 8px;
 	overflow: hidden;
 	float: left;
 	text-align: left;
 	cursor: pointer;
 	width: 120px;
+	font-size:18px;
 }
 
 #aboutContainer .bucketContainer .bucketBtn span.active{
-	border-left: 5px solid transparent;
-	border-right: 5px solid transparent;
-	border-bottom: 0;
-	margin-left:1px;
-	border-top: 5px solid #D8D8D8;
+	-moz-transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
 }
 
 #aboutContainer .bucketContainer .bucketBtn span{
@@ -103,6 +100,8 @@
 	border-right: 0;
 	margin-right: 5px;
 	margin-left:5px;
+	-webkit-transition: all .2s;
+    transition: all .2s;
 }
 
 #aboutContainer #skillsContainer .skillContainer{
@@ -129,7 +128,7 @@
 #aboutContainer #txt_010_about{
 	text-align: left;
 	font-size: 45px;
-	margin-bottom: 10px;
+	margin-bottom: 22px;
 	margin-left: -22px;
 
 }
