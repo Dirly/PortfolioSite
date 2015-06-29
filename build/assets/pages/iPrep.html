@@ -18,12 +18,13 @@
 			background-image:url('/assets/img/iPrep_Logo.png');
 			background-repeat: no-repeat;
 			background-size: contain;
+			background-position: 100% 80%;
 			position:absolute;
-			width: 100%;
-			height: 183px;
+			width: 50%;
+			height: 100%;
+			min-width: 200px;
 			max-width: 387px;
-			right: 160px;
-			bottom: 70px;
+			right: 5%;
 		}
 
 	 	#iPrep_iPad{
@@ -31,13 +32,12 @@
 			background-repeat: no-repeat;
 			position:absolute;
 			background-size: contain;
+			background-position: 100% center;
 			width: 100%;
-			height: 694px;
+			height: 100%;
+			min-width: 645px;
 			max-width: 946px;
-			-webkit-transition: all .5s;
-			transition: all .5s;
-			right:155px;
-			bottom:10%;
+			right:8%;
 		}
 
 		#iPrep_burst{
@@ -46,12 +46,10 @@
 			position:absolute;
 			width: 1655px;
 			height: 1655px;
-			right:-160px;
-			top:520px;
-			opacity:0;
+			left:38%;
+			top:50%;
+			opacity:1;
 			margin:-827px 0 0 -827px;
-			-webkit-transition: opacity .5s;
-			transition: opacity .5s;
 			-webkit-animation:spin 120s linear infinite;
 		    -moz-animation:spin 120s linear infinite;
 		    animation:spin 120s linear infinite;
@@ -60,18 +58,59 @@
 		@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 		@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
+		#iPrep_containerRight{
+			position:relative;
+			float:left;
+		}
 
-		.activeFocus #iPrep_burst{
-			opacity:1;
-			-webkit-transition: opacity 2s .5s;
-			transition: opacity 2s .5s;
+		#iPrep_cellRight{
+			width:100%;
+			height:100%;
+			position:absolute;
+			left:0px;
+			z-index: 1;
+		}
+
+		#iPrep_containerLeft{
+			position:relative;
+			float:left;
+		}
+
+		#iPrep_cellLeft{
+			width:50%;
+			height:50%;
+			position:absolute;
+			left:0px;
+			left:0;
+			right:0;
+			margin:auto;
+			top:50%;
+			margin-top:-25%;
+			color:white;
+			z-index: 2;
 		}
 
 
 	</style>
 	<div id="iPrep_background"></div>
-	<div id="iPrep_burst"></div>
-	<div id="iPrep_iPad"></div>
-	<div id="iPrep_logo"></div>
+	<div id="iPrep_containerLeft" class="bottomContent">
+		<div id="iPrep_cellLeft">
+			<div class="programsUsedContainer">
+				<img ng-repeat="skill in case.skills" ng-src="assets/img/{{skill.icon}}"></img>
+			</div>
+			<div class="caseBlurp">
+				<p>{{case.blurp}}</p>
+			</div>
+		</div>
+	</div>
+	<div id="iPrep_containerRight" class="topContent">
+		<div id="iPrep_cellRight">
+			<div id="iPrep_burst"></div>
+			<div id="iPrep_iPad"></div>
+			<div id="iPrep_logo"></div>
+		</div>
+	</div>
+	<div class="caseContentContainer">
+	</div>
 </html>
 

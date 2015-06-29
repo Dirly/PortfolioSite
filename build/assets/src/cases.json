@@ -4,11 +4,11 @@
 		"skills": [
 			{
 				"name": "Ps",
-				"icon": "url"
+				"icon": "icon_Photoshop.png"
 			},
 			{
 				"name": "Ai",
-				"icon": "url"
+				"icon": "icon_Illustrator.png"
 			}
 		],
 		"blurp": "this is where I put text to describe what I accomplished",
@@ -23,9 +23,10 @@
 			}
 		],
 		"awards": [
-			"award 1",
-			"award 2",
-			"award 3"
+			"2015 Hermes Platinum",
+			"2014 MarCom Platinum",
+			"2015 Horizon Gold",
+			"2014 Davey Silver"
 		],
 		"content": "assets/pages/iPrep.html",
 		"background": "#167a91"
@@ -35,23 +36,19 @@
 		"skills": [
 			{
 				"name": "Ai",
-				"icon": "url"
+				"icon": "icon_Illustrator.png"
 			},
 			{
 				"name": "Ps",
-				"icon": "url"
+				"icon": "icon_Photoshop.png"
 			},
 			{
 				"name": "html5",
-				"icon": "url"
-			},
-			{
-				"name": "Angular",
-				"icon": "url"
+				"icon": "icon_HTML5.png"
 			},
 			{
 				"name": "Sketchup",
-				"icon": "url"
+				"icon": "icon_Sketchup.png"
 			}
 		],
 		"blurp": "this is where I put text to describe what I accomplished",
@@ -75,15 +72,15 @@
 		"skills": [
 			{
 				"name": "Ps",
-				"icon": "url"
+				"icon": "icon_Photoshop.png"
 			},
 			{
 				"name": "Ai",
-				"icon": "url"
+				"icon": "icon_Illustrator.png"
 			},
 			{
 				"name": "html5",
-				"icon": "url"
+				"icon": "icon_HTML5.png"
 			}
 		],
 		"blurp": "this is where I put text to describe what I accomplished",
@@ -98,64 +95,41 @@
 			}
 		],
 		"awards": [
-			"award 1",
-			"award 2",
-			"award 3"
+			"2013 MarCom Platinum",
+			"2014 Hermes Platinum ",
+			"2013 Horizon Gold ",
+			"2014 Communicator Silver",
+			"2014 Summit Bronze"
 		],
 		"content": "assets/pages/amazingApp.html",
 		"background": "#f7951e"
 	},
 	{
-		"name": "name3",
+		"name": "Super Zombie Fortress",
 		"skills": [
 			{
-				"name": "html5",
-				"icon": "url"
+				"name": "Ps",
+				"icon": "icon_Photoshop.png"
 			},
 			{
 				"name": "html5",
-				"icon": "url"
+				"icon": "icon_HTML5.png"
 			}
 		],
 		"blurp": "this is where I put text to describe what I accomplished",
 		"screenshots": [
 			{
 				"name": "name",
-				"thumb": "url",
 				"art": "url"
 			},
 			{
 				"name": "name",
-				"thumb": "url",
 				"art": "url"
 			}
 		],
 		"awards": [
-			"award 1",
-			"award 2",
-			"award 3"
 		],
-		"hideable": [
-			"url",
-			"left",
-			"top",
-			"width",
-			"height"
-		],
-		"logo": [
-			"url",
-			"left",
-			"top",
-			"width",
-			"height"
-		],
-		"foreground": [
-			"url",
-			"left",
-			"top",
-			"width",
-			"height"
-		],
-		"background": "purple"
+		"content": "assets/pages/superZombieFortress.html",
+		"background": "blue"
 	}
 ]

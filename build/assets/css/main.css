@@ -140,11 +140,15 @@ h1{
 
 .topContent > div{
 	margin:auto;
-	float:none;
+	clear:both;
 }
 
 .bottomContent > div{
 	margin:auto;
+}
+
+.hiddenSize{
+	display:none;
 }
 
 
@@ -167,4 +171,9 @@ h1{
 	.bottomContent > div{
 		margin:0px;
 	}
+
+	.hiddenSize{
+		display:block;
+	}
+
 }
