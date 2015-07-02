@@ -16,6 +16,8 @@
 			wholeCheck,
 			scrollLock,
 			lockLocation,
+			modal,
+			currentPop,
 			toWhere;
 
 		//DEFAULT SET
@@ -99,6 +101,13 @@
 				console.log(pageName);
 			},
 			scrollLocked: function(status) {
+				scrollLock = status;
+				$(window).scrollTop();
+			},
+			popupOpen: function(status) {
+				console.log("open");
+			},
+			popupClose: function(status) {
 				scrollLock = status;
 				$(window).scrollTop();
 			}

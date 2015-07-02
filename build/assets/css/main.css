@@ -128,39 +128,14 @@ h1{
 /*MEDIA CONTROLLERS*/
 
 
-.topContent{
-	height:70%;
-	width:100%;
-}
-
-.bottomContent{
-	height:30%;
-	width:100%;
-}
-
-.topContent > div{
-	margin:auto;
-	clear:both;
-}
-
-.bottomContent > div{
-	margin:auto;
-}
-
-.hiddenSize{
-	display:none;
-}
-
-
-@media (min-width: 980px) {
 	.topContent {
 		height:100%;
-		width:50%;
+		width:48%;
 		
 	}
 	.bottomContent{
 		height:100%;
-		width:50%;
+		width:48%;
 	}
 
 	.topContent > div{
@@ -175,5 +150,71 @@ h1{
 	.hiddenSize{
 		display:block;
 	}
+
+	.bufferTop{
+		top:0px;
+	}
+
+	.spacer{
+		float:left;
+		width:4%;
+		height:100%;
+		positon:relative;
+	}
+
+	.toCenterRight{
+		left: 3%;
+		float:left;
+	}
+
+	.toCenterLeft{
+		right: 3%;
+		float: right;
+	}
+
+
+@media (max-width: 980px) {
+	.topContent{
+	height:70%;
+	width:100%;
+	}
+
+	.bottomContent{
+		height:30%;
+		width:100%;
+	}
+
+	.topContent > div{
+		margin:auto;
+		clear:both;
+	}
+
+	.spacer{
+		width:0;
+		height:0;
+	}
+
+	.bottomContent > div{
+		margin:auto;
+	}
+
+	.hiddenSize{
+		display:none;
+	}
+
+	.bufferTop{
+		top:95px;
+	}
+
+	.toCenterRight{
+		margin:auto;
+		float:none;
+	}
+
+	.toCenterLeft{
+		margin:auto;
+		float:none;
+	}
+
 
 }

@@ -258,6 +258,11 @@
 
 				//Custom Page function block ------------------
 
+				$scope.popupOpen = function(toOpen) {
+					Navigation.popupOpen(toOpen);
+				};
+
+
 				//Wired up Carousel
 				Carousel.getData("assets/src/cases.json",function(){
 					portfolio.activeFocus = 0;
