@@ -83,6 +83,12 @@
 	font-size:18px;
 }
 
+#aboutContainer .bucketContainer .bucketBtn:hover{
+	padding: 4px 4px 6px;
+	border:solid #D8D8D8 2px;
+}
+
+
 #aboutContainer .bucketContainer .bucketBtn span.active{
 	-moz-transform: rotate(90deg);
 	-webkit-transform: rotate(90deg);

@@ -98,18 +98,19 @@
 			},
 			announcePage: function(pageName) {
 				$rootScope.$broadcast('page:name', pageName);
-				console.log(pageName);
 			},
 			scrollLocked: function(status) {
 				scrollLock = status;
 				$(window).scrollTop();
 			},
-			popupOpen: function(status) {
-				console.log("open");
-			},
-			popupClose: function(status) {
-				scrollLock = status;
-				$(window).scrollTop();
+			popSwitch: function(content) {
+				$rootScope.$broadcast('popup:content', content);
+				if(content){
+					lockLocation = $(window).scrollTop();
+					scrollLock = true;
+				} else {
+					scrollLock = false;
+				}
 			}
 		};
 	}]);

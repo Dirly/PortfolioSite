@@ -3,16 +3,24 @@
 	var app = angular.module('port', ['Navigation', 'PolyGraph', 'Carousel']);
 
 //POPUP
-	/*app.directive('popup', function(){
+	app.directive('popup', function(){
 		return {
 			restrict: 'E',
 			templateUrl: 'views/popup.html',
-			controller: function(){
-				console.log("popup");
-			},
+			controller: ['Navigation', '$scope', function(Navigation, $scope){
+				var popup = this;
+
+				//Watch page change
+				$scope.$on('popup:content', function(event,data){
+					if(data){
+						popup.content = data;
+					}
+				});
+				
+			}],
 			controllerAs:'popup'
 		};
-	});*/
+	});
 
 //MENU
 	/*app.directive('menu', function(){
@@ -103,7 +111,6 @@
 
 				//Watch page change
 				$scope.$on('page:count', function(event,data){
-					console.log(data);
 					if(data === about.page){
 						Navigation.announcePage(about.name);	
 					}
@@ -258,8 +265,8 @@
 
 				//Custom Page function block ------------------
 
-				$scope.popupOpen = function(toOpen) {
-					Navigation.popupOpen(toOpen);
+				$scope.popSwitch = function(toOpen) {
+					Navigation.popSwitch(toOpen);
 				};
 
 

@@ -1,9 +1,9 @@
 <!-- menu -->
-<div id="popupContainer">
-	
+<div id="popupContainer" ng-style="{'height': newheight + 'px'}" class="pageContainer">
 	<!-- content -->
-	<div class="closeBtn" ng-click="closeModal(this)"></div>
+	<div class="popContent">
+		<img ng-src="assets/img/{{popup.content}}">
+	</div>
 	<!-- background -->
 	<div class="backgroundModal"></div>
-
 </div>

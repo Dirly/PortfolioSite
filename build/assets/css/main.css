@@ -123,28 +123,17 @@ h1{
 	height:auto;
 }
 
-
-
 /*MEDIA CONTROLLERS*/
 
 
 	.topContent {
 		height:100%;
-		width:48%;
+		width:50%;
 		
 	}
 	.bottomContent{
 		height:100%;
-		width:48%;
-	}
-
-	.topContent > div{
-		margin:0px;
-		float:right;
-	}
-
-	.bottomContent > div{
-		margin:0px;
+		width:50%;
 	}
 
 	.hiddenSize{
@@ -163,20 +152,20 @@ h1{
 	}
 
 	.toCenterRight{
-		left: 3%;
+		margin-left: 3%;
 		float:left;
 	}
 
 	.toCenterLeft{
-		right: 3%;
+		margin-right: 3%;
 		float: right;
 	}
 
 
 @media (max-width: 980px) {
 	.topContent{
-	height:70%;
-	width:100%;
+		height:70%;
+		width:100%;
 	}
 
 	.bottomContent{
@@ -184,18 +173,9 @@ h1{
 		width:100%;
 	}
 
-	.topContent > div{
-		margin:auto;
-		clear:both;
-	}
-
 	.spacer{
 		width:0;
 		height:0;
-	}
-
-	.bottomContent > div{
-		margin:auto;
 	}
 
 	.hiddenSize{
@@ -215,6 +195,4 @@ h1{
 		margin:auto;
 		float:none;
 	}
-
-
 }
