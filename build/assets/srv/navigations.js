@@ -1,5 +1,4 @@
-//NAVIGATION SET UP FOR SCREEN WIDTH PAGES
-
+ //NAVIGATION SET UP FOR SCREEN WIDTH PAGES
 
 (function(){
 	var app = angular.module('Navigation',[]);
@@ -105,7 +104,7 @@
 			},
 			popSwitch: function(content) {
 				$rootScope.$broadcast('popup:content', content);
-				if(content){
+				if(content.pageType !== 'none'){
 					lockLocation = $(window).scrollTop();
 					scrollLock = true;
 				} else {

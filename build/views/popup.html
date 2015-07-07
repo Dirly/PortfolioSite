@@ -1,9 +1,11 @@
-<!-- menu -->
-<div id="popupContainer" ng-style="{'height': newheight + 'px'}" class="pageContainer">
+ <!-- popup -->
+<div id="popupContainer" ng-style="{'height': newheight + 'px'}" class="pageContainer" ng-show="popup.content.pageType !== 'none' && popup.content">
 	<!-- content -->
 	<div class="popContent">
-		<img ng-src="assets/img/{{popup.content}}">
+		<div class="popCell">
+			<img ng-src="assets/img/{{popup.content.url}}">
+		</div>
 	</div>
 	<!-- background -->
-	<div class="backgroundModal"></div>
+	<div class="backgroundModal" ng-click="popSwitch({'pageType':'none'})"></div>
 </div>

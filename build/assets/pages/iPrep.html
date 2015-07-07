@@ -51,10 +51,15 @@
 			opacity:1;
 			margin:-827px 0 0 -827px;
 			z-index: 1;
-			-webkit-animation:spin 120s linear infinite;
-		    -moz-animation:spin 120s linear infinite;
-		    animation:spin 120s linear infinite;
 		}
+
+		.activeFocus #iPrep_burst{
+			-webkit-animation:spin 120s 1s linear infinite;
+		    -moz-animation:spin 120s 1s linear infinite;
+		    animation:spin 120s 1s linear infinite;
+		}
+
+		
 		@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 		@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 		@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
@@ -116,7 +121,7 @@
 					<p>{{case.blurp}}</p>
 				</div>
 				<div class="screenshotThumbs">
-					<img ng-repeat="screenshot in case.screenshots" ng-src="assets/img/{{screenshot.art}}" ng-click="popSwitch(screenshot.art)"></img>
+					<img ng-repeat="screenshot in case.screenshots" ng-src="assets/img/{{screenshot.art}}" ng-click="popSwitch({'pageType' : 'image', 'url' : screenshot.art})"></img>
 				</div>
 			</div>
 		</div>
