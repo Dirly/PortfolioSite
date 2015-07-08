@@ -139,17 +139,36 @@
 					//BUILDING BUCKETS
 					function activeFocus (){
 						var currentBucket,
+							points,
+							blank,
 							skillPush = [],
 							buckets = {};
 
 						for (var i = 0; i < about.skills.length; i++) {
+							points = PolyGraph.aquireCords(about.skills[i].points);
+							blank = PolyGraph.aquireCords('blank');
+							console.log(points);
 							if(about.skills[i].bucket !== currentBucket){
 								skillPush = [];
 								currentBucket = about.skills[i].bucket;
-								skillPush.push({"status" : "inactive", "name" : about.skills[i].name});
+								skillPush.push(
+									{
+										"status" : "inactive", 
+										"name" : about.skills[i].name, 
+										"active" : points, 
+										"inactive" : blank
+									}
+								);
 								buckets[currentBucket] = skillPush;
 							} else {
-								skillPush.push({"status" : "inactive", "name" : about.skills[i].name});
+								skillPush.push(
+									{
+										"status" : "inactive", 
+										"name" : about.skills[i].name, 
+										"active" : points, 
+										"inactive" : blank
+									}
+								);
 								buckets[currentBucket] = skillPush;
 							}
 						}
@@ -168,25 +187,31 @@
 
 					//ANIMATES GRAPH
 					$scope.activateFocuses = function(bucket, index, forced){
-						var target;
+						var target,
+							s = Snap('#chartBlock');
+							target = s.select("#skill_" + about.activeFocus[bucket][index].name);
+
 						if(about.activeFocus[bucket][index].status === "active"){
 							if(forced){
-								target = document.getElementById("skillAnimate_" + about.activeFocus[bucket][index].name + "_" + forced);
+								// target.animate({'points' : about.activeFocus[bucket][index][forced]},100);
 								about.activeFocus[bucket][index].status = forced;
 							} else {
-								target = document.getElementById("skillAnimate_" + about.activeFocus[bucket][index].name + "_inactive");
+								target.animate({"points": about.activeFocus[bucket][index].inactive},1000);
+								// target = document.getElementById("skillAnimate_" + about.activeFocus[bucket][index].name + "_inactive");
 								about.activeFocus[bucket][index].status = "inactive";
 							}
-							target.beginElement();
+							// target.beginElement();
 						} else if(about.activeFocus[bucket][index].status === "inactive"){
 							if(forced){
-								target = document.getElementById("skillAnimate_" + about.activeFocus[bucket][index].name + "_" + forced);
+								// target.animate({'points' : about.activeFocus[bucket][index][forced]},100);
+								// target = document.getElementById("skillAnimate_" + about.activeFocus[bucket][index].name + "_" + forced);
 								about.activeFocus[bucket][index].status = forced;
 							} else {
-								target = document.getElementById("skillAnimate_" +about.activeFocus[bucket][index].name + "_active");
+								target.animate({'points' : about.activeFocus[bucket][index].active},1000);
+								// target = document.getElementById("skillAnimate_" +about.activeFocus[bucket][index].name + "_active");
 								about.activeFocus[bucket][index].status = "active";
 							}
-							target.beginElement();
+							// target.beginElement();
 						}
 
 					};

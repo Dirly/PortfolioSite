@@ -88,11 +88,19 @@ y[n] = r * sin(2*pi*n/N)
 				var collectedPoints = "";
 				if(points !== "blank"){
 					for (var i = 0; i < points.length; i++) {
-						collectedPoints = collectedPoints +" "+ cords[points[i]][i];
+						if(i === 0){
+							collectedPoints = cords[points[i]][i];
+						} else {
+							collectedPoints = collectedPoints +","+ cords[points[i]][i];
+						}
 					}
 				} else {
 					for (var j = 0; j < cords[0].length; j++) {
-						collectedPoints = collectedPoints +" "+ cords[0][j];
+						if(j === 0){
+							collectedPoints = cords[0][j];
+						} else {
+							collectedPoints = collectedPoints +","+ cords[0][j];
+						}
 					}
 				}
 				return collectedPoints;
