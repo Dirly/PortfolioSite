@@ -48,6 +48,9 @@
 
 		$(window).scroll(function(target){
 			whereAreWe = $(window).scrollTop();
+			if (scrollLock === true){
+				$(window).scrollTop(lockLocation);
+			}
 			for (var i = 1; i <= pages; i++) {
 				if(i === 1){
 					if (whereAreWe < currentHeight){
@@ -62,9 +65,6 @@
 						pageBroadcast(i);
 					}
 				}
-			}
-			if (scrollLock === true){
-				$(window).scrollTop(lockLocation);
 			}
 		});
 

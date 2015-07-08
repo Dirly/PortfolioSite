@@ -84,8 +84,7 @@
 }
 
 #aboutContainer .bucketContainer .bucketBtn:hover{
-	padding: 4px 4px 6px;
-	border:solid #D8D8D8 2px;
+	background-color: #333333;
 }
 
 

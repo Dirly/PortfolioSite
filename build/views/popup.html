@@ -2,10 +2,8 @@
 <div id="popupContainer" ng-style="{'height': newheight + 'px'}" class="pageContainer" ng-show="popup.content.pageType !== 'none' && popup.content">
 	<!-- content -->
 	<div class="popContent">
-		<div class="popCell">
-			<img ng-src="assets/img/{{popup.content.url}}">
+		<div class="popCell" ng-click="popSwitch({'pageType':'none'})">
+			<img ng-src="{{popup.content.url}}" ng-style="{'max-width': popup.content.maxWidth}" >
 		</div>
 	</div>
-	<!-- background -->
-	<div class="backgroundModal" ng-click="popSwitch({'pageType':'none'})"></div>
 </div>

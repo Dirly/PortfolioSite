@@ -5,7 +5,7 @@
 			width:100%;
 			height:100%;
 			background-size:cover;
-			background-image:url('/assets/img/iPrep_Background.jpg');
+			background-image:url('/assets/img/iPrep/iPrep_Background.jpg');
 			opacity:0.5;
 			background-repeat: no-repeat;
 			font-size: 55px;
@@ -15,7 +15,7 @@
 		}
 
 		#iPrep_logo{
-			background-image:url('/assets/img/iPrep_Logo.png');
+			background-image:url('/assets/img/iPrep/iPrep_Logo.png');
 			background-repeat: no-repeat;
 			background-size: contain;
 			height:183px;
@@ -28,7 +28,7 @@
 		}
 
 	 	#iPrep_iPad{
-			background-image:url('/assets/img/iPrep_iPad.png');
+			background-image:url('/assets/img/iPrep/iPrep_iPad.png');
 			background-repeat: no-repeat;
 			background-size: contain;
 			background-position: 100% center;
@@ -41,7 +41,7 @@
 		}
 
 		#iPrep_burst{
-			background-image:url('/assets/img/iPrep_StarBurst.png');
+			background-image:url('/assets/img/iPrep/iPrep_StarBurst.png');
 			background-repeat: no-repeat;
 			position:absolute;
 			width: 1655px;
@@ -121,7 +121,7 @@
 					<p>{{case.blurp}}</p>
 				</div>
 				<div class="screenshotThumbs">
-					<img ng-repeat="screenshot in case.screenshots" ng-src="assets/img/{{screenshot.art}}" ng-click="popSwitch({'pageType' : 'image', 'url' : screenshot.art})"></img>
+					<img ng-repeat="screenshot in case.screenshots" ng-src="{{screenshot.thumb}}" ng-click="popSwitch({'pageType' : 'image', 'url' : screenshot.art, 'maxWidth' : '1050px'})"></img>
 				</div>
 			</div>
 		</div>

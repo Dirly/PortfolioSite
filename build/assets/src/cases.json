@@ -14,12 +14,14 @@
 		"blurp": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta nisi non nibh porta sagittis. Nulla facilisis quam pulvinar tellus gravida, ac accumsan odio sollicitudin. ",
 		"screenshots": [
 			{
-				"name": "name",
-				"art": "iPrep_Screenshot_01.jpg"
+				"name": "Login",
+				"art": "assets/img/iPrep/iPrep_Screenshot_01.jpg",
+				"thumb": "assets/img/iPrep/iPrep_Thumbnail_01.jpg"
 			},
 			{
-				"name": "name",
-				"art": "iPrep_Screenshot_01"
+				"name": "Menu",
+				"art": "assets/img/iPrep/iPrep_Screenshot_02.jpg",
+				"thumb": "assets/img/iPrep/iPrep_Thumbnail_02.jpg"
 			}
 		],
 		"awards": [
@@ -54,12 +56,14 @@
 		"blurp": "this is where I put text to describe what I accomplished",
 		"screenshots": [
 			{
-				"name": "name",
-				"art": "url"
+				"name": "Login",
+				"art": "assets/img/FC_Screenshot_01.jpg",
+				"thumb": "assets/img/FC_Thumbnail_01.jpg"
 			},
 			{
-				"name": "name",
-				"art": "url"
+				"name": "Menu",
+				"art": "assets/img/FC_Screenshot_02.jpg",
+				"thumb": "assets/img/FC_Thumbnail_02.jpg"
 			}
 		],
 		"awards": [
@@ -86,12 +90,14 @@
 		"blurp": "this is where I put text to describe what I accomplished",
 		"screenshots": [
 			{
-				"name": "name",
-				"art": "url"
+				"name": "Login",
+				"art": "assets/img/AA_Screenshot_01.jpg",
+				"thumb": "assets/img/AA_Thumbnail_01.jpg"
 			},
 			{
-				"name": "name",
-				"art": "url"
+				"name": "Login",
+				"art": "assets/img/AA_Screenshot_02.jpg",
+				"thumb": "assets/img/AA_Thumbnail_02.jpg"
 			}
 		],
 		"awards": [
@@ -119,12 +125,14 @@
 		"blurp": "this is where I put text to describe what I accomplished",
 		"screenshots": [
 			{
-				"name": "name",
-				"art": "url"
+				"name": "Login",
+				"art": "assets/img/SZR_Screenshot_01.jpg",
+				"thumb": "assets/img/SZR_Thumbnail_01.jpg"
 			},
 			{
-				"name": "name",
-				"art": "url"
+				"name": "Login",
+				"art": "assets/img/SZR_Screenshot_02.jpg",
+				"thumb": "assets/img/SZR_Thumbnail_02.jpg"
 			}
 		],
 		"awards": [

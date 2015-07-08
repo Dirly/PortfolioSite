@@ -12,14 +12,52 @@
 	<!-- content -->
 	<div id="aboutChartContainer" class="topContent">
 		<div id="chartBlock">
-			<svg viewBox="0 0 550 550" xmlns="http://www.w3.org/2000/svg" version="1.1"  width="100%" height="100%"  xmlns:xlink="http://www.w3.org/1999/xlink">
-				<circle ng-repeat="marker in about.graph.cordMarkers" stroke="#4C4C4C" stroke-width="1" ng-attr-cx="{{marker.x}}" ng-attr-cy="{{marker.y}}" r="2" fill="#d8d8d8" />
-				<polygon ng-attr-id="skill_{{skill.name}}" ng-repeat="skill in about.skills" class="hex" ng-attr-points="{{aquireCords('inactive', skill.points)}}" ng-style="{'fill':skill.color, 'stroke':skill.color}"  style="stroke-width:1;fill-opacity:0.4">
-					<animate attributeType="XML" ng-attr-id="skillAnimate_{{skill.name}}_active"  fill="freeze" attributeName="points" dur="200ms" ng-attr-from="{{aquireCords('inactive', skill.points)}}" ng-attr-to="{{aquireCords('active', skill.points)}}" />
-					<animate attributeType="XML" ng-attr-id="skillAnimate_{{skill.name}}_inactive"  fill="freeze" attributeName="points" dur="200ms" ng-attr-from="{{aquireCords('active', skill.points)}}" ng-attr-to="{{aquireCords('inactive', skill.points)}}" />
+			<svg viewBox="0 0 550 550" xmlns="http://www.w3.org/2000/svg" version="1.1"  width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+				<circle 
+					ng-repeat="marker in about.graph.cordMarkers" 
+					stroke="#4C4C4C" 
+					stroke-width="1" 
+					ng-attr-cx="{{marker.x}}" 
+					ng-attr-cy="{{marker.y}}" 
+					r="2" 
+					fill="#d8d8d8" 
+				/>
+				<polygon 
+					ng-attr-id="skill_{{skill.name}}" 
+					ng-repeat="skill in about.skills" class="hex" 
+					ng-attr-points="{{aquireCords('inactive', skill.points)}}" 
+					ng-style="{'fill':skill.color, 'stroke':skill.color}"  
+					style="stroke-width:1;fill-opacity:0.4">
+					<animate 
+						attributeType="XML" 
+						ng-attr-id="skillAnimate_{{skill.name}}_active"  
+						fill="freeze" 
+						attributeName="points" 
+						dur="200ms" 
+						ng-attr-from="{{aquireCords('inactive', skill.points)}}" 
+						ng-attr-to="{{aquireCords('active', skill.points)}}"
+						begin="indefinite"
+						end="indefinite" 
+					/>
+					<animate 
+						attributeType="XML" 
+						ng-attr-id="skillAnimate_{{skill.name}}_inactive"  
+						fill="freeze" 
+						attributeName="points" 
+						dur="200ms" 
+						ng-attr-from="{{aquireCords('active', skill.points)}}" 
+						ng-attr-to="{{aquireCords('inactive', skill.points)}}"
+						begin="indefinite"
+						end="indefinite"  
+					/>
 				</polygon>
 				<circle cx="275" cy="275" r="83" fill="#d8d8d8" />
-				<circle ng-attr-cx="{{about.graph.lableMarkers[0].x + 45}}" ng-attr-cy="{{about.graph.lableMarkers[0].y + 3}}" r="22" fill="#4C4C4C"/>
+				<circle 
+					ng-attr-cx="{{about.graph.lableMarkers[0].x + 45}}" 
+					ng-attr-cy="{{about.graph.lableMarkers[0].y + 3}}" 
+					r="22" 
+					fill="#4C4C4C"
+				/>
 				<text 
 					ng-attr-x="{{about.graph.lableMarkers[0].x + 26}}" 
 					ng-attr-y="{{about.graph.lableMarkers[0].y + 8}}" 
