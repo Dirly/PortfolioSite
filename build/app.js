@@ -101,10 +101,12 @@
 			templateUrl: 'views/about.html',
 			controller: ['Navigation', 'PolyGraph', '$scope', '$timeout', function(Navigation, PolyGraph, $scope, $timeout){
 
+
 				var about = this;
 					about.page = 2;
 					about.name = "SKILLS";
 					
+				
 				//turning on prev and next
 				$timeout(function () {
 					about.navigation = Navigation.pageInit(about.page);
@@ -136,6 +138,7 @@
 					about.skills = PolyGraph.returnData();
 					about.graph = PolyGraph.setGraph(about.skills, 40, 275, 40,"2008","present");
 
+
 					//BUILDING BUCKETS
 					function activeFocus (){
 						var currentBucket,
@@ -146,8 +149,9 @@
 
 						for (var i = 0; i < about.skills.length; i++) {
 							points = PolyGraph.aquireCords(about.skills[i].points);
+							points = points.split(",");
 							blank = PolyGraph.aquireCords('blank');
-							console.log(points);
+							blank = blank.split(",");
 							if(about.skills[i].bucket !== currentBucket){
 								skillPush = [];
 								currentBucket = about.skills[i].bucket;
@@ -187,31 +191,25 @@
 
 					//ANIMATES GRAPH
 					$scope.activateFocuses = function(bucket, index, forced){
-						var target,
-							s = Snap('#chartBlock');
+						var s = Snap('#chartBlockSVG'),
 							target = s.select("#skill_" + about.activeFocus[bucket][index].name);
 
 						if(about.activeFocus[bucket][index].status === "active"){
 							if(forced){
-								// target.animate({'points' : about.activeFocus[bucket][index][forced]},100);
+								target.animate({points : about.activeFocus[bucket][index][forced]},200);
 								about.activeFocus[bucket][index].status = forced;
 							} else {
-								target.animate({"points": about.activeFocus[bucket][index].inactive},1000);
-								// target = document.getElementById("skillAnimate_" + about.activeFocus[bucket][index].name + "_inactive");
+								target.animate({points: about.activeFocus[bucket][index].inactive},200);
 								about.activeFocus[bucket][index].status = "inactive";
 							}
-							// target.beginElement();
 						} else if(about.activeFocus[bucket][index].status === "inactive"){
 							if(forced){
-								// target.animate({'points' : about.activeFocus[bucket][index][forced]},100);
-								// target = document.getElementById("skillAnimate_" + about.activeFocus[bucket][index].name + "_" + forced);
+								target.animate({points : about.activeFocus[bucket][index][forced]},100);
 								about.activeFocus[bucket][index].status = forced;
 							} else {
-								target.animate({'points' : about.activeFocus[bucket][index].active},1000);
-								// target = document.getElementById("skillAnimate_" +about.activeFocus[bucket][index].name + "_active");
+								target.animate({points : about.activeFocus[bucket][index].active},200);
 								about.activeFocus[bucket][index].status = "active";
 							}
-							// target.beginElement();
 						}
 
 					};
