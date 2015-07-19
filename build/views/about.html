@@ -39,8 +39,8 @@
 				/>
 				<path 
 					ng-repeat="career in about.careers" 
-					ng-attr-d="{{aquireCords('inactive', skill.points)}}"
-					ng-style="{'fill':skill.color}"   	
+					ng-attr-d="	{{career.pathCords}}"
+					ng-style="{'fill':career.color}">
 				</path>
 				<circle cx="275" cy="275" r="50" fill="#d8d8d8" />
 				<text 
