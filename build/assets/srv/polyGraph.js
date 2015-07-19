@@ -1,9 +1,4 @@
 //PolyGraph SLIDER SERVICE 
-/*
-http://stackoverflow.com/questions/7198144/how-to-draw-a-n-sided-regular-polygon-in-cartesian-coordinates
-x[n] = r * cos(2*pi*n/N)
-y[n] = r * sin(2*pi*n/N)
-*/
 
 (function(){
 	var app = angular.module('PolyGraph',[]);

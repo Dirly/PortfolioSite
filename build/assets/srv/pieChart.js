@@ -8,9 +8,6 @@ https://jbkflex.wordpress.com/2011/07/28/creating-a-svg-pie-chart-html5/
 
 	app.service('PieChart', ['$http' ,function($http) {
 		var contentData,
-			totalPoints,
-			maxValue,
-			cords,
 			valuePoints;
 
 		return {
@@ -23,79 +20,42 @@ https://jbkflex.wordpress.com/2011/07/28/creating-a-svg-pie-chart-html5/
 					console.log("error with data loading:", error);
 				});
 			},
-			returnData: function(){
-				return contentData;
-			},
-			setGraph: function(data, spacing, center, rotation, lables, lablespacing){
-				var currentCord,
-					cordPointValues,
-					x,
-					y,
-					maxY = 0,
-					maxX = 0,
-					lableMarkers = [],
-					cordMarkers = [];
+			setGraph: function(start, diameter){
+				var startAngle = 0,
+					endAngle = 0,
+					total = 0,
+					x1,
+					x2,
+					y1,
+					y2,
+					slicesAngle = [],
 					cords = [];
-
-				//Gathers maxX and maxY
-				for (var dataBucket = 0; dataBucket < data.length; dataBucket++){
-					maxX = data[dataBucket].points.length;
-					for (var dataPoint = 0; dataPoint < data[dataBucket].points.length; dataPoint++) {
-						if(data[dataBucket].points[dataPoint] > maxY){
-							maxY = data[dataBucket].points[dataPoint];
-						}
-					}
+					
+				for (var i = 0; i < contentData.length; i++) {
+					total += contentData[i].amount;
 				}
 
-				for (var i = 0; i <= maxY; i++) {
-					cordPointValues = [];
-					for (var j = 1; j <= maxX; j++) {
-						if(i === 0){
-								x = Math.round(spacing*(2) * Math.cos(2*Math.PI*j/maxX + rotation)+center);
-								y = Math.round(spacing*(2) * Math.sin(2*Math.PI*j/maxX + rotation)+center);
-							currentCord = x + "," + y;
-							cordPointValues.push(currentCord);
-						} else {
-								x = Math.round(spacing*((i/2)+2) * Math.cos(2*Math.PI*j/maxX + rotation)+center);
-								y = Math.round(spacing*((i/2)+2) * Math.sin(2*Math.PI*j/maxX + rotation)+center);
-							currentCord = x + "," + y;
-							cordPointValues.push(currentCord);
-							cordMarkers.push({"x": x, "y" : y});
-						}
-						if(i === maxY && j === maxX){
-							x = Math.round(spacing*((i/2)+4) * Math.cos(2*Math.PI*j/maxX + rotation)+center);
-							y = Math.round(spacing*((i/2)+4) * Math.sin(2*Math.PI*j/maxX + rotation)+center);
-							lableMarkers.push({"text": endLable, "x": x, "y" : y});
-						}
-						if(i === maxY && j === 1){
-							x = Math.round(spacing*((i/2)+4) * Math.cos(2*Math.PI*j/maxX + rotation)+center);
-							y = Math.round(spacing*((i/2)+4) * Math.sin(2*Math.PI*j/maxX + rotation)+center);
-							lableMarkers.push({"text": startLable, "x": x, "y" : y});
-						}
-
-					}
-					cords.push(cordPointValues);
+				for (var j = 0; j < contentData.length; j++) {
+					var angle = Math.ceil(360 * contentData[j].amount/total);
+					slicesAngle.push(angle);
 				}
-				return {
-						"cordMarkers" : cordMarkers, 
-						"lableMarkers" : lableMarkers
-				};
-			},
+				
+				for(var k=0; k <slicesAngle.length; k++){
+					startAngle = endAngle;
+					endAngle = startAngle + slicesAngle[k];
 
-			aquireCords: function(points){
-				var collectedPoints = "";
-				if(points !== "blank"){
-					for (var i = 0; i < points.length; i++) {
-						collectedPoints = collectedPoints +" "+ cords[points[i]][i];
-					}
-				} else {
-					for (var j = 0; j < cords[0].length; j++) {
-						collectedPoints = collectedPoints +" "+ cords[0][j];
-					}
+					x1 = parseInt(200 + 180*Math.cos(Math.PI*startAngle/180));
+					y1 = parseInt(200 + 180*Math.sin(Math.PI*startAngle/180));
+
+					x2 = parseInt(200 + 180*Math.cos(Math.PI*endAngle/180));
+					y2 = parseInt(200 + 180*Math.sin(Math.PI*endAngle/180));                
+
+					var d = "M200,200  L" + x1 + "," + y1 + "  A180,180 0 0,1 " + x2 + "," + y2 + " z";
+					contentData[k].pathCords = d;
+					contentData[k].lableCords = d;
 				}
-				return collectedPoints;
+				return contentData;
 			}
-
 		};
 	}]);
 })();

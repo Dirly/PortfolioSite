@@ -24,7 +24,8 @@
 				/>
 				<polygon 
 					ng-attr-id="skill_{{skill.name}}" 
-					ng-repeat="skill in about.skills" class="hex" 
+					ng-repeat="skill in about.skills" 
+					class="hex" 
 					ng-attr-points="{{aquireCords('inactive', skill.points)}}" 
 					ng-style="{'fill':skill.color, 'stroke':skill.color}"  
 					style="stroke-width:1;fill-opacity:0.4">
@@ -36,6 +37,12 @@
 					r="22" 
 					fill="#4C4C4C"
 				/>
+				<path 
+					ng-repeat="career in about.careers" 
+					ng-attr-d="{{aquireCords('inactive', skill.points)}}"
+					ng-style="{'fill':skill.color}"   	
+				</path>
+				<circle cx="275" cy="275" r="50" fill="#d8d8d8" />
 				<text 
 					ng-attr-x="{{about.graph.lableMarkers[0].x + 26}}" 
 					ng-attr-y="{{about.graph.lableMarkers[0].y + 8}}" 
@@ -44,7 +51,6 @@
 					font-size="14" >
 						{{about.graph.lableMarkers[0].text}}
 				</text>
-
 				<text 
 					ng-attr-x="{{about.graph.lableMarkers[1].x - 5}}" 
 					ng-attr-y="{{about.graph.lableMarkers[1].y + 2}}" 

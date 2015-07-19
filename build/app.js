@@ -1,7 +1,7 @@
 
 
 (function(){
-	var app = angular.module('port', ['Navigation', 'PolyGraph', 'Carousel']);
+	var app = angular.module('port', ['Navigation', 'PolyGraph', 'PieChart', 'Carousel']);
 
 //POPUP
 	app.directive('popup', function(){
@@ -99,7 +99,7 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/about.html',
-			controller: ['Navigation', 'PolyGraph', '$scope', '$timeout', function(Navigation, PolyGraph, $scope, $timeout){
+			controller: ['Navigation', 'PolyGraph', 'PieChart', '$scope', '$timeout', function(Navigation, PolyGraph, PieChart, $scope, $timeout){
 
 
 				var about = this;
@@ -244,9 +244,14 @@
 				});
 
 
-				//TODO: WIRE UP PieGraph
+				//WIRE UP PieChart
+				PieChart.getData("assets/src/career.json",function(){
+					about.career = PieChart.setGraph();
 
-				//---------------------------------------------
+					console.log(about.career);
+
+				});
+
 
 			}],
 			controllerAs:'about'
