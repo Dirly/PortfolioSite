@@ -246,7 +246,7 @@
 
 				//WIRE UP PieChart
 				PieChart.getData("assets/src/career.json",function(){
-					about.careers = PieChart.setGraph();
+					about.careers = PieChart.setGraph(180, 75, 275);
 				});
 
 
