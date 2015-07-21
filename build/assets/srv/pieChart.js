@@ -27,6 +27,10 @@ https://jbkflex.wordpress.com/2011/07/28/creating-a-svg-pie-chart-html5/
 					x2,
 					y1,
 					y2,
+					x3,
+					x4,
+					y3,
+					y4,
 					slicesAngle = [],
 					cords = [],
 					endAngle = start || 0;
@@ -50,9 +54,17 @@ https://jbkflex.wordpress.com/2011/07/28/creating-a-svg-pie-chart-html5/
 					x2 = parseInt(center + radius*Math.cos(Math.PI*endAngle/180));
 					y2 = parseInt(center + radius*Math.sin(Math.PI*endAngle/180));
 
+					x3 = parseInt(center + (radius-5)*Math.cos(Math.PI*startAngle/180));
+					y3 = parseInt(center + (radius-5)*Math.sin(Math.PI*startAngle/180));
+
+					x4 = parseInt(center + (radius-5)*Math.cos(Math.PI*endAngle/180));
+					y4 = parseInt(center + (radius-5)*Math.sin(Math.PI*endAngle/180));
+
+
 					var d = "M" + center + ","+ center +" L" + x1 + "," + y1 + "  A" + radius + "," + radius + " 0 0,1 " + x2 + "," + y2 + " z";
+					var d2 = "M" + x3 + "," + y3 + "  A" + (radius-5) + "," + (radius-5) + " 0 0,1 " + x4 + "," + y4;
 					contentData[k].pathCords = d;
-					contentData[k].lableCords = d;
+					contentData[k].lableCords = d2;
 				}
 				return contentData;
 			}

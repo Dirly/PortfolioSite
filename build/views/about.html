@@ -43,8 +43,20 @@
 					ng-style="{'fill':career.color}"
 					stroke-width="2"
 					stroke="#d8d8d8">
-
 				</path>
+				<defs>
+					<path 
+						ng-repeat="career in about.careers"
+						ng-attr-id="{{career.name.slice(1,career.name.length)}}" 
+						ng-attr-d="	{{career.lableCords}}"
+						fill="none">
+					</path>
+				</defs>
+				<text ng-repeat="career in about.careers">
+					<textpath ng-attr-xlink:href="{{career.name}}">
+						{{career.name}}
+					</textpath>
+				</text>
 				<circle cx="275" cy="275" r="60" fill="#d8d8d8" />
 				<text 
 					ng-attr-x="{{about.graph.lableMarkers[0].x + 26}}" 
