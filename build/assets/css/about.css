@@ -55,6 +55,7 @@
 	position: relative;
 	z-index: 3;
 	height:270px;
+	width:479px;
 }
 
 #aboutContainer #aboutContentBlock{
