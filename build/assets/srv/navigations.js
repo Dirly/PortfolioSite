@@ -17,6 +17,7 @@
 			lockLocation,
 			modal,
 			currentPop,
+			scrollPercent,
 			toWhere;
 
 		//DEFAULT SET
@@ -33,9 +34,11 @@
 
 		//WINDOW RESIZE
 		$(window).resize(function(){
+			scrollPercent = whereAreWe/mainHeight;
 			currentHeight = $(window).height();
-			mainHeight = $(document).height();
 			$rootScope.$broadcast('height:updated', currentHeight);
+			mainHeight = $(document).height();
+			$(window).scrollTop(Math.round(scrollPercent*mainHeight));
 		});
 
 		//WINDOW SCROLL CURRENT ACTIVE PAGE DETECT
@@ -68,7 +71,6 @@
 			}
 		});
 
-
 		return {
 			pageInit: function(pageNumber) {
 				if(pageNumber === pages){
@@ -81,7 +83,6 @@
 						prev : false,
 						next : true
 					});
-					
 				} else {
 					return ({
 						prev : true,
@@ -113,5 +114,4 @@
 			}
 		};
 	}]);
-
 })();
