@@ -3,7 +3,8 @@
 	<!-- content -->
 	<div class="popContent">
 		<div class="popCell" ng-click="popSwitch({'pageType':'none'})">
-			<img ng-src="{{popup.content.url}}" ng-style="{'max-width': popup.content.maxWidth}" >
+			<img id="popContentImage" ng-src="{{popup.content.url}}" ng-style="{'max-width': popup.content.maxWidth}" sb-load="loadedPop('loaded')" ng-show="popup.loaded">
+			<div class="preloaderAnimation" ng-show="!popup.loaded"></div>
 		</div>
 	</div>
 </div>

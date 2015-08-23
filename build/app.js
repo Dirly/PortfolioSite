@@ -15,25 +15,17 @@
 				$scope.$on('popup:content', function(event,data){
 					if(data){
 						popup.content = data;
+						popup.loaded = false;
 					}
 				});
-				
+
+				$scope.loadedPop = function(event) {
+					popup.loaded = true;
+				};
 			}],
 			controllerAs:'popup'
 		};
 	});
-
-//MENU
-	/*app.directive('menu', function(){
-		return {
-			restrict: 'E',
-			templateUrl: 'views/menu.html',
-			controller: function(){
-				console.log("menu");
-			},
-			controllerAs:'menu'
-		};
-	});*/
 
 //TOPBAR
 	app.directive('topbar', function(){
@@ -48,7 +40,7 @@
 					topbar.location = data;
 					$scope.$apply();
 				});
-				
+
 			}],
 			controllerAs:'topbar'
 		};
@@ -317,7 +309,6 @@
 		};
 	});
 
-
 //CONTACT
 	/*app.directive('contact', function(){
 		return {
@@ -331,6 +322,22 @@
 	});*/
 
 
+//SMALL DIRECTIVES
+
+	app.directive('sbLoad', ['$parse', function ($parse) {
+		return {
+			restrict: 'A',
+			link: function (scope, elem, attrs) {
+				var fn = $parse(attrs.sbLoad);
+				elem.on('load', function (event) {
+					scope.$apply(function() {
+						fn(scope, { $event: event });
+					});
+				});
+			}
+		};
+	}]);
+
 //CUSTOM FILTERS
 	app.filter('bucketCheck', function() {
 		return function(items, bucket) {
@@ -343,7 +350,5 @@
 			return filtered;
 		};
 	});
-
-
 
 })();
