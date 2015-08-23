@@ -6,9 +6,7 @@
 	<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 	<head>
 		<title>a digital portfolio</title>
-
-
-				<!--
+<!--
 		/**
 		 * @license
 		 * MyFonts Webfont Build ID 3048782, 2015-06-25T08:37:00-0400
@@ -40,13 +38,13 @@
 		 * 
 		 * © 2015 MyFonts Inc
 		*/
-
-		-->
+-->
 		<link rel="stylesheet" type="text/css" href="assets/fonts/MyFontsWebfontsKit.css">
 		<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="assets/css/preloader.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/topbar.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/popup.css">
@@ -54,11 +52,12 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/about.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/portfolio.css">
 	</head>
-	<style type="text/css">
-		
-	</style>
+
 	<body>
-		<div id="preloader"></div>
+		<div id="preloader">
+			<div class="preloaderAnimation"></div>
+			<div id="preloadText">click anywhere to start</div>
+		</div>
 		<div id="mainContainer">
 			<popup></popup>
 			<topbar></topbar>
@@ -67,6 +66,7 @@
 			<portfolio></portfolio>
 			<contact></contact>
 		</div>
+		<div ></div>
 	</body>
 	<script type="text/javascript" src="assets/libs/snap/snap.svg.min.js"></script>
 	<script type="text/javascript" src="assets/libs/jquery/jquery.min.js"></script>

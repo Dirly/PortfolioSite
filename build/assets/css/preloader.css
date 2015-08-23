@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+#preloader{
+	background-color: black;
+	height:100%;
+	width:100%;
+	position:fixed;
+	color:white;
+}
+#preloader .preloaderAnimation{
+	-webkit-transition: all .5s;
+	transition: all .5s;
+	height:64px;
+	width:60px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:-32px;
+	position:relative;
+	top:50%;
+	opacity:1;
+	background-image: url("../img/preLoader.gif");
+}
+
+
+
+#preloader.loaded .preloaderAnimation{
+	top:40%;
+	opacity:0;
+}
+
+#preloader #preloadText{
+	-webkit-transition: all .5s;
+	transition: all .5s;
+	padding:10px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:-10px;
+	position:relative;
+	top:60%;
+	text-align: center;
+	opacity:0;
+	border-radius: 10px;
+	border:white solid 1px;
+	font-size: 20px;
+	display:table;
+}
+
+#preloader.loaded #preloadText{
+	top:50%;
+	opacity:1;
+	cursor: pointer;
+}
+
+#preloader.loaded #preloadText:hover{
+	background: rgba(255,255,255,0.25);
+	font-size: 22px;
+	padding:12px;
+}

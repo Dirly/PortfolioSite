@@ -33,6 +33,10 @@ h1{
 	color:#4C4C4C;
 }
 
+#mainContainer{
+	display:none;
+}
+
 /*GLOBAL Z-INDEXING*/
 #popupContainer{
 	z-index: 5;

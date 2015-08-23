@@ -7,7 +7,6 @@ $.preloadImages = function(options,callback){
 	}
 	callback();
 };
-
 $.preloadImages([
 	"preLoader.gif",
 	"aboutTop.png",
@@ -32,6 +31,10 @@ $.preloadImages([
 	"iPrep/iPrep_StarBurst.png"
 ],function(){
 	console.log("loaded");
+
+	$("#preloader").addClass("loaded")
+
+	// $("#mainContainer").show();
 });
 
 
@@ -343,19 +346,6 @@ $.preloadImages([
 			controllerAs:'portfolio'
 		};
 	});
-
-//CONTACT
-	/*app.directive('contact', function(){
-		return {
-			restrict: 'E',
-			templateUrl: 'views/contact.html',
-			controller: function(){
-
-			},
-			controllerAs:'contact'
-		};
-	});*/
-
 
 //SMALL DIRECTIVES
 
