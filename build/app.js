@@ -1,3 +1,38 @@
+//CREATE PRELOADER HERE
+var imgPath = "assets/img/";
+
+$.preloadImages = function(options,callback){
+	for (var i = 0; i < options.length; i++) {
+		$("<img />").attr("src", imgPath + options[i]);
+	}
+	callback();
+};
+
+$.preloadImages([
+	"preLoader.gif",
+	"aboutTop.png",
+	"bubble.png",
+	"icon_HTML5.png",
+	"icon_Illustrator.png",
+	"icon_Photoshop.png",
+	"icon_Sketchup.png",
+	"icons.png",
+	"inkSplash.png",
+	"AmazingApp/AA_Background.jpg",
+	"FlightCheck/FC_Background.jpg",
+	"FlightCheck/FC_iPad.png",
+	"FlightCheck/FC_Logo.png",
+	"FlightCheck/FC_Planets.png",
+	"FlightCheck/FC_Right.png",
+	"iPrep/iPrep_Background.jpg",
+	"iPrep/iPrep_Logo.png",
+	"iPrep/iPrep_iPad.png",
+	"iPrep/iPrep_Thumbnail_01.jpg",
+	"iPrep/iPrep_Thumbnail_02.jpg",
+	"iPrep/iPrep_StarBurst.png"
+],function(){
+	console.log("loaded");
+});
 
 
 (function(){
