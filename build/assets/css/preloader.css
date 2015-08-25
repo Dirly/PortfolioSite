@@ -6,7 +6,13 @@
 	width:100%;
 	position:fixed;
 	color:white;
+	z-index: 200;
 }
+
+#preloader #videoPreloading{
+	visibility:hidden;
+}
+
 #preloader .preloaderAnimation{
 	-webkit-transition: all .5s;
 	transition: all .5s;
@@ -21,8 +27,6 @@
 	background-image: url("../img/preLoader.gif");
 }
 
-
-
 #preloader.loaded .preloaderAnimation{
 	top:40%;
 	opacity:0;
@@ -34,9 +38,9 @@
 	padding:10px;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:-10px;
 	position:relative;
 	top:60%;
+	margin-top: -22px;
 	text-align: center;
 	opacity:0;
 	border-radius: 10px;
@@ -51,8 +55,21 @@
 	cursor: pointer;
 }
 
+#preloader #preloadText:after{
+	content:"click to enter";
+}
+
 #preloader.loaded #preloadText:hover{
 	background: rgba(255,255,255,0.25);
 	font-size: 22px;
 	padding:12px;
+}
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+	#preloader #preloadText:after{
+		content:"tap to enter";
+	}
+
 }

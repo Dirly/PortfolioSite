@@ -1,40 +1,51 @@
 //CREATE PRELOADER HERE
-var imgPath = "assets/img/";
-
-$.preloadImages = function(options,callback){
-	for (var i = 0; i < options.length; i++) {
-		$("<img />").attr("src", imgPath + options[i]);
+$.preloadImages = function(images,videos,callback){
+	var videoStatus;
+	
+	for (var i = 0; i < images.length; i++) {
+		$("<img />").attr("src", images[i]);
+	}
+	for (var j = 0; j < videos.length; j++) {
+		$("#videoPreloader").html(
+		'<video id="videoPreloading" width="640" height="264" muted preload="auto">' +
+			'<source src="' + videos[j] + '"></source>' +
+		'</video>');
+		video = document.querySelector('#videoPreloading');
+		videoStatus = setInterval(video.readyState,1000);
 	}
 	callback();
 };
+
 $.preloadImages([
-	"preLoader.gif",
-	"aboutTop.png",
-	"bubble.png",
-	"icon_HTML5.png",
-	"icon_Illustrator.png",
-	"icon_Photoshop.png",
-	"icon_Sketchup.png",
-	"icons.png",
-	"inkSplash.png",
-	"AmazingApp/AA_Background.jpg",
-	"FlightCheck/FC_Background.jpg",
-	"FlightCheck/FC_iPad.png",
-	"FlightCheck/FC_Logo.png",
-	"FlightCheck/FC_Planets.png",
-	"FlightCheck/FC_Right.png",
-	"iPrep/iPrep_Background.jpg",
-	"iPrep/iPrep_Logo.png",
-	"iPrep/iPrep_iPad.png",
-	"iPrep/iPrep_Thumbnail_01.jpg",
-	"iPrep/iPrep_Thumbnail_02.jpg",
-	"iPrep/iPrep_StarBurst.png"
+	"assets/img/preLoader.gif",
+	"assets/img/aboutTop.png",
+	"assets/img/bubble.png",
+	"assets/img/icon_HTML5.png",
+	"assets/img/icon_Illustrator.png",
+	"assets/img/icon_Photoshop.png",
+	"assets/img/icon_Sketchup.png",
+	"assets/img/icons.png",
+	"assets/img/inkSplash.png",
+	"assets/img/AmazingApp/AA_Background.jpg",
+	"assets/img/FlightCheck/FC_Background.jpg",
+	"assets/img/FlightCheck/FC_iPad.png",
+	"assets/img/FlightCheck/FC_Logo.png",
+	"assets/img/FlightCheck/FC_Planets.png",
+	"assets/img/FlightCheck/FC_Right.png",
+	"assets/img/iPrep/iPrep_Background.jpg",
+	"assets/img/iPrep/iPrep_Logo.png",
+	"assets/img/iPrep/iPrep_iPad.png",
+	"assets/img/iPrep/iPrep_Thumbnail_01.jpg",
+	"assets/img/iPrep/iPrep_Thumbnail_02.jpg",
+	"assets/img/iPrep/iPrep_StarBurst.png"
+],[
+	"assets/vid/Compiled.mp4"
 ],function(){
-	console.log("loaded");
-
-	$("#preloader").addClass("loaded")
-
-	// $("#mainContainer").show();
+	$("#preloader").addClass("loaded");
+	$("#preloadText").click(function(){
+		$("#mainContainer").show();
+		$("#preloader").remove();
+	});
 });
 
 
@@ -348,7 +359,6 @@ $.preloadImages([
 	});
 
 //SMALL DIRECTIVES
-
 	app.directive('sbLoad', ['$parse', function ($parse) {
 		return {
 			restrict: 'A',
