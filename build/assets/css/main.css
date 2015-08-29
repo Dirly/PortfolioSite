@@ -7,6 +7,11 @@ body{
 	font-family: 'Archivo Narrow', sans-serif;
 }
 
+#resizer{
+	height:100%;
+	width:100%;
+}
+
 .fontStyled { 
 	font-family: EuropeUnderground;
 	font-weight: normal;

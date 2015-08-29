@@ -32,6 +32,18 @@
 			pages = mainHeight/currentHeight;
 		});
 
+		$("#resizer").resize(function(){
+			mainHeight = $(document).height();
+			pages = mainHeight/currentHeight;
+			console.log("mainpageREsized");
+		});
+
+ 		/*$("#resizer").bind('resize', function(){
+			mainHeight = $(document).height();
+			pages = mainHeight/currentHeight;
+			console.log("mainpageREsized");
+		});*/
+
 		//WINDOW RESIZE
 		$(window).resize(function(){
 			scrollPercent = whereAreWe/mainHeight;
