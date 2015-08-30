@@ -21,22 +21,10 @@
 			toWhere;
 
 		//DEFAULT SET
+		pages = 0;
 		currentHeight = $(window).height();
 		whereAreWe = $(window).scrollTop();
 		lockLocation = $(window).scrollTop();
-
-		//GET DOC HEIGHT
-		//delay needs to exist for dom to load...  
-		$timeout(function () {
-			mainHeight = $(document).height();
-			pages = mainHeight/currentHeight;
-		});
-
-		$("#resizer").resize(function(){
-			mainHeight = $(document).height();
-			pages = mainHeight/currentHeight;
-			console.log("mainpageREsized");
-		});
 
 		//WINDOW RESIZE
 		$(window).resize(function(){
@@ -78,6 +66,9 @@
 		});
 
 		return {
+			pageCount: function(){
+				pages++;
+			},
 			pageInit: function(pageNumber) {
 				if(pageNumber === pages){
 					return ({

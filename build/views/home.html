@@ -1,9 +1,13 @@
 <!-- home -->
 <div ng-style="{'height': newheight + 'px'}" id="homeContainer" class="pageContainer">
 	<!-- navigation -->
-	<div class="navContainer bottom">
+	<div class="navContainer top">
+		<div ng-show="home.navigation.prev === true" class="prevBtn navBtn inactive" ng-click="pageNavigation(home.page,1)"></div>
+	</div>
+	<div ng-show="home.navigation.next === true" class="navContainer bottom">
 		<div class="nextBtn navBtn inactive" ng-click="pageNavigation(home.page,-1)"></div>
 	</div>
+
 
 	<!-- content -->
 	<div id="txtCont_010_home">	
