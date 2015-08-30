@@ -1,22 +1,33 @@
 //CREATE PRELOADER HERE
-$.preloadImages = function(images,videos,callback){
-	var videoStatus;
-	
+$.preloader = function(images,videos,callback){
 	for (var i = 0; i < images.length; i++) {
 		$("<img />").attr("src", images[i]);
 	}
-	for (var j = 0; j < videos.length; j++) {
-		$("#videoPreloader").html(
-		'<video id="videoPreloading" width="640" height="264" muted preload="auto">' +
-			'<source src="' + videos[j] + '"></source>' +
-		'</video>');
-		video = document.querySelector('#videoPreloading');
-		videoStatus = setInterval(video.readyState,1000);
+
+	function videoLoader(count){
+		var videostate;
+		if(videos.length !== count){
+			$("#videoPreloader").html('<video id="videoPreloading" width="0" height="264" muted preload="auto">'+'<source src="'+videos[count]+'"></source>'+'</video>');
+			var video = document.querySelector('#videoPreloading');
+			var videoStatus = setInterval(function (){
+				console.log("checkingStatus");
+				var currentState = video.readyState;
+				switch(currentState){
+					case 4:
+						clearInterval(videoStatus);
+						videoLoader(count + 1);
+						console.log("videoLoaded");
+					break;
+				}
+			},1000);
+		} else {
+			callback();
+		}
 	}
-	callback();
+	videoLoader(0);
 };
 
-$.preloadImages([
+$.preloader([
 	"assets/img/preLoader.gif",
 	"assets/img/aboutTop.png",
 	"assets/img/bubble.png",
@@ -51,7 +62,6 @@ $.preloadImages([
 
 (function(){
 	var app = angular.module('port', ['Navigation', 'PolyGraph', 'PieChart', 'Carousel']);
-
 //POPUP
 	app.directive('popup', function(){
 		return {
