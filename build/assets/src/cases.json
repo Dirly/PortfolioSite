@@ -53,17 +53,17 @@
 				"icon": "icon_Sketchup.png"
 			}
 		],
-		"blurp": "this is where I put text to describe what I accomplished",
+		"blurp": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta nisi non nibh porta sagittis. Nulla facilisis quam pulvinar tellus gravida, ac accumsan odio sollicitudin. ",
 		"screenshots": [
 			{
 				"name": "Login",
-				"art": "assets/img/FC_Screenshot_01.jpg",
-				"thumb": "assets/img/FC_Thumbnail_01.jpg"
+				"art": "assets/img/FlightCheck/FC_Screenshot_01.jpg",
+				"thumb": "assets/img/FlightCheck/FC_Thumbnail_01.jpg"
 			},
 			{
 				"name": "Menu",
-				"art": "assets/img/FC_Screenshot_02.jpg",
-				"thumb": "assets/img/FC_Thumbnail_02.jpg"
+				"art": "assets/img/FlightCheck/FC_Screenshot_02.jpg",
+				"thumb": "assets/img/FlightCheck/FC_Thumbnail_02.jpg"
 			}
 		],
 		"awards": [

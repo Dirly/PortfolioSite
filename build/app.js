@@ -31,7 +31,7 @@
 			templateUrl: 'views/topbar.html',
 			controller: ['Navigation', '$scope', function(Navigation, $scope){
 				var topbar = this;
-
+					topbar.location = "HOME";
 				//Watch page change
 				$scope.$on('page:name', function(event,data){
 					topbar.location = data;
@@ -64,6 +64,9 @@
 				$scope.$on('page:count', function(event,data){
 					if(data === home.page){
 						Navigation.announcePage(home.name);
+						homse.status = active;
+					} else {
+						home.status = inactive;
 					}
 				});
 
@@ -106,6 +109,9 @@
 				$scope.$on('page:count', function(event,data){
 					if(data === about.page){
 						Navigation.announcePage(about.name);	
+						about.status = active;
+					} else {
+						about.status = inactive;
 					}
 				});
 
@@ -266,6 +272,9 @@
 				$scope.$on('page:count', function(event,data){
 					if(data === portfolio.page){
 						Navigation.announcePage(portfolio.name);
+						portfolio.status = active;
+					} else {
+						portfolio.status = inactive;
 					}
 				});
 

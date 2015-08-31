@@ -26,6 +26,8 @@
 		whereAreWe = $(window).scrollTop();
 		lockLocation = $(window).scrollTop();
 
+
+
 		//WINDOW RESIZE
 		$(window).resize(function(){
 			scrollPercent = whereAreWe/mainHeight;
@@ -40,8 +42,11 @@
 			if(page !== currentPage){
 				currentPage = page;
 				$rootScope.$broadcast('page:count', page);
+			} else if (!page){
+				$rootScope.$broadcast('page:count', 1);
 			}
 		}
+		pageBroadcast();
 
 		$(window).scroll(function(target){
 			whereAreWe = $(window).scrollTop();
@@ -64,6 +69,7 @@
 				}
 			}
 		});
+
 
 		return {
 			pageCount: function(){

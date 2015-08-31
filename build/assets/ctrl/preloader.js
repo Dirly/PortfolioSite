@@ -27,7 +27,6 @@ preloader = function(images,videos,callback){
 
 preloader([
 	"assets/img/preLoader.gif",
-	"assets/img/aboutTop.png",
 	"assets/img/bubble.png",
 	"assets/img/icon_HTML5.png",
 	"assets/img/icon_Illustrator.png",

@@ -16,15 +16,6 @@
 	height:100%;
 }
 
-
-#topAbout{
-	position:relative;
-	background-image: url("../img/aboutTop.png");
-	width:1950px;
-	height:105px;
-	background-color: #fbfbfb;
-}
-
 #bottomAbout{
 	position:relative;
 	background: #fbfbfb;
