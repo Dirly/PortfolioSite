@@ -22,6 +22,21 @@
 					ng-style="{'fill':skill.color, 'stroke':skill.color}"  
 					style="stroke-width:1;fill-opacity:0.4">
 				</polygon>
+				<path 
+					stroke="#4C4C4C" 
+					stroke-width="1" 
+					ng-attr-d="{{about.lineMarkerB}}" >
+				</path>
+				<path 
+					stroke="#4C4C4C" 
+					stroke-width="1" 
+					ng-attr-d="{{about.lineMarkerA}}" >
+				</path>
+				<path 
+					stroke="#4C4C4C" 
+					stroke-width="1" 
+					ng-attr-d="{{about.lineMarkerC}}" >
+				</path>
 				<circle cx="275" cy="275" r="83" fill="#d8d8d8" />
 				<circle 
 					ng-attr-cx="{{about.graph.lableMarkers[0].x + 45}}" 
@@ -56,11 +71,30 @@
 					</textPath>
 				</text>
 				<circle cx="275" cy="275" r="68" fill="#d8d8d8" />
+				<circle id = "yAxisMarker" cx="275" cy="275" r="220" fill="none" />
+				<path 
+					ng-repeat="curve in about.curves"
+					ng-attr-id="{{curve.name}}"
+					ng-attr-d="{{curve.lableCords}}"
+					fill="none"
+					stroke-width="2"
+					>
+				</path>
+				<text 
+					font-size="18.5"
+					font-weight="light" 
+					fill="#4C4C4C"
+					>
+					<textPath xlink:href="#theCurve">
+						How often I used a particular skill in a year
+					</textPath>
+				</text>
 				<text 
 					ng-attr-x="{{about.graph.lableMarkers[0].x + 26}}" 
 					ng-attr-y="{{about.graph.lableMarkers[0].y + 8}}" 
 					fill="#d8d8d8"
 					font-family="Verdana"
+					text-rendering = "geometricPrecision"
 					font-size="14" >
 						{{about.graph.lableMarkers[0].text}}
 				</text>
@@ -81,6 +115,7 @@
 					font-size="27" >
 						{{about.currentActivebucket}}
 				</text>
+				
 				<circle 
 					ng-repeat="marker in about.graph.cordMarkers" 
 					stroke="#4C4C4C" 
@@ -90,6 +125,7 @@
 					r="2" 
 					fill="#d8d8d8" 
 				/>
+				
 			</svg>
 		</div>
 	</div>

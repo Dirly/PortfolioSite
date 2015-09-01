@@ -134,6 +134,9 @@
 					about.skills = PolyGraph.returnData();
 					about.graph = PolyGraph.setGraph(about.skills, 40, 275, 40,"2008","present");
 
+					about.lineMarkerA = "M275 275 L" + about.graph.cordMarkers[2 + (about.skills[0].points.length * 4)].x + " " + about.graph.cordMarkers[2 + (about.skills[0].points.length * 4)].y;
+					about.lineMarkerB = "M275 275 L" + about.graph.cordMarkers[5 + (about.skills[0].points.length * 4)].x + " " + about.graph.cordMarkers[5 + (about.skills[0].points.length * 4)].y;
+					about.lineMarkerC = "M275 275 L" + about.graph.cordMarkers[3 + (about.skills[0].points.length * 4)].x + " " + about.graph.cordMarkers[3 + (about.skills[0].points.length * 4)].y;
 
 					//BUILDING BUCKETS
 					function activeFocus (){
@@ -184,7 +187,6 @@
 							return PolyGraph.aquireCords("blank");
 						}
 					};
-
 					//ANIMATES GRAPH
 					$scope.activateFocuses = function(bucket, index, forced){
 						var s = Snap('#chartBlockSVG'),
@@ -245,6 +247,10 @@
 					about.careers = PieChart.setGraph(181, 82, 275);
 				});
 
+				//WIRE UP PieChart
+				PieChart.getData("assets/src/curves.json",function(){
+					about.curves = PieChart.setGraph(185, 220, 275);
+				});
 
 			}],
 			controllerAs:'about'
