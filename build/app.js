@@ -309,7 +309,18 @@
 					portfolio.case = Carousel.returnData();
 
 					$scope.carouselFocus = function(index, activeFocus, caseName){
-						return Carousel.declareState(index, activeFocus, caseName);
+						var status = Carousel.declareState(index, activeFocus, caseName);
+						switch(status){
+							case "inactive":
+							console.log("yup");
+								portfolio.case[index].status = true;
+							break;
+							default:
+								portfolio.case[index].status = false;
+							break;
+						}
+						console.log(index);
+						return status;
 					};
 
 					$scope.carouselNavigation = function(activeFocus, toWhere){

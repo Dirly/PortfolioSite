@@ -14,10 +14,108 @@
 			left:0px;
 		}
 
+	 	#AA_iPad{
+			background-image:url('/assets/img/AmazingApp/AA_iPad.png');
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: 100% center;
+			width: 100%;
+			max-width: 812px;
+			height:674px;
+			position:relative;
+			z-index: 2;
+			display:block;
+		}
+
+		#AA_people{
+			background-image:url('/assets/img/AmazingApp/AA_People.png');
+			background-repeat: no-repeat;
+			position:absolute;
+			width:100%;
+			background-size:contain;
+			background-position:bottom;
+			max-width:809px;
+			height:492px;
+			z-index: 3;
+			bottom:-1px;
+		}
+
+		.activeFocus #AA_burst{
+			
+		}
+
+		#AA_containerRight{
+			position:relative;
+			float:left;
+			display:table;
+			z-index: 1;
+		}
+
+		#AA_cellRight{
+			display:table-cell;
+			vertical-align: middle;
+		}
+
+		#AA_containerLeft{
+			position:relative;
+			float:left;
+			display:table;
+			z-index: 2;
+		}
+
+		#AA_cellLeft{
+			display:table-cell;
+			vertical-align: middle;
+		}
+
+
+		#AA_cellContentsLeft{
+			width:84%;
+			height:50%;
+			color:white;
+			font-size: 18px
+		}
+
+		#AA_cellContentsRight{
+			width:93%;
+		}
+
+
+		#AA_cellContentsLeft .screenshotThumbs > img{
+			-webkit-box-shadow: 0px 0px 3px 1px rgba(255,255,255,.25);
+			-moz-box-shadow: 0px 0px 3px 1px rgba(255,255,255,.25);
+			box-shadow: 0px 0px 3px 1px rgba(255,255,255,.25);
+			background-color:#C57617;;
+		}
+
+
 	</style>
 	<div id="AA_background"></div>
-	<div id="AA_burst"></div>
-	<div id="AA_iPad"></div>
-	<div id="AA_logo"></div>
+	<div id="AA_containerLeft" class="bottomContent bufferTop">
+		<div id="AA_cellLeft">
+			<div id="AA_cellContentsLeft"  class="toCenterLeft">
+				<div class="programsUsedContainer">
+					<img ng-repeat="skill in case.skills" ng-src="assets/img/{{skill.icon}}"></img>
+				</div>
+				<div class="caseBlurp">
+					<p>{{case.blurp}}</p>
+				</div>
+				<div class="screenshotThumbs">
+					<img ng-repeat="screenshot in case.screenshots" ng-src="{{screenshot.thumb}}" ng-click="popSwitch({'pageType' : 'image', 'url' : screenshot.art, 'maxWidth' : '1050px'})"></img>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="AA_containerRight" class="topContent">
+		<div id="AA_cellRight">
+			<div id="AA_cellContentsRight"  class="toCenterRight">
+				<div id="AA_people"></div>
+				<div id="AA_iPad">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="caseContentContainer">
+	</div>
 </html>
 

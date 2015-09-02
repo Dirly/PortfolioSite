@@ -11,7 +11,7 @@
 				"icon": "icon_Illustrator.png"
 			}
 		],
-		"blurp": "iPrep was an iPad app that was designed to train reps in the use of Veeva iRep, with a series of videos.  In this project my main roll was acting creative lead after coming up with the winning concept. It has won several industry awards.",
+		"blurp": "iPrep was an iPad app that was designed to train reps in the use of Veeva iRep, utilizing a series of videos.  In this project my main roll was acting creative lead after coming up with the winning concept. It has won several industry awards.",
 		"screenshots": [
 			{
 				"name": "Login",
@@ -87,17 +87,17 @@
 				"icon": "icon_HTML5.png"
 			}
 		],
-		"blurp": "this is where I put text to describe what I accomplished",
+		"blurp": "The amAZing App was created to onboard sales reps with iPads, by bringing them on a journey around the world.  My roll in the project was creative lead, and support programmer.",
 		"screenshots": [
 			{
 				"name": "Login",
-				"art": "assets/img/AA_Screenshot_01.jpg",
-				"thumb": "assets/img/AA_Thumbnail_01.jpg"
+				"art": "assets/img/AmazingApp/AA_Screenshot_01.jpg",
+				"thumb": "assets/img/AmazingApp/AA_Thumbnail_01.jpg"
 			},
 			{
 				"name": "Login",
-				"art": "assets/img/AA_Screenshot_02.jpg",
-				"thumb": "assets/img/AA_Thumbnail_02.jpg"
+				"art": "assets/img/AmazingApp/AA_Screenshot_02.jpg",
+				"thumb": "assets/img/AmazingApp/AA_Thumbnail_02.jpg"
 			}
 		],
 		"awards": [
