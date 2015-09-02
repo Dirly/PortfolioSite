@@ -137,6 +137,9 @@
 #portContainer  .caseBlurp{
 	margin-bottom: 20px;
 	margin-top: 5px;
+	max-width: 610px;
+	font-size: 21px;
+	line-height: 22px;
 }
 
 #portContainer  .screenshotThumbs > img{
