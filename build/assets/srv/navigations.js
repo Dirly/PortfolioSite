@@ -49,6 +49,7 @@
 		pageBroadcast();
 
 		$(window).scroll(function(target){
+			mainHeight = $(document).height();
 			whereAreWe = $(window).scrollTop();
 			if (scrollLock === true){
 				$(window).scrollTop(lockLocation);

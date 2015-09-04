@@ -6,9 +6,13 @@ preloader = function(images,videos,callback){
 
 	function videoLoader(count){
 		var videostate;
-		if(videos.length !== count){
+			userAgent = window.navigator.userAgent;
+			console.log(userAgent);
+		if(videos.length !== count && userAgent.indexOf("safari") !== -1){	
 			$("#videoPreloader").html('<video id="videoPreloading" width="0" height="264" muted preload="auto">'+'<source src="'+videos[count]+'"></source>'+'</video>');
+
 			var video = document.querySelector('#videoPreloading');
+
 			var videoStatus = setInterval(function (){
 				var currentState = video.readyState;
 				switch(currentState){
@@ -35,11 +39,18 @@ preloader([
 	"assets/img/icons.png",
 	"assets/img/inkSplash.png",
 	"assets/img/AmazingApp/AA_Background.jpg",
+	"assets/img/AmazingApp/AA_iPad.png",
+	"assets/img/AmazingApp/AA_Logo.png",
+	"assets/img/AmazingApp/AA_People.png",
+	"assets/img/AmazingApp/AA_Thumbnail_01.jpg",
+	"assets/img/AmazingApp/AA_Thumbnail_02.jpg",
 	"assets/img/FlightCheck/FC_Background.jpg",
 	"assets/img/FlightCheck/FC_iPad.png",
 	"assets/img/FlightCheck/FC_Logo.png",
 	"assets/img/FlightCheck/FC_Planets.png",
 	"assets/img/FlightCheck/FC_Right.png",
+	"assets/img/FlightCheck/FC_Thumbnail_01.jpg",
+	"assets/img/FlightCheck/FC_Thumbnail_02.jpg",
 	"assets/img/iPrep/iPrep_Background.jpg",
 	"assets/img/iPrep/iPrep_Logo.png",
 	"assets/img/iPrep/iPrep_iPad.png",
@@ -52,6 +63,8 @@ preloader([
 	$("#preloader").addClass("loaded");
 	$("#preloadText").click(function(){
 		$("#mainContainer").show();
+		var video = document.getElementById("homeVideo");
+		video.play();
 		$("#preloader").remove();
 	});
 });
