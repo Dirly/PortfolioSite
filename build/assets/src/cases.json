@@ -116,13 +116,9 @@
 			{
 				"name": "Ps",
 				"icon": "icon_Photoshop.png"
-			},
-			{
-				"name": "html5",
-				"icon": "icon_HTML5.png"
 			}
 		],
-		"blurp": "this is where I put text to describe what I accomplished",
+		"blurp": "FlightCheck is a true/false game that was created for a client, who requested a 'space invaders' feel.  My roll in this project was acting creative lead, and programmer. I made it my goal to learn 2 skills during the production of FlightCheck; AngularJS and Sketchup",
 		"screenshots": [
 			{
 				"name": "Login",

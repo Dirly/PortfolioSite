@@ -27,7 +27,7 @@
 			position:absolute;
 		}
 
-	 	#iPrep_iPad{
+		#iPrep_iPad{
 			background-image:url('/assets/img/iPrep/iPrep_iPad.png');
 			background-repeat: no-repeat;
 			background-size: contain;
@@ -46,6 +46,8 @@
 			position:absolute;
 			width: 1655px;
 			height: 1655px;
+			-webkit-transition: all .5s;
+			transition: all .5s;
 			left:50%;
 			top:50%;
 			margin:-827px 0 0 -827px;
@@ -54,10 +56,23 @@
 
 		.activeFocus #iPrep_burst{
 			-webkit-animation:spin 120s 1s linear infinite;
-		    -moz-animation:spin 120s 1s linear infinite;
-		    animation:spin 120s 1s linear infinite;
+			-moz-animation:spin 120s 1s linear infinite;
+			animation:spin 120s 1s linear infinite;
 		}
 
+		.leftFocus #iPrep_burst{
+			opacity:0;
+			-webkit-animation:spin 120s 1s linear;
+			-moz-animation:spin 120s 1s linear;
+			animation:spin 120s 1s linear;
+		}
+
+		.rightFocus #iPrep_burst{
+			opacity:0;
+			-webkit-animation:spin 120s 1s linear;
+			-moz-animation:spin 120s 1s linear;
+			animation:spin 120s 1s linear;
+		}
 		
 		@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 		@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
