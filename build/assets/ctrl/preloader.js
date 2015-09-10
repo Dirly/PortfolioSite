@@ -51,12 +51,11 @@ preloader([
 	"assets/img/FlightCheck/FC_Right.png",
 	"assets/img/FlightCheck/FC_Thumbnail_01.jpg",
 	"assets/img/FlightCheck/FC_Thumbnail_02.jpg",
-	"assets/img/iPrep/iPrep_Background.jpg",
 	"assets/img/iPrep/iPrep_Logo.png",
 	"assets/img/iPrep/iPrep_iPad.png",
 	"assets/img/iPrep/iPrep_Thumbnail_01.jpg",
 	"assets/img/iPrep/iPrep_Thumbnail_02.jpg",
-	"assets/img/iPrep/iPrep_StarBurst.png"
+	"assets/img/iPrep/iPrep_StarBurst.jpg"
 ],[
 	"assets/vid/Compiled.mp4"
 ],function(){
