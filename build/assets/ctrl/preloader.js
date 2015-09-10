@@ -55,15 +55,20 @@ preloader([
 	"assets/img/iPrep/iPrep_iPad.png",
 	"assets/img/iPrep/iPrep_Thumbnail_01.jpg",
 	"assets/img/iPrep/iPrep_Thumbnail_02.jpg",
-	"assets/img/iPrep/iPrep_StarBurst.jpg"
+	"assets/img/iPrep/iPrep_StarBurst.jpg",
+	"assets/img/SZF/SZF_Background.jpg",
+	"assets/img/SZF/SZF_Building.png",
+	"assets/img/SZF/SZF_Device.png",
+	"assets/img/SZF/SZF_Mountains.png"
 ],[
 	"assets/vid/Compiled.mp4"
 ],function(){
 	$("#preloader").addClass("loaded");
 	$("#preloadText").click(function(){
 		$("#mainContainer").show();
+		
+		$("#preloader").remove();
 		var video = document.getElementById("homeVideo");
 		video.play();
-		$("#preloader").remove();
 	});
 });

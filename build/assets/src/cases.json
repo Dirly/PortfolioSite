@@ -118,18 +118,8 @@
 				"icon": "icon_Photoshop.png"
 			}
 		],
-		"blurp": "FlightCheck is a true/false game that was created for a client, who requested a 'space invaders' feel.  My roll in this project was acting creative lead, and programmer. I made it my goal to learn 2 skills during the production of FlightCheck; AngularJS and Sketchup",
+		"blurp": "Super Zombie Fortress is a labor of love, and at some point this year it will be available on android/apple devices soon.  It has been my introduction to game design and it has been a wild ride.",
 		"screenshots": [
-			{
-				"name": "Login",
-				"art": "assets/img/SZR_Screenshot_01.jpg",
-				"thumb": "assets/img/SZR_Thumbnail_01.jpg"
-			},
-			{
-				"name": "Login",
-				"art": "assets/img/SZR_Screenshot_02.jpg",
-				"thumb": "assets/img/SZR_Thumbnail_02.jpg"
-			}
 		],
 		"awards": [
 		],
