@@ -1,6 +1,15 @@
 (function(){
 	var app = angular.module('port', ['Navigation', 'PolyGraph', 'PieChart', 'Carousel']);
-//POPUP
+	
+	//Defaults
+	app.run(function(Navigation){
+		Navigation.initialStates({
+			scroller: "#mainContainerScroller",
+			pages: 3,
+		});
+	});
+
+	//POPUP
 	app.directive('popup', function(){
 		return {
 			restrict: 'E',
@@ -24,7 +33,7 @@
 		};
 	});
 
-//TOPBAR
+	//TOPBAR
 	app.directive('topbar', function(){
 		return {
 			restrict: 'E',
@@ -43,7 +52,7 @@
 		};
 	});
 
-//HOME
+	//HOME
 	app.directive('home', function(){
 		return {
 			restrict: 'E',
@@ -53,7 +62,6 @@
 				var home = this;
 					home.page = 1;
 					home.name = "HOME";
-					Navigation.pageCount();
 
 				//turning on prev and next
 				$timeout(function () {
@@ -64,9 +72,9 @@
 				$scope.$on('page:count', function(event,data){
 					if(data === home.page){
 						Navigation.announcePage(home.name);
-						homse.status = active;
+						home.status = "active";
 					} else {
-						home.status = inactive;
+						home.status = "inactive";
 					}
 				});
 
@@ -86,7 +94,7 @@
 		};
 	});
 
-//ABOUT
+	//ABOUT
 	app.directive('about', function(){
 		return {
 			restrict: 'E',
@@ -97,7 +105,6 @@
 				var about = this;
 					about.page = 2;
 					about.name = "SKILLS";
-					Navigation.pageCount();
 
 				
 				//turning on prev and next
@@ -109,9 +116,9 @@
 				$scope.$on('page:count', function(event,data){
 					if(data === about.page){
 						Navigation.announcePage(about.name);	
-						about.status = active;
+						about.status = "active";
 					} else {
-						about.status = inactive;
+						about.status = "inactive";
 					}
 				});
 
@@ -257,7 +264,7 @@
 		};
 	});
 
-//PORTFOLIO
+	//PORTFOLIO
 	app.directive('portfolio', function(){
 		return {
 			restrict: 'E',
@@ -267,7 +274,6 @@
 				var portfolio = this;
 					portfolio.page = 3;
 					portfolio.name = "PORTFOLIO";
-					Navigation.pageCount();
 					
 				//turning on prev and next
 				$timeout(function () {
@@ -278,9 +284,9 @@
 				$scope.$on('page:count', function(event,data){
 					if(data === portfolio.page){
 						Navigation.announcePage(portfolio.name);
-						portfolio.status = active;
+						portfolio.status = "active";
 					} else {
-						portfolio.status = inactive;
+						portfolio.status = "inactive";
 					}
 				});
 
@@ -332,7 +338,7 @@
 		};
 	});
 
-//SMALL DIRECTIVES
+	//SMALL DIRECTIVES
 	app.directive('sbLoad', ['$parse', function ($parse) {
 		return {
 			restrict: 'A',
@@ -347,7 +353,7 @@
 		};
 	}]);
 
-//CUSTOM FILTERS
+	//CUSTOM FILTERS
 	app.filter('bucketCheck', function() {
 		return function(items, bucket) {
 			var filtered = [];

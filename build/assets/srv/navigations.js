@@ -18,26 +18,10 @@
 			modal,
 			currentPop,
 			scrollPercent,
+			targetedScroller,
 			toWhere;
 
-		//DEFAULT SET
-		pages = 0;
-		currentHeight = $(window).height();
-		whereAreWe = $(window).scrollTop();
-		lockLocation = $(window).scrollTop();
-
-
-
-		//WINDOW RESIZE
-		$(window).resize(function(){
-			scrollPercent = whereAreWe/mainHeight;
-			currentHeight = $(window).height();
-			$rootScope.$broadcast('height:updated', currentHeight);
-			mainHeight = $(document).height();
-			$(window).scrollTop(Math.round(scrollPercent*mainHeight));
-		});
-
-		//WINDOW SCROLL CURRENT ACTIVE PAGE DETECT
+		//targetedScroller SCROLL CURRENT ACTIVE PAGE DETECT
 		function pageBroadcast(page){
 			if(page !== currentPage){
 				currentPage = page;
@@ -48,33 +32,38 @@
 		}
 		pageBroadcast();
 
-		$(window).scroll(function(target){
-			mainHeight = $(document).height();
-			whereAreWe = $(window).scrollTop();
-			if (scrollLock === true){
-				$(window).scrollTop(lockLocation);
-			}
-			for (var i = 1; i <= pages; i++) {
-				if(i === 1){
-					if (whereAreWe < currentHeight){
-						pageBroadcast(i);
-					}
-				} else if (i === pages){
-					if ( whereAreWe === currentHeight*(i-1)){
-						pageBroadcast(i);
-					}
-				} else {
-					if ( whereAreWe > (currentHeight*(i-1)-1) && whereAreWe < (currentHeight*i)-1){
-						pageBroadcast(i);
-					}
-				}
-			}
-		});
-
-
 		return {
-			pageCount: function(){
-				pages++;
+			initialStates: function(settings) {
+				pages = settings.pages || 0;
+				targetedScroller = settings.scroller || document;
+				
+				currentHeight = $(targetedScroller).height();
+				whereAreWe = $(targetedScroller).scrollTop();
+				lockLocation = $(targetedScroller).scrollTop();
+
+				$(targetedScroller).scroll(function(target){
+					mainHeight = currentHeight*pages;
+					whereAreWe = $(targetedScroller).scrollTop();
+
+					if (scrollLock === true){
+						$(targetedScroller).scrollTop(lockLocation);
+					}
+					for (var i = 1; i <= pages; i++) {
+						if(i === 1){
+							if (whereAreWe < currentHeight){
+								pageBroadcast(i);
+							}
+						} else if (i === pages){
+							if ( whereAreWe === currentHeight*(i-1)){
+								pageBroadcast(i);
+							}
+						} else {
+							if ( whereAreWe > (currentHeight*(i-1)-1) && whereAreWe < (currentHeight*i)-1){
+								pageBroadcast(i);
+							}
+						}
+					}
+				});
 			},
 			pageInit: function(pageNumber) {
 				if(pageNumber === pages){
@@ -95,22 +84,22 @@
 				}
 			},
 			changePage: function(fromWhere,toWhere) {
-				currentHeight = $(window).height();
+				currentHeight = $(targetedScroller).height();
 				fromWhere = (fromWhere - 1)*currentHeight;
 				toWhere = (currentHeight * toWhere)*-1;
-				$("html, body").animate({scrollTop: fromWhere + toWhere}, 500);
+				$(targetedScroller).animate({scrollTop: fromWhere + toWhere}, 500);
 			},
 			announcePage: function(pageName) {
 				$rootScope.$broadcast('page:name', pageName);
 			},
 			scrollLocked: function(status) {
 				scrollLock = status;
-				$(window).scrollTop();
+				$(targetedScroller).scrollTop();
 			},
 			popSwitch: function(content) {
 				$rootScope.$broadcast('popup:content', content);
 				if(content.pageType !== 'none'){
-					lockLocation = $(window).scrollTop();
+					lockLocation = $(targetedScroller).scrollTop();
 					scrollLock = true;
 				} else {
 					scrollLock = false;
