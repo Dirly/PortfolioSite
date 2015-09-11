@@ -32,6 +32,8 @@
 		}
 		pageBroadcast();
 
+		
+
 		return {
 			initialStates: function(settings) {
 				pages = settings.pages || 0;
@@ -64,6 +66,15 @@
 						}
 					}
 				});
+
+				$(window).resize(function(){
+					scrollPercent = whereAreWe/mainHeight;
+					currentHeight = $(targetedScroller).height();
+					$rootScope.$broadcast('height:updated', currentHeight);
+					mainHeight = currentHeight*pages;
+					$(targetedScroller).scrollTop(Math.round(scrollPercent*mainHeight));
+				});
+				
 			},
 			pageInit: function(pageNumber) {
 				if(pageNumber === pages){
