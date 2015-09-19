@@ -1,6 +1,6 @@
 (function(){
 	var app = angular.module('port', ['Navigation', 'PolyGraph', 'PieChart', 'Carousel']);
-	
+
 	//Defaults
 	app.run(function(Navigation){
 		Navigation.initialStates({
@@ -349,6 +349,17 @@
 						fn(scope, { $event: event });
 					});
 				});
+			}
+		};
+	}]);
+
+	app.directive('bounce', [function () {
+		return {
+			restrict: 'A',
+			link: function (scope, elem, attrs) {
+				setInterval(function(){
+					elem.toggleClass("on");
+				},500);
 			}
 		};
 	}]);

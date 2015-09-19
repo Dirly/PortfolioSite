@@ -13,35 +13,25 @@
 	z-index: 3;
 }
 
-#homeContainer #txtCont_010_home{
-	position: absolute;
-	bottom: 500px;
-	width: 100%;
-	max-width: 280px;
-	left: 0%;
-	z-index: 3;
-}
-
 #homeContainer #txtGrp_010_home{
 	z-index: 3;
 	font-size: 1.8em;
-	max-width: 230px;
+	max-width: 191px;
 	position:relative;
 	background-color: black;
-	float:right;
 	padding:10px 10px 13px;
 }
 
-#homeContainer #txtCont_020_home{
+#homeContainer #txtCont_010_home{
 	position: absolute;
-	bottom: 135px;
+	bottom: 169px;
 	width: 100%;
 	max-width: 710px;
 	right: 0%;
 	z-index: 3;
 }
 
-#txtCont_020_home #txtGrp_020_home{
+#txtCont_010_home #txtGrp_020_home{
 	margin-left: 10px;
 	margin-right: 10px;
 }

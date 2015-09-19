@@ -3,10 +3,10 @@
 
 	<!-- navigation -->
 	<div class="navContainer top">
-		<div ng-show="about.navigation.prev === true" class="prevBtnDark navBtn inactive" ng-click="pageNavigation(about.page,1)"></div>
+		<div bounce ng-show="about.navigation.prev === true" class="prevBtnDark navBtn navTopBtn inactive" ng-click="pageNavigation(about.page,1)"></div>
 	</div>
 	<div class="navContainer bottom">
-		<div ng-show="about.navigation.next === true" class="nextBtnDark navBtn inactive" ng-click="pageNavigation(about.page,-1)"></div>
+		<div bounce ng-show="about.navigation.next === true" class="nextBtnDark navBtn navBottomBtn inactive" ng-click="pageNavigation(about.page,-1)"></div>
 	</div>
 
 	<!-- content -->

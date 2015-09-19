@@ -2,10 +2,10 @@
 <div ng-style="{'height': newheight + 'px'}" id="portContainer" class="pageContainer">
 	<!-- navigation -->
 	<div class="navContainer top">
-		<div ng-show="portfolio.navigation.prev === true" class="prevBtn navBtn inactive" ng-click="pageNavigation(portfolio.page,1)"></div>
+		<div bounce ng-show="portfolio.navigation.prev === true" class="prevBtn navTopBtn navBtn inactive" ng-click="pageNavigation(portfolio.page,1)"></div>
 	</div>
 	<div class="navContainer bottom">
-		<div ng-show="portfolio.navigation.next === true" class="nextBtn navBtn inactive" ng-click="pageNavigation(portfolio.page,-1)"></div>
+		<div bounce ng-show="portfolio.navigation.next === true" class="nextBtn navBottomBtn navBtn inactive" ng-click="pageNavigation(portfolio.page,-1)"></div>
 	</div>
 
 	<!-- sub navigation -->
