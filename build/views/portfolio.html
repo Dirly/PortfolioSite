@@ -18,7 +18,7 @@
 	</div>
 
 	<!-- cases -->
-	<div class="case" ng-repeat="case in portfolio.case" ng-class="carouselFocus($index,portfolio.activeFocus)">
+	<div class="case" ng-repeat="case in portfolio.case" ng-class="carouselFocus($index,portfolio.activeFocus)" ng-swipe-up="pageNavigation(portfolio.page,-1)" ng-swipe-down="pageNavigation(portfolio.page,1)" ng-swipe-left="carouselNavigation(portfolio.activeFocus,-1)" ng-swipe-right="carouselNavigation(portfolio.activeFocus,1)">
 		<div class="caseHTMLContainer" ng-include="case.status ? null : case.content"></div>
 		<div class="caseBackground" ng-style="{background: case.background}"></div>
 	</div>

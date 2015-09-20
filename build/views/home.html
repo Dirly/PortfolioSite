@@ -19,12 +19,12 @@
 		</div>
 		<div id = "growUpContainer">
 			<div id="growUpImg"></div>
-		</div>
+		</div>                                                      
 	</div>
 
 	<!-- background -->
-	<div id="bubbleScreen"></div>
-	<div id="backgroundHome">
+	<div id="bubbleScreen" ng-swipe-up="pageNavigation(home.page,-1)" ng-swipe-down="pageNavigation(home.page,1)"></div>
+	<div id="backgroundHome" >
 		<video id="homeVideo" muted loop preload="auto">
 			<source src="../assets/vid/Compiled.mp4" type="video/mp4" >
 		</video>
