@@ -82,15 +82,15 @@
 
 #backgroundHome video {
 	position: absolute;
-	top: 50%;
-	left: 50%;
+	/*top: 50%;
+	left: 50%;*/
 	min-height: 100%; 
  	min-width: 100%; 
  	height: auto !important;
  	width: auto !important; 
-	transform: translate(-50%, -50%);
-	 -webkit-transform: scale(2); 
-  -moz-transform: scale(2);        
+	/*transform: translate(-50%, -50%);
+	-webkit-transform: scale(2); 
+ 	 -moz-transform: scale(2);     */   
 }
 
 

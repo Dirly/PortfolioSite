@@ -1,5 +1,5 @@
 (function(){
-	var app = angular.module('port', ['Navigation', 'PolyGraph', 'PieChart', 'Carousel']);
+	var app = angular.module('port', ['Navigation', 'swipe', 'PolyGraph', 'PieChart', 'Carousel']);
 
 	//Defaults
 	app.run(function(Navigation){
@@ -57,7 +57,7 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/home.html',
-			controller: ['Navigation', '$scope', '$timeout', function(Navigation, $scope, $timeout){
+			controller: ['Navigation', '$scope', 'swipe', '$timeout', function(Navigation, $scope, swipe, $timeout){
 
 				var home = this;
 					home.page = 1;
@@ -84,7 +84,8 @@
 					$scope.newheight = data;
 					$scope.$apply();
 				});
-
+				
+				
 				//Wire Page Navigation
 				$scope.pageNavigation = function(fromWhere, toWhere) {
 					Navigation.changePage(fromWhere, toWhere);
@@ -99,7 +100,7 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/about.html',
-			controller: ['Navigation', 'PolyGraph', 'PieChart', '$scope', '$timeout', function(Navigation, PolyGraph, PieChart, $scope, $timeout){
+			controller: ['Navigation', 'swipe', 'PolyGraph', 'PieChart', '$scope', '$timeout', function(Navigation, swipe, PolyGraph, PieChart, $scope, $timeout){
 
 
 				var about = this;
@@ -269,7 +270,7 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/portfolio.html',
-			controller: ['Navigation', 'Carousel', '$scope', '$timeout', function(Navigation, Carousel, $scope, $timeout){
+			controller: ['Navigation', 'Carousel', 'swipe', '$scope', '$timeout', function(Navigation, Carousel, swipe, $scope, $timeout){
 
 				var portfolio = this;
 					portfolio.page = 3;
