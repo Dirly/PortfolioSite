@@ -1,5 +1,5 @@
 <!-- home -->
-<div ng-style="{'height': newheight + 'px'}" id="homeContainer" class="pageContainer">
+<div ng-style="{'height': newheight + 'px'}" id="homeContainer" class="pageContainer" ng-swipe-up="pageNavigation(home.page,-1)" ng-swipe-down="pageNavigation(home.page,1)">
 	<!-- navigation -->
 	<div class="navContainer top">
 		<div ng-show="home.navigation.prev === true" class="prevBtn navBtn inactive" ng-click="pageNavigation(home.page,1)"></div>
@@ -7,8 +7,7 @@
 	<div ng-show="home.navigation.next === true" class="navContainer bottom">
 		<div bounce class="nextBtn navBottomBtn navBtn inactive" ng-click="pageNavigation(home.page,-1)"></div>
 	</div>
-
-	<div id="txtCont_010_home">
+	<div id="txtCont_010_home" class="noClick">
 		<div id="txtGrp_010_home">
 				<p id="txt_010_home">hello my name is:</p>
 			</div>
@@ -23,7 +22,7 @@
 	</div>
 
 	<!-- background -->
-	<div id="bubbleScreen" ng-swipe-up="pageNavigation(home.page,-1)" ng-swipe-down="pageNavigation(home.page,1)"></div>
+	<div id="bubbleScreen" ng-swipe-up="pageNavigation(home.page,-1)" ng-swipe-down="pageNavigation(home.page,1)></div>
 	<div id="backgroundHome" >
 		<video id="homeVideo" muted loop preload="auto">
 			<source src="../assets/vid/Compiled.mp4" type="video/mp4" >

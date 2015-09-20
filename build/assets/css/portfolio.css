@@ -162,4 +162,6 @@
 	padding:5px;
 }
 
-
+.screenshotThumbs{
+	position:relative;
+}

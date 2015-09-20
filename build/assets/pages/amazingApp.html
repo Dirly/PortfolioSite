@@ -90,23 +90,24 @@
 
 
 	</style>
-	<div id="AA_background"></div>
+	<div id="AA_background" class="noClick"></div>
 	<div id="AA_containerLeft" class="bottomContent bufferTop">
 		<div id="AA_cellLeft">
 			<div id="AA_cellContentsLeft"  class="toCenterLeft">
-				<div class="programsUsedContainer">
+				<div class="programsUsedContainer noClick">
 					<img ng-repeat="skill in case.skills" ng-src="assets/img/{{skill.icon}}"></img>
 				</div>
-				<div class="caseBlurp">
+				<div class="caseBlurp noClick">
 					<p>{{case.blurp}}</p>
 				</div>
+				<div class= "swipeController" ng-swipe-up="pageNavigation(portfolio.page,-1)" ng-swipe-down="pageNavigation(portfolio.page,1)" ng-swipe-left="carouselNavigation(portfolio.activeFocus,-1)" ng-swipe-right="carouselNavigation(portfolio.activeFocus,1)"></div>
 				<div class="screenshotThumbs">
 					<img ng-repeat="screenshot in case.screenshots" ng-src="{{screenshot.thumb}}" ng-click="popSwitch({'pageType' : 'image', 'url' : screenshot.art, 'maxWidth' : '1050px'})"></img>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div id="AA_containerRight" class="topContent">
+	<div id="AA_containerRight" class="topContent noClick">
 		<div id="AA_cellRight">
 			<div id="AA_cellContentsRight"  class="toCenterRight">
 				<div id="AA_people"></div>

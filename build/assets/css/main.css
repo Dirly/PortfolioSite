@@ -7,6 +7,18 @@ body{
 	font-family: 'Archivo Narrow', sans-serif;
 }
 
+.swipeController{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+.noClick{
+	pointer-events: none;
+}
+
 #resizer{
 	height:100%;
 	width:100%;
@@ -206,6 +218,8 @@ h1{
 	.nudgeUp{
 		margin-top: 0px;
 	}
+
+	
 
 
 @media (max-width: 980px) {
