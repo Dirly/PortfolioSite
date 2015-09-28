@@ -3,9 +3,84 @@
 
 	//Defaults
 	app.run(function(Navigation){
+		//CREATE PRELOADER HERE
+			preloader = function(images,videos,callback){
+				for (var i = 0; i < images.length; i++) {
+					$("<img />").attr("src", images[i]);
+				}
+
+				function videoLoader(count){
+					var videostate;
+						userAgent = window.navigator.userAgent;
+						console.log(userAgent);
+					if(videos.length !== count && userAgent.indexOf("safari") !== -1){	
+						$("#videoPreloader").html('<video id="videoPreloading" width="0" height="264" muted preload="auto">'+'<source src="'+videos[count]+'"></source>'+'</video>');
+
+						var video = document.querySelector('#videoPreloading');
+
+						var videoStatus = setInterval(function (){
+							var currentState = video.readyState;
+							switch(currentState){
+								case 4:
+									clearInterval(videoStatus);
+									videoLoader(count + 1);
+								break;
+							}
+						},1000);
+					} else {
+						callback();
+					}
+				}
+				videoLoader(0);
+			};
+			preloader([
+				"assets/img/preLoader.gif",
+				"assets/img/bubble.png",
+				"assets/img/icon_HTML5.png",
+				"assets/img/icon_Illustrator.png",
+				"assets/img/icon_Photoshop.png",
+				"assets/img/icon_Sketchup.png",
+				"assets/img/icons.png",
+				"assets/img/inkSplash.png",
+				"assets/img/AmazingApp/AA_Background.jpg",
+				"assets/img/AmazingApp/AA_iPad.png",
+				"assets/img/AmazingApp/AA_Logo.png",
+				"assets/img/AmazingApp/AA_People.png",
+				"assets/img/AmazingApp/AA_Thumbnail_01.jpg",
+				"assets/img/AmazingApp/AA_Thumbnail_02.jpg",
+				"assets/img/FlightCheck/FC_Background.jpg",
+				"assets/img/FlightCheck/FC_iPad.png",
+				"assets/img/FlightCheck/FC_Logo.png",
+				"assets/img/FlightCheck/FC_Planets.png",
+				"assets/img/FlightCheck/FC_Right.png",
+				"assets/img/FlightCheck/FC_Thumbnail_01.jpg",
+				"assets/img/FlightCheck/FC_Thumbnail_02.jpg",
+				"assets/img/iPrep/iPrep_Logo.png",
+				"assets/img/iPrep/iPrep_iPad.png",
+				"assets/img/iPrep/iPrep_Thumbnail_01.jpg",
+				"assets/img/iPrep/iPrep_Thumbnail_02.jpg",
+				"assets/img/iPrep/iPrep_StarBurst.jpg",
+				"assets/img/SZF/SZF_Background.jpg",
+				"assets/img/SZF/SZF_Building.png",
+				"assets/img/SZF/SZF_Device.png",
+				"assets/img/SZF/SZF_Mountains.png"
+			],[
+				"assets/vid/Compiled.mp4"
+			],function(){
+				$("#preloader").addClass("loaded");
+				$("#preloadText").click(function(){
+					$("#mainContainer").show();
+					Navigation.startNav();
+					$("#preloader").remove();
+					var video = document.getElementById("homeVideo");
+					video.play();
+
+				});
+			});
+
 		Navigation.initialStates({
 			scroller: "#mainContainerScroller",
-			pages: 3,
+			pages: 4,
 		});
 	});
 
@@ -106,6 +181,7 @@
 				var about = this;
 					about.page = 2;
 					about.name = "SKILLS";
+					about.triggered = false;
 
 				
 				//turning on prev and next
@@ -118,6 +194,10 @@
 					if(data === about.page){
 						Navigation.announcePage(about.name);	
 						about.status = "active";
+						if(about.triggered === false){
+							$scope.bucketController('designer');
+							about.triggered = true;
+						}
 					} else {
 						about.status = "inactive";
 					}
@@ -140,7 +220,7 @@
 				//Wired up PolyGraph
 				PolyGraph.getData("assets/src/skills.json",function(){
 					about.skills = PolyGraph.returnData();
-					about.graph = PolyGraph.setGraph(about.skills, 40, 275, 40,"2008","present");
+					about.graph = PolyGraph.setGraph(about.skills, 40, 275, 40.08,"2008","present");
 
 					about.lineMarkerA = "M275 275 L" + about.graph.cordMarkers[2 + (about.skills[0].points.length * 4)].x + " " + about.graph.cordMarkers[2 + (about.skills[0].points.length * 4)].y;
 					about.lineMarkerB = "M275 275 L" + about.graph.cordMarkers[5 + (about.skills[0].points.length * 4)].x + " " + about.graph.cordMarkers[5 + (about.skills[0].points.length * 4)].y;
@@ -255,7 +335,7 @@
 					about.careers = PieChart.setGraph(181, 82, 275);
 				});
 
-				//WIRE UP PieChart
+				//WIRE UP PieChart for label
 				PieChart.getData("assets/src/curves.json",function(){
 					about.curves = PieChart.setGraph(185, 220, 275);
 				});
@@ -336,6 +416,49 @@
 				//---------------------------------------------
 			}],
 			controllerAs:'portfolio'
+		};
+	});
+
+//HOME
+	app.directive('contact', function(){
+		return {
+			restrict: 'E',
+			templateUrl: 'views/contact.html',
+			controller: ['Navigation', '$scope', 'swipe', '$timeout', function(Navigation, $scope, swipe, $timeout){
+
+				var contact = this;
+					contact.page = 4;
+					contact.name = "CONTACT";
+
+				//turning on prev and next
+				$timeout(function () {
+					contact.navigation = Navigation.pageInit(contact.page);
+				});
+
+				//Watch page change
+				$scope.$on('page:count', function(event,data){
+					if(data === contact.page){
+						Navigation.announcePage(contact.name);
+						contact.status = "active";
+					} else {
+						contact.status = "inactive";
+					}
+				});
+
+				//Watch height change
+				$scope.newheight = $(window).height();
+				$scope.$on('height:updated', function(event,data){
+					$scope.newheight = data;
+					$scope.$apply();
+				});
+				
+				
+				//Wire Page Navigation
+				$scope.pageNavigation = function(fromWhere, toWhere) {
+					Navigation.changePage(fromWhere, toWhere);
+				};
+			}],
+			controllerAs:'contact'
 		};
 	});
 

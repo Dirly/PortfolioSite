@@ -74,7 +74,6 @@
 					mainHeight = currentHeight*pages;
 					$(targetedScroller).scrollTop(Math.round(scrollPercent*mainHeight));
 				});
-				
 			},
 			pageInit: function(pageNumber) {
 				if(pageNumber === pages){
@@ -115,6 +114,11 @@
 				} else {
 					scrollLock = false;
 				}
+			},
+			startNav: function(content) {
+				currentHeight = $(targetedScroller).height();
+				$rootScope.$broadcast('height:updated', currentHeight);
+				$(targetedScroller).scrollTop(Math.round(scrollPercent*mainHeight));
 			}
 		};
 	}]);

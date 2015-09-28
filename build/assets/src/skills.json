@@ -1,85 +1,91 @@
 [
 	{
 		"name": "photoshop",
-		"points": [2,2,4,4,5,5,5],
+		"points": [3,2,2,4,4,5,5,5],
 		"color": "#1C60AB",
 		"bucket": "designer"
 	},
 	{
 		"name": "illustrator",
-		"points": [2,3,3,4,3,4,4],
+		"points": [1,2,3,3,4,3,4,4],
 		"color": "#FBC330",
 		"bucket": "designer"
 	},
 	{
 		"name": "indesigner",
-		"points": [2,4,4,2,0,0,1],
+		"points": [0,2,4,4,2,0,0,1],
 		"color": "#DB007B",
 		"bucket": "designer"
 	},
 	{
 		"name": "quark",
-		"points": [3,1,0,0,0,0,0],
+		"points": [3,2,1,0,0,0,0,0],
 		"color": "#7AC142",
 		"bucket": "designer"
 	},
 	{
 		"name": "sketchUp",
-		"points": [0,0,0,0,0,1,1],
+		"points": [0,0,0,0,0,0,1,1],
 		"color": "#DF1223",
 		"bucket": "designer"
 	},
 	{
 		"name": "html",
-		"points": [0,0,2,4,5,4,4],
+		"points": [0,0,0,2,4,5,4,4],
 		"color": "#F6672B",
 		"bucket": "programmer"
 	},
 	{
 		"name": "css",
-		"points": [0,0,2,3,4,5,4],
+		"points": [0,0,0,2,3,4,5,4],
 		"color": "#31AADD",
 		"bucket": "programmer"
 	},
 	{
 		"name": "javascript",
-		"points": [0,0,1,3,4,5,5],
+		"points": [0,0,0,1,3,4,5,5],
 		"color": "#ECBC22",
 		"bucket": "programmer"
 	},
 	{
 		"name": "node",
-		"points": [0,0,0,0,2,2,3],
+		"points": [0,0,0,0,0,2,2,3],
 		"color": "#7FBD42",
 		"bucket": "programmer"
 	},
 	{
+		"name": "mongoDB",
+		"points": [0,0,0,0,0,0,0,1],
+		"color": "#5F923B",
+		"bucket": "programmer"
+	},
+	{
 		"name": "git",
-		"points": [0,0,0,0,0,2,4],
+		"points": [0,0,0,0,0,0,2,4],
 		"color": "#9CDAF0",
 		"bucket": "programmer"
 	},
 	{
 		"name": "angularjs",
-		"points": [0,0,0,0,0,1,4],
+		"points": [0,0,0,0,0,0,1,4],
 		"color": "#DC1A16",
 		"bucket": "programmer"
 	},
 	{
 		"name": "aftereffects",
-		"points": [3,4,1,2,2,2,1],
+		"points": [1,3,4,1,2,2,2,1],
 		"color": "#CA9FFB",
 		"bucket": "animator"
 	},
 	{
 		"name": "flash",
-		"points": [3,3,1,1,0,1,0],
+		"points": [4,3,3,1,1,0,1,0],
 		"color": "#FF0006",
 		"bucket": "animator"
 	},
 	{
 		"name": "premier",
-		"points": [1,2,1,0,1,0,0],
+		"points": [3,1,2,1,0,1,0,0],
 		"color": "#E384FF",
 		"bucket": "animator"
 	}
