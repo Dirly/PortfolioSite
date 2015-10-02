@@ -60,7 +60,7 @@
 #aboutContainer #skillsContainer{
 	position: relative;
 	z-index: 3;
-	height:270px;
+	height:310px;
 	width:479px;
 }
 
@@ -77,29 +77,39 @@
 }
 
 #aboutContainer .bucketContainer .bucketBtn{
-	border-radius: 15px;
-	background-color: #4C4C4C;
-	color: #D8D8D8;
+	color: #4C4C4C;
 	position: relative;
 	padding: 6px 6px 8px;
 	overflow: hidden;
 	float: left;
 	text-align: left;
 	cursor: pointer;
-	width: 120px;
-	font-size:18px;
+	width: 135px;
+	font-size:24px;
+	border-radius: 10px;
+	font-style: bolder;
 }
 
+#aboutContainer .bucketContainer .bucketBtn.active,
 #aboutContainer .bucketContainer .bucketBtn:hover{
-	background-color: #333333;
+	background-color: #4C4C4C;
+	color:#D8D8D8;
 }
 
 
-#aboutContainer .bucketContainer .bucketBtn span.active{
+
+#aboutContainer .bucketContainer .bucketBtn:hover span{
+	background-color: #4C4C4C;
+	border-left: 5px solid #D8D8D8;
+}
+
+
+#aboutContainer .bucketContainer .bucketBtn.active span{
 	-moz-transform: rotate(90deg);
 	-webkit-transform: rotate(90deg);
 	-o-transform: rotate(90deg);
 	transform: rotate(90deg);
+	border-left: 5px solid #D8D8D8
 }
 
 #aboutContainer .bucketContainer .bucketBtn span{
@@ -108,12 +118,13 @@
 	height: 0; 
 	border-top: 5px solid transparent;
 	border-bottom: 5px solid transparent;
-	border-left: 5px solid #D8D8D8;
+	border-left: 5px solid #333333;
 	border-right: 0;
 	margin-right: 5px;
 	margin-left:5px;
 	-webkit-transition: all .2s;
     transition: all .2s;
+    line-height: 2px;
 }
 
 #aboutContainer #skillsContainer .skillContainer{
@@ -141,13 +152,11 @@
 
 #aboutContainer #txt_010_about{
 	text-align: left;
-	font-size: 45px;
+	font-size: 48px;
 	margin-bottom: 22px;
 	margin-left: -22px;
 
 }
-
-
 
 #aboutContainer #skillsContainer .plussBtn{
 	text-align: center;

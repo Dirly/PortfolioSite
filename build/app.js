@@ -12,7 +12,6 @@
 				function videoLoader(count){
 					var videostate;
 						userAgent = window.navigator.userAgent;
-						console.log(userAgent);
 					if(videos.length !== count && userAgent.indexOf("safari") !== -1){	
 						$("#videoPreloader").html('<video id="videoPreloading" width="0" height="264" muted preload="auto">'+'<source src="'+videos[count]+'"></source>'+'</video>');
 
@@ -42,6 +41,7 @@
 				"assets/img/icon_Sketchup.png",
 				"assets/img/icons.png",
 				"assets/img/inkSplash.png",
+				"assets/img//philadelphia.jpg",
 				"assets/img/AmazingApp/AA_Background.jpg",
 				"assets/img/AmazingApp/AA_iPad.png",
 				"assets/img/AmazingApp/AA_Logo.png",
@@ -416,10 +416,10 @@
 				//---------------------------------------------
 			}],
 			controllerAs:'portfolio'
-		};
+		}; 
 	});
 
-//HOME
+//CONTACT
 	app.directive('contact', function(){
 		return {
 			restrict: 'E',
@@ -429,6 +429,9 @@
 				var contact = this;
 					contact.page = 4;
 					contact.name = "CONTACT";
+					contact.correctCount = 0;
+					contact.emailTest = new RegExp(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i);
+					contact.standardTest = new RegExp();
 
 				//turning on prev and next
 				$timeout(function () {
@@ -452,10 +455,59 @@
 					$scope.$apply();
 				});
 				
-				
 				//Wire Page Navigation
 				$scope.pageNavigation = function(fromWhere, toWhere) {
 					Navigation.changePage(fromWhere, toWhere);
+				};
+
+				//Custom Page function block ------------------
+
+				//Form handling
+				$scope.focusedField = function(event, defaultValue, error){
+					$(event.currentTarget).toggleClass('active');
+					if(event.currentTarget.value === defaultValue || event.currentTarget.value === error){
+						event.currentTarget.value = "";
+					}
+				};
+				$scope.blurField = function(event, defaultValue, tester, error){
+					$(event.currentTarget).toggleClass('active');
+					if(event.currentTarget.value === "" ){
+						event.currentTarget.value = defaultValue;
+						if($(event.currentTarget).hasClass('valid')){
+							$(event.currentTarget).toggleClass('valid');
+							contact.correctCount = contact.correctCount -1;
+						}
+					} else if(tester){
+						// tester = new RegExp(tester);
+						tester = tester.test(event.currentTarget.value);
+						switch (tester){
+							case false:
+								event.currentTarget.value = error;
+								if($(event.currentTarget).hasClass('valid')){
+									$(event.currentTarget).toggleClass('valid');
+								}
+								if(!$(event.currentTarget).hasClass('incorrect')){
+									$(event.currentTarget).toggleClass('incorrect');
+									switch(contact.correctCount){
+										case 0:
+										break;
+										default:
+											contact.correctCount = contact.correctCount -1;
+										break;
+									}
+								}
+							break;
+							case true:
+								if($(event.currentTarget).hasClass('incorrect')){
+									$(event.currentTarget).toggleClass('incorrect');
+								}
+								if(!$(event.currentTarget).hasClass('valid')){
+									$(event.currentTarget).toggleClass('valid');
+									contact.correctCount = contact.correctCount + 1;
+								}
+							break;
+						}
+					}
 				};
 			}],
 			controllerAs:'contact'

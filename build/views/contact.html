@@ -8,9 +8,22 @@
 		<div bounce ng-show="contact.navigation.next === true" class="nextBtn navBtn navBottomBtn inactive" ng-click="pageNavigation(contact.page,-1)"></div>
 	</div>
 
-
-	<div id="txtCont_010_contact" class="noClick">
-		this is my contact page
+	<div id="contactTableContainer">
+		<div id="contactCellContainer">
+			<div id="contactInfoContainer">
+				<div id="contactInnerTable">
+					<div class="bracketLeft"></div>
+					<div id="infoFields">
+						<h1>get in touch</h1>
+						<input id="nameInput" type="text" value="name" ng-focus="focusedField($event, 'name', 'please write something')" ng-blur="blurField($event, 'name', contact.standardTest, 'please write something')">
+						<input id="emailInput" type="text" value="email address" ng-focus="focusedField($event, 'email address', 'enter a valid email address')" ng-blur="blurField($event, 'email address', contact.emailTest, 'enter a valid email address')">
+						<textarea id="messageInput" type="text"  ng-focus="focusedField($event, 'message', 'please write something')" ng-blur="blurField($event, 'message', contact.standardTest, 'please write something')">message</textarea>
+						<div ng-show="contact.correctCount === 3" id="sendBtn">- send -</div>
+					</div>
+					<div class="bracketRight"></div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<!-- background -->
 	<div id="backgroundContact"></div>
