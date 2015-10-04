@@ -468,10 +468,14 @@
 				//Custom Page function block ------------------
 
 				//Form handling
-				$scope.focusedField = function(event, defaultValue, tester, error){
+				$scope.focusedField = function(event, tester, error){
 					clearInterval (formsFinished);
 					$(event.currentTarget).toggleClass('active');
-					if(event.currentTarget.value === defaultValue || event.currentTarget.value === error){
+
+					 if(!event.currentTarget.startingValue){
+					 	event.currentTarget.startingValue = event.currentTarget.value;
+					 } 
+					if(event.currentTarget.value === event.currentTarget.startingValue || event.currentTarget.value === error){
 						event.currentTarget.value = "";
 						if($(event.currentTarget).hasClass('incorrect')){
 							$(event.currentTarget).removeClass('incorrect');
@@ -510,11 +514,11 @@
 				};
 
 				//Foucus off on fields
-				$scope.blurField = function(event, defaultValue, error){
+				$scope.blurField = function(event, error){
 					clearInterval(formsFinished);
 					$(event.currentTarget).toggleClass('active');
 					if(event.currentTarget.value === "" ){
-						event.currentTarget.value = defaultValue;
+						event.currentTarget.value = event.currentTarget.startingValue;
 						if($(event.currentTarget).hasClass('valid')){
 							$(event.currentTarget).removeClass('valid');
 						}

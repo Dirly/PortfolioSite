@@ -1,3 +1,4 @@
 node_modules
 build/assits/libs
-bin/
+bin/index.js
+bin/www/

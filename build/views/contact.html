@@ -32,24 +32,24 @@
 							type="text" 
 							value="name"
 							ng-model="contact.userName" 
-							ng-focus="focusedField($event, contact.userName, contact.standardTest, 'please write something')" 
-							ng-blur="blurField($event, contact.userName, 'please write something')">
+							ng-focus="focusedField($event, contact.standardTest, 'please write something')" 
+							ng-blur="blurField($event, 'please write something')">
 						<input 
 							ng-hide="contact.sendContact === 'sent'"
 							id="emailInput" 
 							type="text" 
 							value="email address"
 							ng-model="contact.emailAddress"
-							ng-focus="focusedField($event, contact.emailAddress, contact.emailTest, 'enter a valid email address')" 
-							ng-blur="blurField($event, contact.emailAddress, 'enter a valid email address')"
+							ng-focus="focusedField($event, contact.emailTest, 'enter a valid email address')" 
+							ng-blur="blurField($event, 'enter a valid email address')"
 						>
 						<textarea 
 							ng-hide="contact.sendContact === 'sent'"
 							id="messageInput" 
 							type="text"
 							ng-model="contact.message"
-							ng-focus="focusedField($event, contact.message, contact.standardTest, 'please write something')" 
-							ng-blur="blurField($event, contact.message, 'please write something')"
+							ng-focus="focusedField($event, contact.standardTest, 'please write something')" 
+							ng-blur="blurField($event, 'please write something')"
 						>
 							message
 						</textarea>

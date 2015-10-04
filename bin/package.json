@@ -1,0 +1,19 @@
+{
+  "name": "PortServer",
+  "version": "0.0.0",
+  "description": "server for www.derekkaleida.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Kaleida",
+    "Derek",
+    "Portfolio"
+  ],
+  "author": "Derek Kaleida",
+  "license": "ISC",
+  "dependencies": {
+    "express": "~4.13.3"
+  }
+}
