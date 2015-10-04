@@ -18,7 +18,7 @@ gulp.task('express', function() {
 		console.log(name);
 		console.log(email);
 		console.log(message);
-		res.end("done");
+		res.end("emailSent");
 	});
 });
 

@@ -431,7 +431,7 @@
 
 					contact.page = 4;
 					contact.name = "CONTACT";
-					contact.correctCount = 3;
+					contact.correctCount = 0;
 					contact.userName = "name";
 					contact.emailAddress = "enter your email address";
 					contact.message = "write your message";
@@ -478,7 +478,6 @@
 						}
 					}
 					formsFinished = setInterval(function(){
-						console.log(contact.correctCount);
 						var targetTester = tester.test(event.currentTarget.value);
 						if(event.currentTarget.value !== "" && targetTester === true){
 							event.currentTarget.inactiveStatus = "valid";
@@ -514,7 +513,6 @@
 				$scope.blurField = function(event, defaultValue, error){
 					clearInterval(formsFinished);
 					$(event.currentTarget).toggleClass('active');
-					console.log(event.currentTarget.inactiveStatus);
 					if(event.currentTarget.value === "" ){
 						event.currentTarget.value = defaultValue;
 						if($(event.currentTarget).hasClass('valid')){
@@ -549,8 +547,10 @@
 						email: contact.emailAddress, 
 						message: contact.message
 					}, function(data){
-						 if(data==='done'){
-							contact.sendContact = "sent";
+						if(data==='emailSent'){
+							$scope.$apply(function(){
+								contact.sendContact = "sent";
+							});
 						}
 					});
 				};
