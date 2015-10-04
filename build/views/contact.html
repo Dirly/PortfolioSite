@@ -13,12 +13,53 @@
 			<div id="contactInfoContainer">
 				<div id="contactInnerTable">
 					<div class="bracketLeft"></div>
-					<div id="infoFields">
-						<h1>get in touch</h1>
-						<input id="nameInput" type="text" value="name" ng-focus="focusedField($event, 'name', 'please write something')" ng-blur="blurField($event, 'name', contact.standardTest, 'please write something')">
-						<input id="emailInput" type="text" value="email address" ng-focus="focusedField($event, 'email address', 'enter a valid email address')" ng-blur="blurField($event, 'email address', contact.emailTest, 'enter a valid email address')">
-						<textarea id="messageInput" type="text"  ng-focus="focusedField($event, 'message', 'please write something')" ng-blur="blurField($event, 'message', contact.standardTest, 'please write something')">message</textarea>
-						<div ng-show="contact.correctCount === 3" id="sendBtn">- send -</div>
+					<div id="infoFields" >
+						<h1 
+							ng-hide="contact.sendContact === 'sent'"
+						>
+							get in touch
+						</h1>
+						<div 
+							id="thankYou"
+							ng-show="contact.sendContact === 'sent'"
+						>
+							<h1>Thank you,</h1>
+							<p>I'll get in touch shortly.</p>
+						</div>
+						<input 
+							ng-hide="contact.sendContact === 'sent'"
+							id="nameInput" 
+							type="text" 
+							value="name"
+							ng-model="contact.userName" 
+							ng-focus="focusedField($event, contact.userName, contact.standardTest, 'please write something')" 
+							ng-blur="blurField($event, contact.userName, 'please write something')">
+						<input 
+							ng-hide="contact.sendContact === 'sent'"
+							id="emailInput" 
+							type="text" 
+							value="email address"
+							ng-model="contact.emailAddress"
+							ng-focus="focusedField($event, contact.emailAddress, contact.emailTest, 'enter a valid email address')" 
+							ng-blur="blurField($event, contact.emailAddress, 'enter a valid email address')"
+						>
+						<textarea 
+							ng-hide="contact.sendContact === 'sent'"
+							id="messageInput" 
+							type="text"
+							ng-model="contact.message"
+							ng-focus="focusedField($event, contact.message, contact.standardTest, 'please write something')" 
+							ng-blur="blurField($event, contact.message, 'please write something')"
+						>
+							message
+						</textarea>
+						<div 
+							id="sendBtn"
+							ng-show="contact.correctCount === 3"
+							ng-click="sendContact()" 
+						>
+						- send -
+						</div>
 					</div>
 					<div class="bracketRight"></div>
 				</div>

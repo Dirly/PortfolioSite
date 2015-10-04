@@ -123,3 +123,13 @@
 	border-bottom: 3px solid white;
 }
 
+#thankYou{
+	height: 121px;
+	width: 337px;
+	padding: 4px;
+	vertical-align: middle;
+	color: #FFF;
+	font-size: 21px;
+	line-height: 23px;
+	margin-top: 90px;
+}

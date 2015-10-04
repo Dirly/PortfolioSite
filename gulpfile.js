@@ -1,12 +1,25 @@
 var gulp = require('gulp'),
  	counter = 0;
 
+//https://codeforgeek.com/2014/09/handle-get-post-request-express-4/
+
 gulp.task('express', function() {
 	var express = require('express');
+	var bodyParser = require("body-parser");
 	var app = express();
 	app.use(require('connect-livereload')({port: 4002}));
 	app.use(express.static("build"));
+	app.use(bodyParser.urlencoded({ extended: false }));
 	app.listen(4000);
+	app.post('/contact',function(req,res){
+		var name=req.body.name;
+		var email=req.body.email;
+		var message=req.body.message;
+		console.log(name);
+		console.log(email);
+		console.log(message);
+		res.end("done");
+	});
 });
 
 var tinylr;

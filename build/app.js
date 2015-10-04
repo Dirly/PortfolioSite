@@ -426,12 +426,17 @@
 			templateUrl: 'views/contact.html',
 			controller: ['Navigation', '$scope', 'swipe', '$timeout', function(Navigation, $scope, swipe, $timeout){
 
-				var contact = this;
+				var contact = this,
+					formsFinished;
+
 					contact.page = 4;
 					contact.name = "CONTACT";
-					contact.correctCount = 0;
+					contact.correctCount = 3;
+					contact.userName = "name";
+					contact.emailAddress = "enter your email address";
+					contact.message = "write your message";
 					contact.emailTest = new RegExp(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i);
-					contact.standardTest = new RegExp();
+					contact.standardTest = new RegExp(/[a-z]/i);
 
 				//turning on prev and next
 				$timeout(function () {
@@ -463,51 +468,91 @@
 				//Custom Page function block ------------------
 
 				//Form handling
-				$scope.focusedField = function(event, defaultValue, error){
+				$scope.focusedField = function(event, defaultValue, tester, error){
+					clearInterval (formsFinished);
 					$(event.currentTarget).toggleClass('active');
 					if(event.currentTarget.value === defaultValue || event.currentTarget.value === error){
 						event.currentTarget.value = "";
+						if($(event.currentTarget).hasClass('incorrect')){
+							$(event.currentTarget).removeClass('incorrect');
+						}
 					}
+					formsFinished = setInterval(function(){
+						console.log(contact.correctCount);
+						var targetTester = tester.test(event.currentTarget.value);
+						if(event.currentTarget.value !== "" && targetTester === true){
+							event.currentTarget.inactiveStatus = "valid";
+							if($(event.currentTarget).hasClass('incorrect')){
+								$(event.currentTarget).removeClass('incorrect');
+							}
+							if(!event.currentTarget.activeStatus || event.currentTarget.activeStatus === "incorrect"){
+								event.currentTarget.activeStatus = "valid";
+								if(!$(event.currentTarget).hasClass('valid')){
+									$scope.$apply(function(){
+										contact.correctCount = contact.correctCount + 1;
+									});
+								}
+							}
+						} else if (event.currentTarget.value === "" || targetTester === false){
+							event.currentTarget.inactiveStatus = "incorrect";
+							if($(event.currentTarget).hasClass('valid')){
+								$(event.currentTarget).removeClass('valid');
+							}
+							if(event.currentTarget.activeStatus === "valid"){
+								event.currentTarget.activeStatus = "incorrect";
+								if(!$(event.currentTarget).hasClass('incorrect')){
+									$scope.$apply(function(){
+										contact.correctCount = contact.correctCount - 1;
+									});
+								}
+							}
+						}
+					},500);
 				};
-				$scope.blurField = function(event, defaultValue, tester, error){
+
+				//Foucus off on fields
+				$scope.blurField = function(event, defaultValue, error){
+					clearInterval(formsFinished);
 					$(event.currentTarget).toggleClass('active');
+					console.log(event.currentTarget.inactiveStatus);
 					if(event.currentTarget.value === "" ){
 						event.currentTarget.value = defaultValue;
 						if($(event.currentTarget).hasClass('valid')){
-							$(event.currentTarget).toggleClass('valid');
-							contact.correctCount = contact.correctCount -1;
+							$(event.currentTarget).removeClass('valid');
 						}
-					} else if(tester){
-						// tester = new RegExp(tester);
-						tester = tester.test(event.currentTarget.value);
-						switch (tester){
-							case false:
-								event.currentTarget.value = error;
-								if($(event.currentTarget).hasClass('valid')){
-									$(event.currentTarget).toggleClass('valid');
-								}
-								if(!$(event.currentTarget).hasClass('incorrect')){
-									$(event.currentTarget).toggleClass('incorrect');
-									switch(contact.correctCount){
-										case 0:
-										break;
-										default:
-											contact.correctCount = contact.correctCount -1;
-										break;
-									}
-								}
-							break;
-							case true:
-								if($(event.currentTarget).hasClass('incorrect')){
-									$(event.currentTarget).toggleClass('incorrect');
-								}
-								if(!$(event.currentTarget).hasClass('valid')){
-									$(event.currentTarget).toggleClass('valid');
-									contact.correctCount = contact.correctCount + 1;
-								}
-							break;
+					} else if(event.currentTarget.inactiveStatus === 'incorrect'){
+						event.currentTarget.value = error;
+						if($(event.currentTarget).hasClass('valid')){
+							$(event.currentTarget).removeClass('valid');
+							$(event.currentTarget).addClass('incorrect');
+						} else 	if(!$(event.currentTarget).hasClass('incorrect')){
+							$(event.currentTarget).addClass('incorrect');
+						} 
+					} else if(event.currentTarget.inactiveStatus === 'valid'){
+						if($(event.currentTarget).hasClass('incorrect')){
+							$(event.currentTarget).removeClass('incorrect');
 						}
+						if(!$(event.currentTarget).hasClass('valid')){
+							$(event.currentTarget).addClass('valid');
+						}
+						
 					}
+				};
+
+				//Communicate to server
+				$scope.sendContact =  function(){
+					contact.correctCount = 0;
+					/*var xmlHttp = new XMLHttpRequest();
+					xmlHttp.open("GET","http://localhost:4000/test",true);*/
+					$.post("http://localhost:4000/contact", {
+						name: contact.userName, 
+						email: contact.emailAddress, 
+						message: contact.message
+					}, function(data){
+						 if(data==='done'){
+							contact.sendContact = "sent";
+						}
+					});
 				};
 			}],
 			controllerAs:'contact'
